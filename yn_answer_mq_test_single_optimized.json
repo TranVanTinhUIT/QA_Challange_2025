@@ -1,0 +1,24 @@
+[
+  {
+    "question": "Is there a logical chain from applying for internships to increasing one’s earning potential, according to the premises?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      12
+    ],
+    "explanation": "Step 1: Using Premise 1: \"If a student applies for internships, they have a chance to secure an internship.\"\n- This establishes that applying for internships is the initial step leading to securing an internship.\n\nStep 2: Using Premise 2: \"If a student secures an internship, they gain practical experience.\"\n- This shows that securing an internship leads to gaining practical experience.\n\nStep 3: Using Premise 3: \"If a student gains practical experience, they improve their job prospects after graduation.\"\n- This indicates that practical experience gained through an internship improves job prospects after graduation.\n\nStep 4: Using Premise 4: \"If a student performs well in their internship, they may receive a full-time job offer.\"\n- This suggests that performing well in an internship can lead to receiving a full-time job offer.\n\nStep 5: Using Premise 5: \"If a student receives a full-time job offer before graduation, they have a smoother transition into the workforce.\"\n- This implies that receiving a full-time job offer before graduation helps with the transition into the workforce.\n\nStep 6: Using Premise 7: \"If a student builds a strong resume, they increase their chances of getting hired after graduation.\"\n- This reinforces the idea that internships (and thus building a strong resume) can increase job prospects after graduation.\n\nStep 7: Using Premise 12: \"If a student has better career growth, they increase their earning potential.\"\n- This final step directly links better career growth to increased earning potential.\n\nConclusion: Based on the logical chain established by the premises, there is a clear path from applying for internships to increasing one's earning potential. Therefore, the answer is \"Yes\".",
+    "timing": {
+      "step_1": 30.091626405715942,
+      "step_2": 0.16467833518981934,
+      "step_3": 13.436337947845459,
+      "step_4": 0.7479586601257324,
+      "final_step": 16.548902988433838,
+      "total_pipeline": 60.98960280418396
+    }
+  }
+]

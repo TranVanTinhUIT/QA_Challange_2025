@@ -1,0 +1,1029 @@
+[
+  {
+    "question": "Does it follow that if all Python projects are well-structured, then all Python projects are optimized, according to the premises?",
+    "answer": "Yes",
+    "idx": [
+      7,
+      10
+    ],
+    "explanation": "Step 1: Using Premise 10: \\\"All Python projects are well-structured.\\\" This means that for any Python project \\( x \\), \\( \\text{Well-structured}(x) \\). Step 2: Using Premise 7: \\\"If a Python project is well-structured, then it is optimized.\\\" This can be written as \\( \\text{Well-structured}(x) \\rightarrow \\text{Optimized}(x) \\). Step 3: Combining the information from Step 1 and Step 2. Since all Python projects are well-structured (from Step 1), and if a project is well-structured, then it is optimized (from Step 2), it follows that all Python projects are optimized. Final Step: Therefore, it follows that if all Python projects are well-structured, then all Python projects are optimized. The answer is Yes.\"\n}",
+    "timing": {
+      "step_1_reasoning": 13.257154703140259,
+      "step_2_concise_answer": 0.6066455841064453,
+      "step_3_explanation": 6.863278388977051,
+      "step_4_indices": 0.29923224449157715,
+      "final_step_assembly": 8.301044940948486,
+      "total_pipeline": 29.32737112045288
+    },
+    "original_index": 0
+  },
+  {
+    "question": "Does Sophia qualify for the university scholarship, according to the premises?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      4,
+      5,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "explanation": "Step 1: Using Premise 1: \\\"Students who have completed the core curriculum and passed the science assessment are qualified for advanced courses.\\\" - Premise 7: \\\"Sophia has completed the core curriculum.\\\" - Premise 8: \\\"Sophia has passed the science assessment.\\\" - Therefore, Sophia is qualified for advanced courses.\\n\\nStep 2: Using Premise 2: \\\"Students who are qualified for advanced courses and have completed research methodology are eligible for the international program.\\\" - From Step 1, Sophia is qualified for advanced courses. - Premise 9: \\\"Sophia has completed the research methodology course.\\\" - Therefore, Sophia is eligible for the international program.\\n\\nStep 3: Using Premise 4: \\\"Students who are eligible for the international program and have completed a capstone project are awarded an honors diploma.\\\" - From Step 2, Sophia is eligible for the international program. - Premise 10: \\\"Sophia has completed her capstone project.\\\" - Therefore, Sophia is awarded an honors diploma.\\n\\nStep 4: Using Premise 5: \\\"Students who have been awarded an honors diploma and have completed community service qualify for the university scholarship.\\\" - From Step 3, Sophia has been awarded an honors diploma. - Premise 11: \\\"Sophia has completed the required community service hours.\\\" - Therefore, Sophia qualifies for the university scholarship.\\n\\nFinal Step: Based on the above steps, Sophia qualifies for the university scholarship. The answer is **Yes**.\"\n}",
+    "timing": {
+      "step_1_reasoning": 19.27969264984131,
+      "step_2_concise_answer": 0.1373426914215088,
+      "step_3_explanation": 11.59179139137268,
+      "step_4_indices": 0.891620397567749,
+      "final_step_assembly": 14.245829820632935,
+      "total_pipeline": 46.14632058143616
+    },
+    "original_index": 1
+  },
+  {
+    "question": "Does Sophia qualify for the university scholarship, according to the premises?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      4,
+      5,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "explanation": "Step 1: Using Premise 1: \\\"Students who have completed the core curriculum and passed the science assessment are qualified for advanced courses.\\\" - Premise 7: \\\"Sophia has completed the core curriculum.\\\" - Premise 8: \\\"Sophia has passed the science assessment.\\\" - Therefore, Sophia is qualified for advanced courses.\\n\\nStep 2: Using Premise 2: \\\"Students who are qualified for advanced courses and have completed research methodology are eligible for the international program.\\\" - From Step 1, Sophia is qualified for advanced courses. - Premise 9: \\\"Sophia has completed the research methodology course.\\\" - Therefore, Sophia is eligible for the international program.\\n\\nStep 3: Using Premise 4: \\\"Students who are eligible for the international program and have completed a capstone project are awarded an honors diploma.\\\" - From Step 2, Sophia is eligible for the international program. - Premise 10: \\\"Sophia has completed her capstone project.\\\" - Therefore, Sophia is awarded an honors diploma.\\n\\nStep 4: Using Premise 5: \\\"Students who have been awarded an honors diploma and have completed community service qualify for the university scholarship.\\\" - From Step 3, Sophia has been awarded an honors diploma. - Premise 11: \\\"Sophia has completed the required community service hours.\\\" - Therefore, Sophia qualifies for the university scholarship.\\n\\nFinal Step: Based on the above steps, Sophia qualifies for the university scholarship. The answer is **Yes**.\"\n}",
+    "timing": {
+      "step_1_reasoning": 19.191368579864502,
+      "step_2_concise_answer": 0.13700628280639648,
+      "step_3_explanation": 11.477656364440918,
+      "step_4_indices": 0.890486478805542,
+      "final_step_assembly": 14.244907140731812,
+      "total_pipeline": 45.94143843650818
+    },
+    "original_index": 2
+  },
+  {
+    "question": "Does John receive academic distinction, according to the premises?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7
+    ],
+    "explanation": "Step 1: Using Premise 5, John has completed all required courses.\\n- Premise 5: John has completed all required courses.\\n- Deduction: John is eligible for graduation (Premise 1).\\n\\nStep 2: Using Premise 6, John maintains a GPA of 3.8.\\n- Premise 6: John maintains a GPA of 3.8.\\n- Deduction: John is eligible for graduation with honors (Premise 2).\\n\\nStep 3: Using Premise 7, John has completed a thesis.\\n- Premise 7: John has completed a thesis.\\n- Deduction: John receives academic distinction (Premise 3).\\n\\nStep 4: Conclusion.\\n- Based on the deductions from the premises, John receives academic distinction.\\n\\nAnswer: Yes\"\n}",
+    "timing": {
+      "step_1_reasoning": 11.425479650497437,
+      "step_2_concise_answer": 1.1511726379394531,
+      "step_3_explanation": 6.0985565185546875,
+      "step_4_indices": 0.5335092544555664,
+      "final_step_assembly": 8.449506282806396,
+      "total_pipeline": 27.65823769569397
+    },
+    "original_index": 3
+  },
+  {
+    "question": "Does Professor John meet all requirements to propose new courses, according to the premises?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "explanation": "Step 1: Using Premise 1: \\\"If a faculty member has completed training, they can teach undergraduate courses.\\\" - Premise 5 states that Professor John has completed pedagogical training. Therefore, Professor John can teach undergraduate courses.\\n\\nStep 2: Using Premise 2: \\\"If a faculty member can teach undergraduate courses and holds a PhD, they can supervise graduate students.\\\" - From Step 1, we know Professor John can teach undergraduate courses. Premise 6 states that Professor John holds a PhD. Therefore, Professor John can supervise graduate students.\\n\\nStep 3: Using Premise 3: \\\"If a faculty member can supervise graduate students and has at least 3 publications, they can serve on curriculum committees.\\\" - From Step 2, we know Professor John can supervise graduate students. Premise 7 states that Professor John has published at least 3 academic papers. Therefore, Professor John can serve on curriculum committees.\\n\\nStep 4: Using Premise 4: \\\"If a faculty member can serve on curriculum committees and has a positive teaching evaluation, they can propose new courses.\\\" - From Step 3, we know Professor John can serve on curriculum committees. Premise 8 states that Professor John has received a positive teaching evaluation. Therefore, Professor John can propose new courses.\\n\\nStep 5: Based on the above steps, Professor John meets all the requirements to propose new courses.\"\n}",
+    "timing": {
+      "step_1_reasoning": 12.799546480178833,
+      "step_2_concise_answer": 1.1570281982421875,
+      "step_3_explanation": 11.17579984664917,
+      "step_4_indices": 0.7226254940032959,
+      "final_step_assembly": 13.322771787643433,
+      "total_pipeline": 39.17781186103821
+    },
+    "original_index": 4
+  },
+  {
+    "question": "Does the logical chain demonstrate that Professor John meets all requirements for collaborative research projects?",
+    "answer": "Unknown",
+    "idx": [],
+    "explanation": "Explanation missing or invalid.",
+    "timing": {
+      "step_1_reasoning": 11.977027177810669,
+      "step_2_concise_answer": 1.1607248783111572,
+      "step_3_explanation": 8.048062086105347,
+      "step_4_indices": 0.7007489204406738,
+      "final_step_assembly": 10.54365611076355,
+      "total_pipeline": 32.43023371696472
+    },
+    "original_index": 5
+  },
+  {
+    "question": "Does John meet all requirements to cross state lines with hazardous cargo, according to the premises?",
+    "answer": "No",
+    "idx": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "explanation": "Step 1: Using Premise 1: \\\"If a driver has passed vehicle inspection and has the appropriate license, they can transport standard goods.\\\" - John has passed vehicle inspection (Premise 4) and has the appropriate license (Premise 5). Therefore, John can transport standard goods.\\n\\nStep 2: Using Premise 2: \\\"If a driver can transport standard goods and has completed hazmat training and received a safety endorsement, they can transport hazardous materials.\\\" - John can transport standard goods (from Step 1). John has completed hazmat training (Premise 6). However, John has not received a safety endorsement (Premise 7). Therefore, John cannot transport hazardous materials.\\n\\nStep 3: Using Premise 3: \\\"If a driver can transport hazardous materials and has an interstate permit, they can cross state lines with hazardous cargo.\\\" - Since John cannot transport hazardous materials (from Step 2), he cannot satisfy the condition in Premise 3. Even if John had an interstate permit (Premise 8), it would be irrelevant because he cannot transport hazardous materials.\\n\\nStep 4: Based on the above steps, John does not meet all the requirements to cross state lines with hazardous cargo.\\n\\n**Final Answer: No**\"\n}",
+    "timing": {
+      "step_1_reasoning": 12.573202848434448,
+      "step_2_concise_answer": 1.1386353969573975,
+      "step_3_explanation": 9.726426839828491,
+      "step_4_indices": 0.7075872421264648,
+      "final_step_assembly": 12.151076078414917,
+      "total_pipeline": 36.29695510864258
+    },
+    "original_index": 6
+  },
+  {
+    "question": "Does Dr. John’s PhD qualification make him eligible to be a research mentor, according to the premises?",
+    "answer": "Yes",
+    "idx": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "explanation": "Step 1: Identify Dr. John's Degree.\\n- Using Premise 7: Dr. John is a faculty member.\\n- Using Premise 8: Dr. John has a PhD.\\n\\nStep 2: Determine the Eligibility for Teaching Graduate Courses.\\n- Using Premise 6: PhD is higher than MSc.\\n- Using Premise 5: MSc is higher than BA.\\n- Using Premise 4: If degree A is higher than B, and B is higher than C, then A is higher than C.\\n  - Therefore, PhD is higher than BA.\\n- Using Premise 2: Faculty members with a degree higher than MSc can teach graduate courses.\\n  - Since PhD is higher than MSc, Dr. John can teach graduate courses.\\n\\nStep 3: Determine Eligibility for Being a Research Mentor.\\n- Using Premise 3: Anyone who teaches graduate courses can be a research mentor.\\n  - Since Dr. John can teach graduate courses, he can be a research mentor.\\n\\nFinal Step: Conclusion.\\n- Based on the above steps, Dr. John’s PhD qualification makes him eligible to be a research mentor.\"\n}",
+    "timing": {
+      "step_1_reasoning": 14.492861032485962,
+      "step_2_concise_answer": 0.11986446380615234,
+      "step_3_explanation": 8.950284719467163,
+      "step_4_indices": 0.483504056930542,
+      "final_step_assembly": 11.172926902770996,
+      "total_pipeline": 35.219457387924194
+    },
+    "original_index": 7
+  },
+  {
+    "question": "Does the combination of faculty priorities and curriculum features lead to enhanced critical thinking, according to the premises?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "explanation": "Step 1: Using Premise 4: \\\"The faculty prioritizes pedagogical training and curriculum development.\\\" - This establishes that the faculty's priorities include both pedagogical training and curriculum development.\\n\\nStep 2: Using Premise 3: \\\"If a faculty prioritizes pedagogical training and curriculum development, the curriculum is well-structured.\\\" - From Step 1, since the faculty prioritizes these aspects, the curriculum is well-structured.\\n\\nStep 3: Using Premise 5: \\\"The curriculum has practical exercises.\\\" - This confirms that the well-structured curriculum includes practical exercises.\\n\\nStep 4: Using Premise 1: \\\"If a curriculum is well-structured and has exercises, it enhances student engagement.\\\" - From Steps 2 and 3, since the curriculum is well-structured and has exercises, it enhances student engagement.\\n\\nStep 5: Using Premise 6: \\\"The curriculum provides access to advanced resources.\\\" - This confirms that the curriculum also provides access to advanced resources.\\n\\nStep 6: Using Premise 2: \\\"If a curriculum enhances student engagement and provides access to advanced resources, it enhances critical thinking.\\\" - From Steps 4 and 5, since the curriculum enhances student engagement and provides access to advanced resources, it enhances critical thinking.\\n\\nFinal Step: Based on the logical deductions from the premises, the combination of faculty priorities and curriculum features leads to enhanced critical thinking. Therefore, the answer is Yes.\"\n}",
+    "timing": {
+      "step_1_reasoning": 14.03639030456543,
+      "step_2_concise_answer": 0.984764814376831,
+      "step_3_explanation": 11.138904094696045,
+      "step_4_indices": 0.41767382621765137,
+      "final_step_assembly": 13.371721029281616,
+      "total_pipeline": 39.94947338104248
+    },
+    "original_index": 8
+  },
+  {
+    "question": "Does the combination of faculty priorities and curriculum features lead to enhanced critical thinking, according to the premises?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "explanation": "Step 1: Using Premise 4: \\\"The faculty prioritizes pedagogical training and curriculum development.\\\" - This establishes that the faculty's priorities include both pedagogical training and curriculum development.\\n\\nStep 2: Using Premise 3: \\\"If a faculty prioritizes pedagogical training and curriculum development, the curriculum is well-structured.\\\" - From Step 1, since the faculty prioritizes these aspects, the curriculum is well-structured.\\n\\nStep 3: Using Premise 5: \\\"The curriculum has practical exercises.\\\" - This confirms that the well-structured curriculum includes practical exercises.\\n\\nStep 4: Using Premise 1: \\\"If a curriculum is well-structured and has exercises, it enhances student engagement.\\\" - From Steps 2 and 3, since the curriculum is well-structured and has exercises, it enhances student engagement.\\n\\nStep 5: Using Premise 6: \\\"The curriculum provides access to advanced resources.\\\" - This confirms that the curriculum also provides access to advanced resources.\\n\\nStep 6: Using Premise 2: \\\"If a curriculum enhances student engagement and provides access to advanced resources, it enhances critical thinking.\\\" - From Steps 4 and 5, since the curriculum enhances student engagement and provides access to advanced resources, it enhances critical thinking.\\n\\nFinal Step: Based on the logical deductions from the premises, the combination of faculty priorities and curriculum features leads to enhanced critical thinking. Therefore, the answer is Yes.\"\n}",
+    "timing": {
+      "step_1_reasoning": 14.13143515586853,
+      "step_2_concise_answer": 0.9703826904296875,
+      "step_3_explanation": 11.134531497955322,
+      "step_4_indices": 0.417712926864624,
+      "final_step_assembly": 13.38586688041687,
+      "total_pipeline": 40.03994345664978
+    },
+    "original_index": 9
+  },
+  {
+    "question": "Does the logical progression demonstrate that David meets all requirements for the internship?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "explanation": "Step 1: Using Premise 1: \\\"If a student completes Course A, they can enroll in Course B.\\\" - Premise 4 states that David has completed Course A. Therefore, David can enroll in Course B.\\n\\nStep 2: Using Premise 2: \\\"If a student enrolls in Course B and passes it, they can enroll in Course C.\\\" - Premise 5 states that David has enrolled in and passed Course B. Therefore, David can enroll in Course C.\\n\\nStep 3: Using Premise 3: \\\"Enrollment in Course C makes a student eligible for the internship program.\\\" - Since David can enroll in Course C, he is eligible for the internship program.\\n\\nStep 4: Based on the above deductions, David meets all requirements for the internship.\\n\\nFinal Answer: Yes\"\n}",
+    "timing": {
+      "step_1_reasoning": 9.00942587852478,
+      "step_2_concise_answer": 0.10615372657775879,
+      "step_3_explanation": 6.2692999839782715,
+      "step_4_indices": 0.45343732833862305,
+      "final_step_assembly": 8.3498854637146,
+      "total_pipeline": 24.18821430206299
+    },
+    "original_index": 10
+  },
+  {
+    "question": "Does Alex meet all requirements for booking training sessions, according to the premises?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "explanation": "Step 1: Using Premise 7: \\\"If a person has paid the annual fee, they have a valid membership.\\\" - From Premise 3: \\\"Alex has paid annual fees on time.\\\" - Therefore, Alex has a valid membership (Premise 7). Step 2: Using Premise 1: \\\"Alex has completed safety orientation.\\\" - Therefore, Alex has completed safety orientation (Premise 1). Step 3: Using Premise 4: \\\"If a person has a valid membership and has completed safety orientation, they can use equipment.\\\" - From Steps 1 and 2, Alex has a valid membership and has completed safety orientation. - Therefore, Alex can use equipment (Premise 4). Step 4: Using Premise 6: \\\"If a person’s membership duration is at least 6 months, they are eligible for a trainer.\\\" - From Premise 2: \\\"Alex has a membership duration of 8 months.\\\" - Therefore, Alex is eligible for a trainer (Premise 6). Step 5: Using Premise 5: \\\"If a person can use equipment and has a trainer, they can book training.\\\" - From Steps 3 and 4, Alex can use equipment and is eligible for a trainer. - Therefore, Alex can book training (Premise 5). Final Step: Based on the above steps, Alex meets all requirements for booking training sessions. The answer is Yes.\"\n}",
+    "timing": {
+      "step_1_reasoning": 16.631423950195312,
+      "step_2_concise_answer": 1.1499862670898438,
+      "step_3_explanation": 11.043565034866333,
+      "step_4_indices": 0.5047316551208496,
+      "final_step_assembly": 13.036564111709595,
+      "total_pipeline": 42.36629796028137
+    },
+    "original_index": 11
+  },
+  {
+    "question": "Does Sarah meet all requirements to take advanced classes, according to the premises?",
+    "answer": "No",
+    "idx": [
+      1,
+      3,
+      4,
+      5
+    ],
+    "explanation": "Step 1: Using Premise 1, \\\"Students with active status who have completed at least 5 courses are eligible for advanced classes.\\\" - This premise outlines the eligibility criteria for advanced classes, specifically mentioning the need to complete at least 5 courses.\\n\\nStep 2: Using Premise 4, \\\"Sarah has completed 4 courses.\\\" - This premise indicates that Sarah has not yet met the course completion requirement of at least 5 courses.\\n\\nStep 3: Using Premise 1 again, since Sarah has not completed at least 5 courses, she does not meet one of the eligibility criteria for advanced classes.\\n\\nStep 4: Using Premise 3, \\\"Sarah has active student status.\\\" - While Sarah has active student status, this alone is not sufficient to meet the full eligibility criteria for advanced classes as outlined in Premise 1.\\n\\nStep 5: Using Premise 5, \\\"Sarah has obtained advisor approval.\\\" - Although Sarah has advisor approval, this does not compensate for the lack of the required course completion.\\n\\nStep 6: Based on the above steps, Sarah does not meet all the requirements to take advanced classes because she has not completed at least 5 courses.\"\n}",
+    "timing": {
+      "step_1_reasoning": 7.2647929191589355,
+      "step_2_concise_answer": 1.1377859115600586,
+      "step_3_explanation": 9.231184959411621,
+      "step_4_indices": 0.38507533073425293,
+      "final_step_assembly": 11.253706693649292,
+      "total_pipeline": 29.27255892753601
+    },
+    "original_index": 12
+  },
+  {
+    "question": "Can Professor John supervise graduate-level research based on his PhD qualification, according to the premises?",
+    "answer": "Unknown",
+    "idx": [],
+    "explanation": "Explanation missing or invalid.",
+    "timing": {
+      "step_1_reasoning": 13.370578527450562,
+      "step_2_concise_answer": 0.930656909942627,
+      "step_3_explanation": 6.186013221740723,
+      "step_4_indices": 0.3186953067779541,
+      "final_step_assembly": 8.177013635635376,
+      "total_pipeline": 28.982988119125366
+    },
+    "original_index": 13
+  },
+  {
+    "question": "Can Dr. John teach undergraduate courses, according to the premises?",
+    "answer": "Yes",
+    "idx": [
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "explanation": "Step 1: Using Premise 7: \\\"Dr. John is a department head with a PhD.\\\" - We know Dr. John holds a PhD.\\n\\nStep 2: Using Premise 3: \\\"A PhD is higher than a Master's degree.\\\" - A PhD is higher than a Master's degree.\\n\\nStep 3: Using Premise 4: \\\"A Master's degree is higher than a Bachelor's degree.\\\" - A Master's degree is higher than a Bachelor's degree.\\n\\nStep 4: Using Premise 5: \\\"If degree A is higher than degree B, and degree B is higher than degree C, then degree A is higher than degree C.\\\" - Applying this to our degrees: PhD > Master's > Bachelor's.\\n\\nStep 5: Using Premise 2: \\\"Lecturers with a degree higher than a Master's can teach undergraduate courses.\\\" - Since Dr. John has a PhD, which is higher than a Master's degree, he can teach undergraduate courses.\\n\\nFinal Step: Based on the above steps, Dr. John can teach undergraduate courses. Therefore, the answer is Yes.\"\n}",
+    "timing": {
+      "step_1_reasoning": 14.67305850982666,
+      "step_2_concise_answer": 1.1536307334899902,
+      "step_3_explanation": 8.55571722984314,
+      "step_4_indices": 0.4111511707305908,
+      "final_step_assembly": 10.509057998657227,
+      "total_pipeline": 35.30263376235962
+    },
+    "original_index": 14
+  },
+  {
+    "question": "Can Nurse John prescribe medication, according to the premises?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      4
+    ],
+    "explanation": "Step 1: Using Premise 2, we know that Nurse John has completed 600 clinical hours.\\n- \\\"Nurse John has completed 600 clinical hours.\\\" \\n\\nStep 2: Using Premise 1, since 600 clinical hours is more than the required 500, we deduce that Nurse John has Advanced Practice certification.\\n- \\\"Completing 500 clinical hours grants Advanced Practice certification.\\\" \\n\\nStep 3: Using Premise 4, we know that all registered nurses with Advanced Practice certification are authorized to prescribe medication.\\n- \\\"All registered nurses with Advanced Practice certification are authorized to prescribe medication.\\\" \\n\\nStep 4: Since Nurse John has Advanced Practice certification, as established in Step 2, and all such nurses are authorized to prescribe medication, we conclude that Nurse John is authorized to prescribe medication.\\n\\nFinal Step: Therefore, the answer is Yes, Nurse John can prescribe medication.\"\n}",
+    "timing": {
+      "step_1_reasoning": 10.337953329086304,
+      "step_2_concise_answer": 1.1338880062103271,
+      "step_3_explanation": 7.022060394287109,
+      "step_4_indices": 0.30936646461486816,
+      "final_step_assembly": 8.992787599563599,
+      "total_pipeline": 27.796069383621216
+    },
+    "original_index": 15
+  },
+  {
+    "question": "Does the logical sequence demonstrate that Alex meets all requirements for booking training sessions?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "explanation": "Step 1: Using Premise 1: \\\"Alex has a valid membership card.\\\" This premise confirms that Alex has a valid membership card, which is a common requirement for booking training sessions.\\n\\nStep 2: Using Premise 2: \\\"Alex has completed safety orientation.\\\" This premise confirms that Alex has completed safety orientation, which is another common requirement for booking training sessions.\\n\\nStep 3: Using Premise 4: \\\"Alex has paid annual fees on time.\\\" This premise confirms that Alex has paid annual fees on time, which is a financial requirement for booking training sessions.\\n\\nStep 4: Using Premise 3: \\\"Alex has a membership duration of 8 months.\\\" While this premise indicates that Alex has been a member for 8 months, it does not specify whether 8 months is the minimum required duration. However, it is reasonable to assume that 8 months is sufficient for most organizations.\\n\\nStep 5: Based on the above steps, Alex meets the known requirements for booking training sessions (valid membership card, completed safety orientation, and paid annual fees on time).\\n\\nFinal Step: Therefore, the logical sequence demonstrates that Alex meets all requirements for booking training sessions. Answer: Yes.\"\n}",
+    "timing": {
+      "step_1_reasoning": 14.453300714492798,
+      "step_2_concise_answer": 0.6638352870941162,
+      "step_3_explanation": 9.209921836853027,
+      "step_4_indices": 0.33014440536499023,
+      "final_step_assembly": 10.911719799041748,
+      "total_pipeline": 35.568933963775635
+    },
+    "original_index": 16
+  },
+  {
+    "question": "Does Minh qualify to take Biochemistry based on her completed coursework, according to the premises?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      3,
+      5,
+      6,
+      7
+    ],
+    "explanation": "Step 1: Using Premise 5 (Minh is enrolled in a science program) and Premise 6 (Minh passed Chemistry 101):\\n- Premise 1 states: \\\"If a student is enrolled in a science program and has passed Chemistry 101, they can enroll in Organic Chemistry.\\\"\\n- Therefore, since Minh is enrolled in a science program and has passed Chemistry 101, she can enroll in Organic Chemistry.\\n\\nStep 2: Using Premise 7 (Minh completed Organic Chemistry):\\n- Premise 3 states: \\\"All students who complete Organic Chemistry can take Biochemistry.\\\"\\n- Therefore, since Minh completed Organic Chemistry, she can take Biochemistry.\\n\\nStep 3: Conclusion:\\n- Based on the above steps, Minh qualifies to take Biochemistry.\\n\\nAnswer: Yes\"\n}",
+    "timing": {
+      "step_1_reasoning": 10.441349506378174,
+      "step_2_concise_answer": 0.7885973453521729,
+      "step_3_explanation": 6.3153886795043945,
+      "step_4_indices": 0.46265292167663574,
+      "final_step_assembly": 8.47158694267273,
+      "total_pipeline": 26.47959065437317
+    },
+    "original_index": 17
+  },
+  {
+    "question": "Have all employees paid?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      3
+    ],
+    "explanation": "Step 1: Using Premise 1: \\\"Everyone will receive an update email.\\\" This means that every employee in the group will receive an update email.\\n\\nStep 2: Using Premise 3: \\\"If someone receives an update email, then they have paid.\\\" Since everyone receives an update email (from Step 1), and if someone receives an update email, they have paid (from Premise 3), it follows that everyone has paid.\\n\\nStep 3: Conclusion: Yes, all employees have paid.\"\n}",
+    "timing": {
+      "step_1_reasoning": 6.592496871948242,
+      "step_2_concise_answer": 0.5445578098297119,
+      "step_3_explanation": 4.0302746295928955,
+      "step_4_indices": 0.21250700950622559,
+      "final_step_assembly": 5.50057315826416,
+      "total_pipeline": 16.880422830581665
+    },
+    "original_index": 18
+  },
+  {
+    "question": "Are all employees registered?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      6
+    ],
+    "explanation": "Step 1: Using Premise 1: \\\"Everyone will receive an update email.\\\" - Everyone in the group will receive an update email.\\n\\nStep 2: Using Premise 6: \\\"If someone receives an update email, then they are registered.\\\" - Since everyone receives an update email (from Step 1), it follows that everyone is registered.\\n\\nFinal Step: Based on the above steps, all employees are registered. Therefore, the answer is Yes.\"\n}",
+    "timing": {
+      "step_1_reasoning": 8.419559717178345,
+      "step_2_concise_answer": 0.6303274631500244,
+      "step_3_explanation": 3.5096328258514404,
+      "step_4_indices": 0.21462488174438477,
+      "final_step_assembly": 5.054727554321289,
+      "total_pipeline": 17.828884601593018
+    },
+    "original_index": 19
+  },
+  {
+    "question": "Do all employees receive a bonus?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      4,
+      5,
+      6
+    ],
+    "explanation": "Step 1: Using Premise 4: \\\"Every person has a research background.\\\" - Every employee in the company has a research background.\\n\\nStep 2: Using Premise 1: \\\"If a person has a research background, then they have strong qualifications.\\\" - Since every person has a research background (Step 1), every person has strong qualifications.\\n\\nStep 3: Using Premise 2: \\\"If a person has strong qualifications, then they are suitable for a senior role.\\\" - Since every person has strong qualifications (Step 2), every person is suitable for a senior role.\\n\\nStep 4: Using Premise 6: \\\"Everyone is eligible for a promotion.\\\" - Every employee is eligible for a promotion.\\n\\nStep 5: Using Premise 5: \\\"If a person is eligible for a promotion, then they will receive a bonus.\\\" - Since every person is eligible for a promotion (Step 4), every person will receive a bonus.\\n\\nFinal Step: Based on the above steps, all employees receive a bonus. Therefore, the answer is Yes.\"\n}",
+    "timing": {
+      "step_1_reasoning": 13.54761528968811,
+      "step_2_concise_answer": 0.9018359184265137,
+      "step_3_explanation": 8.229593992233276,
+      "step_4_indices": 0.4785573482513428,
+      "final_step_assembly": 10.474846601486206,
+      "total_pipeline": 33.63246488571167
+    },
+    "original_index": 20
+  },
+  {
+    "question": "Are all employees suitable for a senior role?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      4
+    ],
+    "explanation": "Step 1: Using Premise 4: \\\"Every person is enrolled in the company’s development program.\\\" - This means that for any person \\( P \\), \\( P \\) is enrolled in the company’s development program.\\n\\nStep 2: Using Premise 1: \\\"If a person has a research background, then they have strong qualifications.\\\" - Since every person is enrolled in the company’s development program (from Step 1), and assuming having a research background is a requirement for enrollment (which is implied by the context), it follows that every person has a research background.\\n\\nStep 3: Using Premise 1 again: \\\"If a person has a research background, then they have strong qualifications.\\\" - From Step 2, since every person has a research background, it follows that every person has strong qualifications.\\n\\nStep 4: Using Premise 2: \\\"If a person has strong qualifications, then they are suitable for a senior role.\\\" - Since every person has strong qualifications (from Step 3), it follows that every person is suitable for a senior role.\\n\\nStep 5: Conclusion. - Based on the above steps, all employees are suitable for a senior role.\\n\\nTherefore, the answer is **Yes**.\"\n}",
+    "timing": {
+      "step_1_reasoning": 11.162797927856445,
+      "step_2_concise_answer": 0.6666309833526611,
+      "step_3_explanation": 9.363595008850098,
+      "step_4_indices": 0.3272056579589844,
+      "final_step_assembly": 11.2738196849823,
+      "total_pipeline": 32.79406380653381
+    },
+    "original_index": 21
+  },
+  {
+    "question": "Is it true that a student who completes 3 courses with scores above 8.5 will graduate, according to the premises?",
+    "answer": "Yes",
+    "idx": [
+      6,
+      9
+    ],
+    "explanation": "Step 1: Using Premise 6: \\\"If a student completes 3 courses with a score above 8.5, they will receive a scholarship.\\\" - This premise tells us that completing 3 courses with scores above 8.5 results in a scholarship.\\n\\nStep 2: Using Premise 9: \\\"If a student passes 3 required courses, they will graduate.\\\" - This premise states that passing 3 required courses leads to graduation.\\n\\nStep 3: Logical Deduction:\\n- Completing 3 courses with scores above 8.5 implies passing those courses (since a score above 8.5 typically indicates passing).\\n- Passing 3 required courses leads to graduation.\\n\\nStep 4: Conclusion:\\n- Therefore, a student who completes 3 courses with scores above 8.5 will graduate.\"\n}",
+    "timing": {
+      "step_1_reasoning": 14.35054898262024,
+      "step_2_concise_answer": 1.1701529026031494,
+      "step_3_explanation": 6.510252475738525,
+      "step_4_indices": 0.2647817134857178,
+      "final_step_assembly": 8.118626832962036,
+      "total_pipeline": 30.414380073547363
+    },
+    "original_index": 22
+  },
+  {
+    "question": "Does writing a high-quality analytical essay guarantee qualification for a research fellowship, according to the premises?",
+    "answer": "No",
+    "idx": [
+      7,
+      8
+    ],
+    "explanation": "Step 1: Using Premise 7: \\\"If a student writes an analytical essay with high quality, they will receive academic recognition.\\\" - This establishes that writing a high-quality analytical essay leads to academic recognition.\\n\\nStep 2: Using Premise 8: \\\"If a student receives academic recognition in political studies, they may qualify for a research fellowship.\\\" - This indicates that academic recognition is a necessary but not sufficient condition for qualifying for a research fellowship.\\n\\nStep 3: Logical Deduction:\\n- From Step 1, we know that writing a high-quality analytical essay results in academic recognition.\\n- From Step 2, we know that academic recognition does not guarantee qualification for a research fellowship; it is just one of the conditions.\\n\\nStep 4: Conclusion:\\n- Therefore, writing a high-quality analytical essay does not guarantee qualification for a research fellowship.\"\n}",
+    "timing": {
+      "step_1_reasoning": 11.002257585525513,
+      "step_2_concise_answer": 0.8236300945281982,
+      "step_3_explanation": 6.760113477706909,
+      "step_4_indices": 0.2551271915435791,
+      "final_step_assembly": 8.3435378074646,
+      "total_pipeline": 27.184682846069336
+    },
+    "original_index": 23
+  },
+  {
+    "question": "Is producing original research while avoiding presentations sufficient to qualify for a scholarship, according to the premises?",
+    "answer": "No",
+    "idx": [
+      4,
+      7,
+      8,
+      10
+    ],
+    "explanation": "Step 1: Using Premise 7, \\\"Original analytical work in research papers leads to academic recognition.\\\" - This establishes that producing original research through research papers is necessary for academic recognition.\\n\\nStep 2: Using Premise 8, \\\"Academic recognition in quantum mechanics opens the possibility of an advanced physics scholarship.\\\" - This indicates that academic recognition is a prerequisite for qualifying for a scholarship.\\n\\nStep 3: Using Premise 4, \\\"Failure to give a presentation leaves research papers as the only viable option for contribution.\\\" - This implies that producing research papers is the only way to contribute if presentations are avoided.\\n\\nStep 4: Using Premise 10, \\\"Neglecting both research papers and presentations results in failing the quantum mechanics course.\\\" - This shows that neglecting both research papers and presentations leads to failing the course, which disqualifies one from receiving a scholarship.\\n\\nStep 5: Based on the above steps, producing original research (research papers) while avoiding presentations is not sufficient to qualify for a scholarship because it would result in failing the course.\\n\\nFinal Step: The answer is No. Producing original research while avoiding presentations is not sufficient to qualify for a scholarship according to the given premises.\"\n}",
+    "timing": {
+      "step_1_reasoning": 14.564105749130249,
+      "step_2_concise_answer": 1.165349006652832,
+      "step_3_explanation": 9.373610734939575,
+      "step_4_indices": 0.4603700637817383,
+      "final_step_assembly": 11.571563482284546,
+      "total_pipeline": 37.13501572608948
+    },
+    "original_index": 24
+  },
+  {
+    "question": "If a student is ready for advanced quantum research but doesn’t publish or present, will they get lab access?",
+    "answer": "No",
+    "idx": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "explanation": "Step 1: Using Premise 3, we know that a student who assesses realism debates is prepared for advanced research.\\n- \\\"A student who assesses realism debates is prepared for advanced research.\\\"\\n\\nStep 2: Using Premise 4, we understand that a prepared researcher can contribute through publications or seminars.\\n- \\\"A prepared researcher can contribute through publications or seminars.\\\"\\n\\nStep 3: Using Premise 5, we deduce that avoiding both publications and seminars means no academic contribution.\\n- \\\"Avoiding both publications and seminars means no academic contribution.\\\"\\n\\nStep 4: Using Premise 6, we conclude that academic contribution is needed for a research position.\\n- \\\"Academic contribution is needed for a research position.\\\"\\n\\nStep 5: Using Premise 7, we infer that a research position grants access to quantum laboratories.\\n- \\\"A research position grants access to quantum laboratories.\\\"\\n\\nStep 6: Combining the above steps, if a student is ready for advanced research but avoids publications and presentations, they have no academic contribution and thus no research position. Consequently, they do not get lab access.\\n- Therefore, the student will not get lab access.\"\n}",
+    "timing": {
+      "step_1_reasoning": 14.66245174407959,
+      "step_2_concise_answer": 0.12112760543823242,
+      "step_3_explanation": 9.110287427902222,
+      "step_4_indices": 0.4898853302001953,
+      "final_step_assembly": 11.677160739898682,
+      "total_pipeline": 36.060927391052246
+    },
+    "original_index": 25
+  },
+  {
+    "question": "Which premises directly support the conclusion about decreased learning efficiency?",
+    "answer": "Yes",
+    "idx": [
+      7,
+      8
+    ],
+    "explanation": "Step 1: Using Premise 7: \\\"Sleep is crucial for memory consolidation.\\\" - This premise directly states that sleep is essential for memory consolidation, which is a key component of learning efficiency. Therefore, lack of sleep would decrease learning efficiency.\\n\\nStep 2: Using Premise 8: \\\"If stress is too high, cognitive performance decreases.\\\" - This premise indicates that high stress levels impair cognitive performance. Since cognitive performance is a critical aspect of learning, high stress would decrease learning efficiency.\\n\\nStep 3: Based on the above two steps, we have identified two premises (Premise 7 and Premise 8) that directly support the conclusion about decreased learning efficiency.\\n\\nFinal Step: Yes, the premises directly support the conclusion about decreased learning efficiency.\"\n}",
+    "timing": {
+      "step_1_reasoning": 21.011128187179565,
+      "step_2_concise_answer": 0.5931715965270996,
+      "step_3_explanation": 5.960134029388428,
+      "step_4_indices": 0.26740145683288574,
+      "final_step_assembly": 7.502543687820435,
+      "total_pipeline": 35.33439373970032
+    },
+    "original_index": 26
+  },
+  {
+    "question": "Do the premises support that a student using structured plans, hands-on experiments, and visualization will have improved comprehension and retention?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      6,
+      12
+    ],
+    "explanation": "Step 1: Using Premise 6: \\\"Students who learn through hands-on experiments develop better intuition for abstract concepts.\\\" - This premise suggests that hands-on experiments enhance understanding of abstract concepts, which is related to comprehension.\\n\\nStep 2: Using Premise 12: \\\"Visualizing abstract concepts helps in better recall and understanding.\\\" - This premise directly supports that visualization aids in both recall and understanding, which are key aspects of comprehension and retention.\\n\\nStep 3: Combining the insights from Premises 6 and 12:\\n- Hands-on experiments (Premise 6) enhance understanding of abstract concepts, contributing to comprehension.\\n- Visualization (Premise 12) improves recall and understanding, supporting both comprehension and retention.\\n\\nStep 4: Using Premise 1: \\\"A structured study plan improves consistency in learning.\\\" - While this premise focuses on consistency, it indirectly supports the idea that a structured plan can help manage and reinforce the learning processes facilitated by hands-on experiments and visualization.\\n\\nStep 5: Conclusion:\\n- The premises collectively support that a student using structured plans, hands-on experiments, and visualization will have improved comprehension and retention.\"\n}",
+    "timing": {
+      "step_1_reasoning": 15.229959487915039,
+      "step_2_concise_answer": 1.1791210174560547,
+      "step_3_explanation": 8.973772525787354,
+      "step_4_indices": 0.39953160285949707,
+      "final_step_assembly": 10.909856796264648,
+      "total_pipeline": 36.692259550094604
+    },
+    "original_index": 27
+  },
+  {
+    "question": "If a student engages in play-based learning, participates in simulations, receives immediate and constructive feedback, and reflects on their learning, they will retain knowledge more effectively and develop problem-solving skills. Is this statement true?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      3,
+      9,
+      17,
+      18,
+      19
+    ],
+    "explanation": "Step 1: Using Premise 1, \\\"Learning through play enhances engagement and retention.\\\" - This supports the first part of the statement: engaging in play-based learning enhances engagement and retention.\\n\\nStep 2: Using Premise 3, \\\"If learners actively participate in simulations, they develop problem-solving skills.\\\" - This supports the second part of the statement: participating in simulations develops problem-solving skills.\\n\\nStep 3: Using Premise 9, \\\"Immediate feedback helps correct misunderstandings before they become ingrained.\\\" - And using Premise 19, \\\"Students who receive constructive feedback are more likely to improve their performance.\\\" - Together, these support the third part of the statement: receiving immediate and constructive feedback improves performance and corrects misunderstandings.\\n\\nStep 4: Using Premise 18, \\\"If a student reflects on their learning process, they develop metacognitive skills.\\\" - And using Premise 17, \\\"Peer feedback can help learners identify and correct their own mistakes.\\\" - Together, these support the fourth part of the statement: reflecting on their learning process develops metacognitive skills and helps identify and correct mistakes.\\n\\nStep 5: Based on the support from the premises, the statement is true.\"\n}",
+    "timing": {
+      "step_1_reasoning": 19.32450008392334,
+      "step_2_concise_answer": 0.1611461639404297,
+      "step_3_explanation": 9.580450773239136,
+      "step_4_indices": 0.6151108741760254,
+      "final_step_assembly": 12.401412963867188,
+      "total_pipeline": 42.08264398574829
+    },
+    "original_index": 28
+  },
+  {
+    "question": "Do schools that implement structured disciplinary policies, restorative justice, and positive reinforcement strategies experience fewer infractions, higher student morale, and improved academic performance?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      5,
+      7,
+      10,
+      14
+    ],
+    "explanation": "Step 1: Using Premise 1, \\\"Schools implement disciplinary policies to maintain a conducive learning environment.\\\" - This premise establishes that structured disciplinary policies are implemented by schools.\\n\\nStep 2: Using Premise 7, \\\"Consistent enforcement of rules leads to better student compliance over time.\\\" - This premise indicates that consistent enforcement of rules results in better compliance, supporting the effectiveness of structured policies.\\n\\nStep 3: Using Premise 5, \\\"Restorative justice approaches help students understand the impact of their actions.\\\" - This premise suggests that restorative justice can improve understanding and behavior among students.\\n\\nStep 4: Using Premise 10, \\\"Positive reinforcement strategies encourage good behavior more effectively than punishment.\\\" - This premise supports the idea that positive reinforcement can enhance good behavior.\\n\\nStep 5: Using Premise 14, \\\"A school's disciplinary reputation affects overall student morale and academic performance.\\\" - This premise implies that effective disciplinary practices can positively impact morale and performance.\\n\\nStep 6: Using Premises 1, 7, 5, 10, and 14 together, we deduce that combining structured disciplinary policies, restorative justice, and positive reinforcement strategies can lead to fewer infractions, higher student morale, and improved academic performance.\\n\\nFinal Step: Based on the above steps, the answer is Yes. Schools that implement structured disciplinary policies, restorative justice, and positive reinforcement strategies are likely to experience fewer infractions, higher student morale, and improved academic performance.\"\n}",
+    "timing": {
+      "step_1_reasoning": 26.338969707489014,
+      "step_2_concise_answer": 1.3578574657440186,
+      "step_3_explanation": 12.698271036148071,
+      "step_4_indices": 0.698509693145752,
+      "final_step_assembly": 15.133697748184204,
+      "total_pipeline": 56.227701902389526
+    },
+    "original_index": 29
+  },
+  {
+    "question": "Does Alex earn a scholarship despite initial fears of fund depletion that were unfounded, attend university and gain internship opportunities through a professional network that nearly dissolved but was saved, complete an internship with mentorship despite initial mentor shortages that were resolved, develop professional skills and secure job offers at career fairs that were almost canceled but proceeded, and start a successful career after graduating with honors despite a competitive job market that improved just in time?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      6,
+      7,
+      8,
+      9,
+      10,
+      14,
+      15,
+      16,
+      17
+    ],
+    "explanation": "Step 1: Using Premise 6 and Premise 7.\\n- Premise 6: \\\"Either Alex earns a scholarship or he takes out a loan.\\\"\\n- Premise 7: \\\"Alex does not take out a loan.\\\"\\n- Logical deduction: Since Alex does not take out a loan, he must earn a scholarship.\\n\\nStep 2: Using Premise 14 and Premise 15.\\n- Premise 14: \\\"If the scholarship fund is depleted, no student can earn a scholarship.\\\"\\n- Premise 15: \\\"The scholarship fund is not depleted.\\\"\\n- Logical deduction: Since the scholarship fund is not depleted, Alex earns a scholarship despite initial fears of fund depletion being unfounded.\\n\\nStep 3: Using Premise 1 and Premise 8.\\n- Premise 1: \\\"If a student earns a scholarship and maintains good grades, they can afford to attend university.\\\"\\n- Premise 8: \\\"Alex maintains good grades.\\\"\\n- Logical deduction: Since Alex earns a scholarship and maintains good grades, he can afford to attend university.\\n\\nStep 4: Using Premise 2 and Premise 9.\\n- Premise 2: \\\"If a student attends university and joins a professional network, they gain access to internship opportunities.\\\"\\n- Premise 9: \\\"Alex joins a professional network.\\\"\\n- Logical deduction: Since Alex attends university (Step 3) and joins a professional network, he gains access to internship opportunities.\\n\\nStep 5: Using Premise 16 and Premise 17.\\n- Premise 16: \\\"If the university lacks partnerships, professional networks are limited.\\\"\\n- Premise 17: \\\"The university does not lack partnerships.\\\"\\n- Logical deduction: Since the university does not lack partnerships, professional networks are not limited, and Alex can gain internship opportunities.\\n\\nStep 6: Using Premise 10.\\n- Premise 10: \\\"Alex completes an",
+    "timing": {
+      "step_1_reasoning": 26.457458019256592,
+      "step_2_concise_answer": 1.3598854541778564,
+      "step_3_explanation": 16.593955278396606,
+      "step_4_indices": 1.295647382736206,
+      "final_step_assembly": 20.8473699092865,
+      "total_pipeline": 66.55444121360779
+    },
+    "original_index": 30
+  },
+  {
+    "question": "Does Alex not secure job offers because the job market weakened unexpectedly, and fail to start a successful career despite graduating with honors?",
+    "answer": "No",
+    "idx": [
+      3,
+      4,
+      5,
+      10,
+      11,
+      12,
+      13,
+      25
+    ],
+    "explanation": "Step 1: Using Premise 4, \\\"If a student develops professional skills and participates in career fairs, they secure job offers.\\\" \\n- Alex completes an internship (Premise 10).\\n- Alex receives mentorship (Premise 11).\\n- Alex participates in career fairs (Premise 12).\\n- Therefore, Alex develops professional skills (Premise 3: \\\"If a student completes an internship and receives mentorship, they develop professional skills\\\").\\n- Since all conditions in Premise 4 are satisfied, Alex secures job offers.\\n\\nStep 2: Using Premise 25, \\\"The job market is not weak.\\\"\\n- The job market did not weaken unexpectedly.\\n\\nStep 3: Using Premise 5, \\\"If a student secures job offers and graduates with honors, they start a successful career.\\\"\\n- Alex secures job offers (from Step 1).\\n- Alex graduates with honors (Premise 13).\\n- Therefore, Alex starts a successful career.\\n\\nFinal Step: Based on the above steps, Alex does secure job offers and starts a successful career despite graduating with honors. Thus, the answer is No.\"\n}",
+    "timing": {
+      "step_1_reasoning": 17.131476640701294,
+      "step_2_concise_answer": 1.2970998287200928,
+      "step_3_explanation": 9.576616525650024,
+      "step_4_indices": 0.9888052940368652,
+      "final_step_assembly": 13.114311933517456,
+      "total_pipeline": 42.10853838920593
+    },
+    "original_index": 31
+  },
+  {
+    "question": "Can Mai successfully change majors from Information Technology to Biomedical Engineering, considering the entrance exam score, scholarship, and make-up course requirements, while assessing the risks of academic warnings or scholarship loss if she doesn't meet the requirements within 1 year after the transfer?",
+    "answer": "No",
+    "idx": [
+      20,
+      26,
+      27
+    ],
+    "explanation": "Step 1: Using Premise 20, Biomedical Engineering requires an entrance exam with a standard score of 80%.\\n- Premise 20: \\\"The new major must have a professional similarity of 60% or higher, as determined by the professional council.\\\"\\n- Premise 26: \\\"Biomedical Engineering requires an entrance exam with a standard score of 80%.\\n- Premise 27: \\\"Mai scored 78% on the new major's entrance exam.\\\"\\n\\nStep 2: Mai scored 78% on the entrance exam, which is below the required 80%.\\n- Deduction: Mai did not meet the entrance exam requirement.\\n\\nStep 3: Using Premise 20 and 26, Mai's application for changing to Biomedical Engineering is likely to be rejected.\\n- Premise 20 and 26 indicate that the entrance exam score is a critical criterion for major change approval.\\n\\nStep 4: Mai cannot successfully change her major from Information Technology to Biomedical Engineering.\\n- Conclusion: Mai's application is likely to be rejected due to failing the entrance exam.\"\n}",
+    "timing": {
+      "step_1_reasoning": 25.485153913497925,
+      "step_2_concise_answer": 1.3801565170288086,
+      "step_3_explanation": 9.970484972000122,
+      "step_4_indices": 0.6278235912322998,
+      "final_step_assembly": 12.215558290481567,
+      "total_pipeline": 49.679203271865845
+    },
+    "original_index": 32
+  },
+  {
+    "question": "Can Lan participate in the flight practice session, and if not, does she have to take a make-up session within 2 weeks to retain her flight exam eligibility, considering the weather, absent instructor, and cancellation notification time?",
+    "answer": "Unknown",
+    "idx": [],
+    "explanation": "Explanation missing or invalid.",
+    "timing": {
+      "step_1_reasoning": 20.88894009590149,
+      "step_2_concise_answer": 1.3472263813018799,
+      "step_3_explanation": 13.563945770263672,
+      "step_4_indices": 0.8691751956939697,
+      "final_step_assembly": 16.469419717788696,
+      "total_pipeline": 53.13916802406311
+    },
+    "original_index": 33
+  },
+  {
+    "question": "Should Student A be confirmed as cheating and suspended from the exam, considering the signs from the exam, behavior during the exam, AI analysis, personal history, and the possibility of appeal being denied, and assessing additional penalties if there is evidence from the camera?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "explanation": "Step 1: Using Premise 1: \\\"If a student's answers are identical to another student's in over 90% of the exam, it may indicate cheating.\\\" - Student A's answers match 95% with Student B's (Premise 26). - Conclusion: This supports the indication of potential cheating.\\n\\nStep 2: Using Premise 2: \\\"If two students submit their exams within a time difference of less than 1 minute, further review is required.\\\" - Students A and B submitted their exams 30 seconds apart (Premise 27). - Conclusion: Further review is required due to the close submission times.\\n\\nStep 3: Using Premise 3: \\\"If a student completes the exam in less than 50% of the class's average time, it may indicate anomalies.\\\" - Student A completed the exam in 15 minutes, while the class average was 40 minutes (Premise 28). - Conclusion: This indicates a possible anomaly, supporting the indication of potential cheating.\\n\\nStep 4: Using Premise 4: \\\"If a student uses rare terms that match reference materials without citation, it may indicate plagiarism.\\\" - Student A used rare terms from 'History 101' without citation (Premise 29). - Conclusion: This supports the indication of potential cheating.\\n\\nStep 5: Using Premise 5: \\\"If the monitoring system detects the student's gaze leaving the screen more than 10 times, it may indicate cheating.\\\" - The system recorded A's gaze leaving the screen 12 times (Premise 30). - Conclusion: This supports the indication of potential cheating.\\n\\nStep 6: Using Premise 6: \\\"If a student has a history of exam regulation violations, the probability of recurrence increases by 20%.\\\" - Student A received a cheating warning in December 2024 (Premise 31).\"\n}",
+    "timing": {
+      "step_1_reasoning": 26.427627325057983,
+      "step_2_concise_answer": 1.3720858097076416,
+      "step_3_explanation": 16.751399517059326,
+      "step_4_indices": 1.4668474197387695,
+      "final_step_assembly": 19.075379848480225,
+      "total_pipeline": 65.09338736534119
+    },
+    "original_index": 34
+  },
+  {
+    "question": "Is the following statement true? Statement: If there exists at least one student who attends class regularly, then there exists at least one student who completes all assigned exercises",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2
+    ],
+    "explanation": "Step 1: Using Premise 2: \\\"All students attend class regularly.\\\" - This means that for any student \\( S \\), \\( S \\) attends class regularly.\\n\\nStep 2: Using Premise 1: \\\"There exists at least one student who completes all assigned exercises.\\\" - This means there is at least one student \\( S \\) such that \\( S \\) completes all assigned exercises.\\n\\nStep 3: Logical Deduction: - Since all students attend class regularly (from Step 1), and there is at least one student who completes all assigned exercises (from Step 2), it follows that if there exists at least one student who attends class regularly, then there exists at least one student who completes all assigned exercises.\\n\\nStep 4: Conclusion: - The statement \\\"If there exists at least one student who attends class regularly, then there exists at least one student who completes all assigned exercises\\\" is true.\\n\\nAnswer: Yes\"\n}",
+    "timing": {
+      "step_1_reasoning": 18.350552320480347,
+      "step_2_concise_answer": 1.2442784309387207,
+      "step_3_explanation": 7.792931318283081,
+      "step_4_indices": 0.37734532356262207,
+      "final_step_assembly": 9.628201246261597,
+      "total_pipeline": 37.39332938194275
+    },
+    "original_index": 35
+  },
+  {
+    "question": "If a Python project is easy to maintain, is it always well-tested?",
+    "answer": "Yes",
+    "idx": [
+      7
+    ],
+    "explanation": "Step 1: Using Premise 7: \\\"If a Python project is easy to maintain, then it is well-tested.\\\" - Premise 7 directly states that if a Python project is easy to maintain, it must also be well-tested. - This premise provides a clear and direct relationship between ease of maintenance and being well-tested.\\n\\nStep 2: Conclusion - Based on Premise 7, if a Python project is easy to maintain, it is always well-tested.\\n\\nFinal Step: The answer derived from the premises is \\\"Yes.\\\"\"\n}",
+    "timing": {
+      "step_1_reasoning": 5.867197513580322,
+      "step_2_concise_answer": 0.6454341411590576,
+      "step_3_explanation": 4.5248119831085205,
+      "step_4_indices": 0.16791272163391113,
+      "final_step_assembly": 5.93893837928772,
+      "total_pipeline": 17.14451813697815
+    },
+    "original_index": 36
+  },
+  {
+    "question": "According to the premises, is the following statement true?\nStatement: If a student is registered for an advanced course, they will achieve success.",
+    "answer": "Yes",
+    "idx": [
+      1,
+      8,
+      9,
+      10
+    ],
+    "explanation": "Step 1: Using Premise 8: \\\"If a student is registered for an advanced course, they are motivated.\\\" - This establishes that registration for an advanced course implies motivation.\\n\\nStep 2: Using Premise 1: \\\"If a student is not motivated, they will not pass the exams.\\\" - Since being registered for an advanced course means the student is motivated, they will pass the exams.\\n\\nStep 3: Using Premise 9: \\\"If a student passes the exams, they will successfully graduate.\\\" - A motivated student (registered for an advanced course) will pass the exams and thus will graduate.\\n\\nStep 4: Using Premise 10: \\\"If a student graduates, they achieve success.\\\" - A student who graduates (from passing the exams) will achieve success.\\n\\nStep 5: Conclusion: Based on the logical deductions from the premises, if a student is registered for an advanced course, they will achieve success.\"\n}",
+    "timing": {
+      "step_1_reasoning": 18.465415954589844,
+      "step_2_concise_answer": 1.2917890548706055,
+      "step_3_explanation": 7.982965469360352,
+      "step_4_indices": 0.5277020931243896,
+      "final_step_assembly": 9.881100416183472,
+      "total_pipeline": 38.14930462837219
+    },
+    "original_index": 37
+  },
+  {
+    "question": "According to the premises, is the following statement true?\nStatement: If a student passes the math exam, they will excel in mathematics.",
+    "answer": "Yes",
+    "idx": [
+      4,
+      7,
+      9,
+      10
+    ],
+    "explanation": "Step 1: Using Premise 7: \\\"If a student can solve math problems correctly, they will pass the math exam.\\\" - This establishes that solving math problems correctly is a prerequisite for passing the math exam.\\n\\nStep 2: Using Premise 4: \\\"At least one student can solve math problems correctly.\\\" - This confirms that there is at least one student who can solve math problems correctly.\\n\\nStep 3: From Step 1 and Step 2, we deduce: At least one student can pass the math exam. - Combining these two premises, we know that at least one student will pass the math exam.\\n\\nStep 4: Using Premise 9: \\\"If a student passes the math exam, they successfully complete the math curriculum.\\\" - This means passing the math exam is a necessary condition for successfully completing the math curriculum.\\n\\nStep 5: Using Premise 10: \\\"If a student successfully completes the math curriculum, they excel in mathematics.\\\" - This means successfully completing the math curriculum is a necessary condition for excelling in mathematics.\\n\\nStep 6: Combining the deductions from Steps 3, 4, and 5, we conclude: If a student passes the math exam, they will successfully complete the math curriculum and, therefore, excel in mathematics. - Therefore, the statement \\\"If a student passes the math exam, they will excel in mathematics\\\" is true based on the given premises.\\n\"\n}",
+    "timing": {
+      "step_1_reasoning": 15.750123023986816,
+      "step_2_concise_answer": 0.14952659606933594,
+      "step_3_explanation": 12.172665119171143,
+      "step_4_indices": 0.5079340934753418,
+      "final_step_assembly": 14.263674020767212,
+      "total_pipeline": 42.84414720535278
+    },
+    "original_index": 38
+  },
+  {
+    "question": "According to the premises, is the following statement true?\nStatement: If a person is promoted, they will become a leader in their organization.",
+    "answer": "No",
+    "idx": [
+      7,
+      9,
+      10
+    ],
+    "explanation": "Step 1: Using Premise 7: \\\"If a person works efficiently, they will be promoted.\\\" - This establishes that working efficiently leads to promotion.\\n\\nStep 2: Using Premise 9: \\\"If a person is promoted, they will be recognized by their employer.\\\" - This establishes that promotion leads to recognition by the employer.\\n\\nStep 3: Using Premise 10: \\\"If a person is recognized by their employer, they will become a leader in their organization.\\\" - This establishes that recognition by the employer leads to becoming a leader.\\n\\nStep 4: Combining the above premises:\\n- Working efficiently → Promoted → Recognized by employer → Leader in organization.\\n- However, there is no direct link from promotion to becoming a leader without the intermediate step of recognition by the employer.\\n\\nStep 5: Conclusion: Based on the premises provided, the statement \\\"If a person is promoted, they will become a leader in their organization\\\" is not directly supported. Therefore, the answer is No.\"\n}",
+    "timing": {
+      "step_1_reasoning": 17.516145706176758,
+      "step_2_concise_answer": 0.5221943855285645,
+      "step_3_explanation": 8.38956356048584,
+      "step_4_indices": 0.4431874752044678,
+      "final_step_assembly": 10.694309711456299,
+      "total_pipeline": 37.56541728973389
+    },
+    "original_index": 39
+  },
+  {
+    "question": "According to the premises, is the following statement true?\nStatement: There exists at least one student on the honor roll who is eligible for a scholarship.",
+    "answer": "Yes",
+    "idx": [
+      5,
+      6,
+      9,
+      10
+    ],
+    "explanation": "Step 1: Using Premise 6: \\\"If a student has a high GPA, then they are placed on the honor roll.\\\" This implies that every student on the honor roll has a high GPA (from Premise 10). Step 2: Using Premise 5: \\\"If a student has a high GPA, then they are eligible for a scholarship.\\\" This means that every student with a high GPA is eligible for a scholarship. Step 3: Combining Premises 5 and 6: Since every student on the honor roll has a high GPA (from Step 1), and every student with a high GPA is eligible for a scholarship (from Step 2), it follows that every student on the honor roll is eligible for a scholarship. Step 4: Using Premise 9: \\\"There exists at least one student who is eligible for a scholarship.\\\" Since every student on the honor roll is eligible for a scholarship (from Step 3), and there is at least one student eligible for a scholarship (Premise 9), it follows that there must be at least one student on the honor roll who is eligible for a scholarship. Final Step: Based on the above steps, the statement \\\"There exists at least one student on the honor roll who is eligible for a scholarship\\\" is true.\"\n}",
+    "timing": {
+      "step_1_reasoning": 11.799989461898804,
+      "step_2_concise_answer": 0.1429736614227295,
+      "step_3_explanation": 11.060758590698242,
+      "step_4_indices": 0.5023772716522217,
+      "final_step_assembly": 12.712306499481201,
+      "total_pipeline": 36.21867799758911
+    },
+    "original_index": 40
+  },
+  {
+    "question": "Is the following statement true according to the premises?\nStatement: There exists a positive feedback loop where improved grades lead to scholarship eligibility which leads to more study time and further grade improvement.",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      6,
+      7,
+      8,
+      9
+    ],
+    "explanation": "Step 1: Using Premise 1, \\\"If a student improves their grades, they will eventually achieve high grades.\\\" - This establishes that improved grades lead to high grades.\\n\\nStep 2: Using Premise 2, \\\"If a student has high grades, they are eligible for a scholarship.\\\" - This establishes that high grades lead to scholarship eligibility.\\n\\nStep 3: Using Premise 6, \\\"If a student is eligible for a scholarship, their tuition fee is reduced.\\\" - This establishes that scholarship eligibility leads to a reduced tuition fee.\\n\\nStep 4: Using Premise 7, \\\"If a student has a reduced tuition fee, they experience less financial burden.\\\" - This establishes that a reduced tuition fee leads to less financial burden.\\n\\nStep 5: Using Premise 8, \\\"If a student has less financial burden, they have more time to study.\\\" - This establishes that less financial burden leads to more study time.\\n\\nStep 6: Using Premise 9, \\\"If a student has more study time, their grades improve.\\\" - This establishes that more study time leads to improved grades.\\n\\nStep 7: Combining all the above steps, we see a positive feedback loop where improved grades lead to high grades, which lead to scholarship eligibility, which leads to a reduced tuition fee, which leads to less financial burden, which leads to more study time, which leads to improved grades.\\n\\nFinal Step: The statement \\\"There exists a positive feedback loop where improved grades lead to scholarship eligibility which leads to more study time and further grade improvement\\\" is true according to the premises.\"\n}",
+    "timing": {
+      "step_1_reasoning": 20.40674114227295,
+      "step_2_concise_answer": 0.16455578804016113,
+      "step_3_explanation": 13.153182744979858,
+      "step_4_indices": 0.64200758934021,
+      "final_step_assembly": 15.760134935379028,
+      "total_pipeline": 50.12665104866028
+    },
+    "original_index": 41
+  },
+  {
+    "question": "Does attending lectures initiate a causal chain leading to increased earning potential, according to the premises?",
+    "answer": "Uncertain",
+    "idx": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      12
+    ],
+    "explanation": "Step 1: Using Premise 1: \\\"If a student attends lectures regularly, they understand the course material.\\\" - This establishes that regular lecture attendance leads to understanding course material.\\nStep 2: Using Premise 2: \\\"If a student understands the course material, they perform well in exams.\\\" - This shows that understanding course material leads to good exam performance.\\nStep 3: Using Premise 3: \\\"If a student performs well in exams, they achieve a high GPA.\\\" - This indicates that good exam performance leads to a high GPA.\\nStep 4: Using Premise 4: \\\"If a student achieves a high GPA, they are eligible for academic awards.\\\" - This suggests that a high GPA leads to eligibility for academic awards.\\nStep 5: Using Premise 5: \\\"If a student is eligible for academic awards, they receive financial benefits.\\\" - This implies that eligibility for academic awards leads to financial benefits.\\nStep 6: Using Premise 12: \\\"If a student pursues advanced education, they increase their earning potential.\\\" - This shows that pursuing advanced education leads to increased earning potential.\\nStep 7: The premises do not establish a direct link from financial benefits to pursuing advanced education or increased earning potential. There are other pathways mentioned (research projects, internships, etc.), but none of these pathways are connected to the financial benefits from academic awards.\\nFinal Step: Based on the given premises, we cannot definitively conclude that attending lectures initiates a causal chain leading to increased earning potential. Therefore, the answer is Uncertain.\"\n}",
+    "timing": {
+      "step_1_reasoning": 22.282103538513184,
+      "step_2_concise_answer": 0.21278834342956543,
+      "step_3_explanation": 12.95906376838684,
+      "step_4_indices": 0.7210490703582764,
+      "final_step_assembly": 15.574687719345093,
+      "total_pipeline": 51.75007247924805
+    },
+    "original_index": 42
+  },
+  {
+    "question": "Is there a logical chain from applying for internships to increasing one’s earning potential, according to the premises?",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      12
+    ],
+    "explanation": "Step 1: Using Premise 1: \\\"If a student applies for internships, they have a chance to secure an internship.\\\" - This establishes that applying for internships leads to the possibility of securing an internship.\\n\\nStep 2: Using Premise 2: \\\"If a student secures an internship, they gain practical experience.\\\" - This shows that securing an internship results in gaining practical experience.\\n\\nStep 3: Using Premise 3: \\\"If a student gains practical experience, they improve their job prospects after graduation.\\\" - This indicates that practical experience gained through an internship improves job prospects after graduation.\\n\\nStep 4: Using Premise 4: \\\"If a student performs well in their internship, they may receive a full-time job offer.\\\" - This suggests that performing well in an internship can lead to a full-time job offer.\\n\\nStep 5: Using Premise 5: \\\"If a student receives a full-time job offer before graduation, they have a smoother transition into the workforce.\\\" - This implies that receiving a full-time job offer before graduation facilitates a smoother transition into the workforce.\\n\\nStep 6: Using Premise 12: \\\"If a student has better career growth, they increase their earning potential.\\\" - This directly links better career growth to increased earning potential.\\n\\nStep 7: Combining the above steps, we deduce the following logical chain:\\n- Applying for internships (Premise 1) → Securing an internship (Premise 1)\\n- Securing an internship → Gaining practical experience (Premise 2)\\n- Gaining practical experience → Improving job prospects after graduation (Premise 3)\\n- Performing well in the internship → Receiving a full-time job offer (Premise 4)\\n- Receiving a full-time job offer before graduation → Smoother transition into the workforce (Premise 5)\\n- Better career growth → Increased earning potential (Premise 12)\\n\\nTherefore, there is a logical\"\n}",
+    "timing": {
+      "step_1_reasoning": 20.124019861221313,
+      "step_2_concise_answer": 1.3228020668029785,
+      "step_3_explanation": 15.076841592788696,
+      "step_4_indices": 0.6588542461395264,
+      "final_step_assembly": 18.06684422492981,
+      "total_pipeline": 55.249380111694336
+    },
+    "original_index": 43
+  },
+  {
+    "question": "Is there a logical path from attending career workshops to achieving financial stability, according to the premises?",
+    "answer": "Yes",
+    "idx": [
+      2,
+      3,
+      4,
+      6,
+      11,
+      12
+    ],
+    "explanation": "Step 1: Using Premise 2: If a student attends career workshops, they improve their job application skills.\\n- This establishes a direct link between attending career workshops and improving job application skills.\\n\\nStep 2: Using Premise 3: If a student improves their job application skills, they perform better in job interviews.\\n- This links improving job application skills to performing better in job interviews.\\n\\nStep 3: Using Premise 4: If a student performs better in job interviews, they have a higher chance of getting hired.\\n- This links performing better in job interviews to having a higher chance of getting hired.\\n\\nStep 4: Using Premise 6: If a student gains relevant work experience, they enhance their employability.\\n- This introduces another pathway for enhancing employability.\\n\\nStep 5: Using Premise 11: If a student makes informed career choices, they have better long-term career growth.\\n- This establishes a link from making informed career choices to better long-term career growth.\\n\\nStep 6: Using Premise 12: If a student has better long-term career growth, they achieve financial stability.\\n- This establishes the final link from better long-term career growth to achieving financial stability.\\n\\nStep 7: Combining the above steps, we deduce the following logical path:\\n- Attending career workshops (Premise 2) → Improving job application skills (Premise 3) → Performing better in job interviews (Premise 4) → Higher chance of getting hired (Premise 4) → Gaining relevant work experience (Premise 6) → Enhancing employability (Premise 6) → Making informed career choices (Premise 11) → Better long-term career growth (Premise 11) → Achieving financial stability (Premise 12).\\n\\nFinal Step: Therefore, there is a logical path from attending career workshops to achieving financial stability. The answer is Yes.\"\n}",
+    "timing": {
+      "step_1_reasoning": 21.01982355117798,
+      "step_2_concise_answer": 1.1488866806030273,
+      "step_3_explanation": 15.189610242843628,
+      "step_4_indices": 0.717597246170044,
+      "final_step_assembly": 18.057998418807983,
+      "total_pipeline": 56.1339328289032
+    },
+    "original_index": 44
+  },
+  {
+    "question": "According to the premises, is the following statement true?\nStatement: There exists a complete pathway from attending lectures regularly to receiving job opportunities.",
+    "answer": "Yes",
+    "idx": [
+      1,
+      2,
+      5,
+      12
+    ],
+    "explanation": "Step 1: Using Premise 1: \\\"If a student attends lectures regularly, they have a better understanding of the subject.\\\" - This establishes a link between attending lectures regularly and having a better understanding of the subject.\\n\\nStep 2: Using Premise 2: \\\"If a student understands the subject well, they perform better in exams.\\\" - This establishes a link between having a better understanding of the subject and performing better in exams.\\n\\nStep 3: Using Premise 5: \\\"If a student performs well in exams, they have a higher GPA.\\\" - This establishes a link between performing better in exams and having a higher GPA.\\n\\nStep 4: Using Premise 12: \\\"If a student has high academic performance, they are more likely to receive job opportunities.\\\" - This establishes a link between having a higher GPA (high academic performance) and receiving job opportunities.\\n\\nStep 5: Combining the above steps, we deduce the following pathway:\\n- Attending lectures regularly → Better understanding of the subject → Performing better in exams → Higher GPA → Receiving job opportunities.\\n\\nFinal Step: Based on the above steps, the statement \\\"There exists a complete pathway from attending lectures regularly to receiving job opportunities\\\" is true. Therefore, the answer is Yes.\"\n}",
+    "timing": {
+      "step_1_reasoning": 15.694198369979858,
+      "step_2_concise_answer": 0.12971806526184082,
+      "step_3_explanation": 9.721237659454346,
+      "step_4_indices": 0.46541690826416016,
+      "final_step_assembly": 11.913694620132446,
+      "total_pipeline": 37.92428135871887
+    },
+    "original_index": 45
+  },
+  {
+    "question": "According to the above premises, is the following statement true?\nStatement: If a student engages in independent study, they have a higher chance of accessing advanced research opportunities.",
+    "answer": "Yes",
+    "idx": [
+      3,
+      4,
+      6,
+      10,
+      11,
+      12
+    ],
+    "explanation": "Step 1: Using Premise 6: \\\"If a student engages in independent study, they are likely to publish research.\\\" - This premise establishes that engaging in independent study increases the likelihood of publishing research.\\n\\nStep 2: Using Premise 3: \\\"If a student publishes research, they gain academic recognition.\\\" - This premise indicates that publishing research leads to academic recognition.\\n\\nStep 3: Using Premise 10: \\\"If all students are encouraged to engage in independent study, then publishing research leads to academic recognition.\\\" - This reinforces that publishing research, which is likely due to engaging in independent study, leads to academic recognition.\\n\\nStep 4: Using Premise 11: \\\"If a student engages in independent study, they gain academic recognition.\\\" - This directly states that engaging in independent study leads to academic recognition.\\n\\nStep 5: Using Premise 4: \\\"If a student does not publish research, they do not receive a research grant.\\\" - This implies that receiving a research grant is contingent upon publishing research.\\n\\nStep 6: Using Premise 12: \\\"If a student does not receive research grants, they cannot access advanced research opportunities.\\\" - This indicates that not receiving a research grant prevents access to advanced research opportunities.\\n\\nStep 7: Combining the deductions from Steps 1-6:\\n- Engaging in independent study increases the likelihood of publishing research (Step 1).\\n- Publishing research leads to academic recognition (Step 2 and Step 3).\\n- Academic recognition can lead to receiving research grants (Steps 4, 5, and 6).\\n\\nConclusion: Therefore, if a student engages in independent study, they have a higher chance of accessing advanced research opportunities. The answer is Yes.\"\n}",
+    "timing": {
+      "step_1_reasoning": 18.68009305000305,
+      "step_2_concise_answer": 1.1865854263305664,
+      "step_3_explanation": 13.255528926849365,
+      "step_4_indices": 0.7173893451690674,
+      "final_step_assembly": 15.976815938949585,
+      "total_pipeline": 49.816428899765015
+    },
+    "original_index": 46
+  },
+  {
+    "question": "According to the premises, is the following statement true?\nStatement: There exists a complete pathway from engaging in research to receiving academic recognition.",
+    "answer": "Yes",
+    "idx": [
+      3,
+      6,
+      11
+    ],
+    "explanation": "Step 1: Using Premise 6: \\\"If a student engages in research, they increase their chances of winning an academic competition.\\\" - This establishes that engaging in research increases the probability of winning an academic competition.\\n\\nStep 2: Using Premise 3: \\\"If a student wins an academic competition, they gain academic recognition.\\\" - This establishes that winning an academic competition leads to academic recognition.\\n\\nStep 3: Combining Premises 6 and 3:\\n- Engaging in research increases the chance of winning an academic competition (Premise 6).\\n- Winning an academic competition leads to academic recognition (Premise 3).\\n- Therefore, engaging in research indirectly increases the likelihood of receiving academic recognition through the pathway of winning an academic competition.\\n\\nStep 4: Using Premise 11: \\\"If a student engages in research, they are more likely to receive academic recognition.\\\" - This directly states that engaging in research increases the likelihood of receiving academic recognition.\\n\\nStep 5: Conclusion:\\n- Based on the logical deductions from Premises 6, 3, and 11, there exists a complete pathway from engaging in research to receiving academic recognition.\"\n}",
+    "timing": {
+      "step_1_reasoning": 14.48974061012268,
+      "step_2_concise_answer": 0.1301126480102539,
+      "step_3_explanation": 9.002837896347046,
+      "step_4_indices": 0.3902766704559326,
+      "final_step_assembly": 10.92192530632019,
+      "total_pipeline": 34.934908628463745
+    },
+    "original_index": 47
+  },
+  {
+    "question": "According to the premises, is the following statement true?\nStatement: There exists a complete pathway from maintaining a high GPA to receiving a scholarship.",
+    "answer": "Yes",
+    "idx": [
+      3,
+      4,
+      10
+    ],
+    "explanation": "Step 1: Using Premise 3: \\\"If a student maintains a high GPA, they qualify for a merit-based scholarship.\\\" - This premise directly states that maintaining a high GPA leads to qualification for a merit-based scholarship.\\n\\nStep 2: Using Premise 4: \\\"If a student does not maintain a high GPA, they do not qualify for a merit-based scholarship.\\\" - This premise confirms that maintaining a high GPA is a necessary condition for qualifying for a merit-based scholarship.\\n\\nStep 3: Using Premise 10: \\\"If all students have the opportunity to apply for scholarships, then maintaining a high GPA leads to scholarship eligibility.\\\" - This premise reinforces the connection between maintaining a high GPA and scholarship eligibility.\\n\\nStep 4: From Steps 1, 2, and 3, we can deduce that maintaining a high GPA leads to scholarship eligibility through a merit-based pathway.\\n\\nFinal Step: Based on the above steps, the statement \\\"There exists a complete pathway from maintaining a high GPA to receiving a scholarship\\\" is true. Therefore, the answer is Yes.\"\n}",
+    "timing": {
+      "step_1_reasoning": 10.56212592124939,
+      "step_2_concise_answer": 1.0533783435821533,
+      "step_3_explanation": 8.931302070617676,
+      "step_4_indices": 0.4040226936340332,
+      "final_step_assembly": 14.701317310333252,
+      "total_pipeline": 35.65217423439026
+    },
+    "original_index": 48
+  },
+  {
+    "question": "Based on the premises, is the following rule enforced?\nRule: If a student applies for financial aid, and they have a low family income, they increase their chances of receiving support and reducing tuition burden.",
+    "answer": "Yes",
+    "idx": [
+      3,
+      6,
+      7
+    ],
+    "explanation": "Step 1: Using Premise 3: \\\"If a student has a low family income, they qualify for need-based financial aid.\\\" - This premise confirms that students with low family incomes are eligible for need-based financial aid.\\n\\nStep 2: Using Premise 6: \\\"If a student applies for financial aid, they increase their chances of receiving financial support.\\\" - This premise indicates that applying for financial aid increases the chances of receiving financial support.\\n\\nStep 3: Using Premise 7: \\\"If a student receives financial aid, their tuition burden is reduced.\\\" - This premise confirms that receiving financial aid reduces the tuition burden.\\n\\nStep 4: Combining the above steps:\\n- A student with a low family income qualifies for need-based financial aid (Step 1).\\n- Applying for financial aid increases the chances of receiving financial support (Step 2).\\n- Receiving financial aid reduces the tuition burden (Step 3).\\n- Therefore, if a student with a low family income applies for financial aid, they increase their chances of receiving need-based financial aid, which in turn increases their chances of receiving financial support and reduces their tuition burden.\\n\\nFinal Step: The rule is enforced based on the premises provided.\"\n}",
+    "timing": {
+      "step_1_reasoning": 31.74078345298767,
+      "step_2_concise_answer": 1.0622668266296387,
+      "step_3_explanation": 9.269041061401367,
+      "step_4_indices": 0.35447025299072266,
+      "final_step_assembly": 11.086796045303345,
+      "total_pipeline": 53.513373136520386
+    },
+    "original_index": 49
+  }
+]

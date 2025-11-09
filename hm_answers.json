@@ -1,0 +1,25 @@
+[
+  {
+    "question": "What qualifies a student for a scholarship?",
+    "answer": "Uncertain",
+    "idx": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "explanation": "1. **Premise 1**: If a student studies a subject for 10 hours or more, they will gain the required knowledge.\n2. **Premise 2**: If a student gains the required knowledge, they will either pass the exam or complete a project.\n3. **Premise 3**: If a student does not complete the project, they must take the exam.\n4. **Premise 4**: If a subject requires an exam, the professor either prepares the exam, or the system generates one.\n5. **Premise 5**: If a student studies less than 10 hours, they must take the exam.\n6. **Premise 6**: If a student passes 3 or more subjects, they are eligible for a scholarship.\n7. **Premise 7**: If a student studies at least 15 hours for a subject, they are exempted from the exam.\n8. **Premise 8**: If a student gains required knowledge in three subjects but fails to complete a project in any, they must take the exam for those subjects.\n9. **Premise 9**: If a student studies less than 10 hours but completes the project, they still must take an assessment if the professor requires it.\n\nFrom these premises, we can derive the following conditions for a student to qualify for a scholarship:\n- The student must pass 3 or more subjects.\n- If a student studies at least 15 hours for",
+    "timing": {
+      "step1_problem_formulation": 29.687886476516724,
+      "step2_problem_solving": 44.54257369041443,
+      "step3_extract_indices": 11.338572025299072,
+      "step4_concise_explanation": 11.253570318222046,
+      "total_pipeline": 96.82342958450317
+    }
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "question": "Does attending lectures initiate a causal chain leading to increased earning potential, according to the premises?",
+    "answer": "Uncertain",
+    "idx": [],
+    "explanation": "Model output lacked JSON structure: { \"answer\": \"Uncertain\", \"idx\": [], \"explanation\": \"The premises establish a chain from attending lectures to financial benefits via academic awards (Premises 1-5), but increased earning potential is only linked to advanced education (Premise 12). There is no premise connecting academic awards or financial benefits to advanced education or earning potential. Additionally, the chain leading to advanced education requires graduate school",
+    "timing": {
+      "step_1_reasoning": 30.391228675842285,
+      "step_2_concise_answer": 2.1373050212860107,
+      "step_3_explanation": 28.565128564834595,
+      "step_4_indices": 3.1559464931488037,
+      "final_json_generation": 38.31754755973816,
+      "total_pipeline": 102.5671751499176
+    },
+    "original_index": 0
+  }
+]

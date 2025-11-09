@@ -1,0 +1,996 @@
+[
+    {
+      "answers": "A",
+      "idx": [
+        1,
+        2,
+        3
+      ],
+      "explanation": "From Premise 1, all individuals are philosophers. Premise 2 states that philosophers are thoughtful, so every individual is thoughtful. Premise 3 confirms there exists at least one scholar. Since scholars are individuals (implied by Premise 3's reference to \"an individual\"), this scholar must also be a philosopher (Premise 1) and therefore thoughtful (Premise 2). Thus, the existence of a scholar guarantees the existence of a thoughtful individual.",
+      "premises-NL": [
+        "Every individual is a philosopher.",
+        "If an individual is a philosopher, then they are thoughtful.",
+        "There exists an individual who is a scholar.",
+        "Every individual is quiet.",
+        "If an individual is quiet, then they are rational."
+      ],
+      "questions": "Do the premises allow us to conclude that if there is at least one scholar, then there is at least one thoughtful individual?\nA. Yes, if there is a scholar, there is a thoughtful individual.\nB. No, this cannot be concluded.\nC. The premises lead to a contradiction about scholars and thoughtful individuals.\nD. Every thoughtful individual must be a scholar.",
+      "ref_answers": "A",
+      "ref_idx": [
+        1,
+        2,
+        3
+      ],
+      "error": "",
+      "time": 26.84013701789081
+    },
+    {
+      "answers": "Yes",
+      "idx": [
+        3,
+        4
+      ],
+      "explanation": "From Premise 3, we know that every individual is a sustainable practice. Premise 4 states that if an individual is a sustainable practice, then they are a user of renewable energy. Applying modus ponens to these two premises, we conclude that every individual is a user of renewable energy. The other premises (1, 2, 5) about renewable resources and trees do not affect this logical chain, as they pertain to different properties.",
+      "premises-NL": [
+        "Every individual is a renewable resource.",
+        "If an individual is not a tree, then they are not a renewable resource.",
+        "Every individual is a sustainable practice.",
+        "If an individual is a sustainable practice, then they are a user of renewable energy.",
+        "There exists an individual who is a tree."
+      ],
+      "questions": "Do the premises show that every individual is a user of renewable energy?",
+      "ref_answers": "Yes",
+      "ref_idx": [
+        3,
+        4
+      ],
+      "error": "",
+      "time": 42.67456092010252
+    },
+    {
+      "answers": "A",
+      "idx": [
+        3,
+        4
+      ],
+      "explanation": "From Premise 3, we know that every economy adopts sustainable practices, meaning there exist sustainable economies. Premise 4 explicitly states that if there exists a sustainable economy, then regulation prevents distrust in all economies. Since the condition in Premise 4 is satisfied by Premise 3, the conclusion follows directly. Therefore, the premises allow us to conclude that the existence of sustainable economies ensures regulation prevents distrust universally.",
+      "premises-NL": [
+        "Every economy is regulated.",
+        "If an economy is not regulated, it cannot maintain public trust.",
+        "Every economy adopts sustainable practices.",
+        "If there exists a sustainable economy, then regulation prevents distrust in all economies.",
+        "Some economies show GDP growth."
+      ],
+      "questions": "Do the premises allow us to conclude that the existence of sustainable economies ensures that regulation prevents distrust in all economies?\nA. Yes, sustainable economies imply regulation prevents distrust universally.\nB. No, this cannot be concluded.\nC. The premises are contradictory about sustainability and regulation.\nD. Sustainable economies imply no regulation is needed.",
+      "ref_answers": "A",
+      "ref_idx": [
+        3,
+        4
+      ],
+      "error": "",
+      "time": 27.218292532023042
+    },
+    {
+      "answers": "No",
+      "idx": [
+        3,
+        4
+      ],
+      "explanation": "From Premise 4, we know there exists a counselor who does not lead workshops. \n        Premise 3 states that if a counselor does not lead workshops, they cannot mentor students. \n        Therefore, this specific counselor cannot mentor students, meaning not all counselors can mentor students.",
+      "premises-NL": [
+        "Some counselors offer career advice.",
+        "If a counselor offers career advice, they can lead workshops.",
+        "If a counselor does not lead workshops, they cannot mentor students.",
+        "There exists a counselor who does not lead workshops."
+      ],
+      "questions": "Can every counselor mentor students?",
+      "ref_answers": "No",
+      "ref_idx": [
+        3,
+        4
+      ],
+      "error": "",
+      "time": 15.474194677080959
+    },
+    {
+      "answers": "B",
+      "idx": [
+        3,
+        4,
+        6
+      ],
+      "explanation": "From Premise 3, the registration fee is $50 per credit. Alex is registering for 3 advanced courses (4 credits each), totaling 12 credits: 12 × $50 = $600. Premise 6 confirms Alex paid $600, but Premise 4 states that payments after 15/08/2025 incur a $100 penalty per course. Since Alex paid on 16/08/2025, the $100 penalty applies to each of the 3 courses (3 × $100 = $300). Total cost: $600 + $300 = $900. Premise 5 does not apply here because Alex’s prerequisites are confirmed as complete in Premise 6.",
+      "premises-NL": [
+        "Students can register for advanced courses only if they have completed all prerequisite courses and paid the registration fee by 15/08/2025.",
+        "Each advanced course requires 3 prerequisite courses, each worth 4 credits.",
+        "A registration fee of $50 per credit is charged for advanced courses, payable by the deadline.",
+        "If a student misses the fee deadline but completes prerequisites, they can register late with a $100 penalty per course.",
+        "The system rejects registrations if any prerequisite course is incomplete, regardless of fee payment.",
+        "A student, Alex, has completed 8 prerequisite courses (32 credits) and paid $600 for 3 advanced courses (4 credits each) on 16/08/2025."
+      ],
+      "questions": "Alex attempts to register for 3 advanced courses (4 credits each) on 16/08/2025. What is the total cost, including penalties, for his registration?\nA. $600, no penalties, as prerequisites are met.\nB. $900, including $100 penalty per course for late payment.\nC. $600, but registration is rejected due to late payment.\nD. $700, with a single $100 penalty for late registration.",
+      "ref_answers": "B",
+      "ref_idx": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "error": "",
+      "time": 60.82131790788844
+    },
+    {
+      "answers": "Yes",
+      "idx": [
+        4
+      ],
+      "explanation": "From Premise 4, we know that \"Dr. Smith has a PhD.\" This directly confirms that Dr. Smith is a PhD holder.",
+      "premises-NL": [
+        "All students enrolled in a university must have completed high school.",
+        "John is enrolled in a university.",
+        "All teachers with a PhD are qualified to teach advanced courses.",
+        "Dr. Smith has a PhD."
+      ],
+      "questions": "Is Dr. Smith a PhD holder?",
+      "ref_answers": "Yes",
+      "ref_idx": [
+        4
+      ],
+      "error": "",
+      "time": 9.135651723016053
+    },
+    {
+      "answers": "No",
+      "idx": [
+        2,
+        3
+      ],
+      "explanation": "From Premise 2, we know some students attend orientation online. Premise 3 establishes that online orientation requires an internet connection. However, Premise 1 only requires students to attend orientation (without specifying format), and there is no information about students attending in-person orientation requiring internet. Since \"some\" students attend online (not all), and no rule forces all students to attend online, we cannot conclude all students need internet. The premises only establish that a subset of students (those attending online orientation) require internet.",
+      "premises-NL": [
+        "All students must attend orientation before classes start.",
+        "Some students attend orientation online.",
+        "If a student attends orientation online, they need an internet connection.",
+        "All students with an internet connection can access the student portal.",
+        "Some students do not access the student portal.",
+        "If a student does not access the student portal, they cannot view grades online.",
+        "All students must submit a registration form.",
+        "Some students submit their registration form late."
+      ],
+      "questions": "Do all students need an internet connection?",
+      "ref_answers": "Uncertain",
+      "ref_idx": [],
+      "error": "",
+      "time": 20.60408029682003
+    },
+    {
+      "answers": "No",
+      "idx": [
+        3,
+        4,
+        5
+      ],
+      "explanation": "From Premise 5, we know some teachers do not teach online classes. Premise 4 states that all teachers with software training can teach online classes. Using contraposition, if a teacher cannot teach online classes (as in Premise 5), they must lack software training. Therefore, since some teachers cannot teach online classes, not all teachers have software training.",
+      "premises-NL": [
+        "All teachers must prepare lesson plans.",
+        "Some teachers use digital tools for lesson plans.",
+        "If a teacher uses digital tools, they must have software training.",
+        "All teachers with software training can teach online classes.",
+        "Some teachers do not teach online classes.",
+        "If a teacher does not teach online classes, they cannot host webinars.",
+        "All teachers must attend a yearly conference.",
+        "Some teachers present at the conference."
+      ],
+      "questions": "Do all teachers have software training?",
+      "ref_answers": "Uncertain",
+      "ref_idx": [],
+      "error": "",
+      "time": 22.201595338992774
+    },
+    {
+      "answers": "B",
+      "idx": [
+        3,
+        4
+      ],
+      "explanation": "From Premise 4, we know there exists a school without qualified teachers. Premise 3 states that if a school lacks qualified teachers, it cannot offer advanced math courses. Therefore, this specific school cannot offer advanced math courses. Since at least one school does not offer them, we cannot conclude that every school offers advanced math courses. The conclusion follows directly from the combination of these two premises.",
+      "premises-NL": [
+        "Some schools offer advanced math courses.",
+        "If a school offers advanced math courses, it must have qualified teachers.",
+        "If a school does not have qualified teachers, it cannot offer advanced math courses.",
+        "There exists a school that does not have qualified teachers."
+      ],
+      "questions": "Can we conclude that every school offers advanced math courses?\nA. Yes, every school offers advanced math courses.\nB. No, not every school offers advanced math courses.\nC. The premises are contradictory about advanced math courses.",
+      "ref_answers": "B",
+      "ref_idx": [
+        3,
+        4
+      ],
+      "error": "",
+      "time": 20.37741081789136
+    },
+    {
+      "answers": "B",
+      "idx": [
+        2,
+        3,
+        4
+      ],
+      "explanation": "From Premise 4, there exists a student without safety training. Premise 3 states that students without safety training cannot attend lab sessions. Premise 2 requires biology students to attend lab sessions. Combining these, the student without safety training (Premise 4) cannot attend labs (Premise 3) and therefore cannot take biology (Premise 2). Since at least one student cannot take biology, it follows that not every student takes biology.",
+      "premises-NL": [
+        "Some students take biology.",
+        "If a student takes biology, they must attend lab sessions.",
+        "If a student does not have safety training, they cannot attend lab sessions.",
+        "There exists a student who does not have safety training."
+      ],
+      "questions": "Can we conclude that every student takes biology?\nA. Yes, every student takes biology.\nB. No, not every student takes biology.\nC. The premises are contradictory about biology enrollment.",
+      "ref_answers": "B",
+      "ref_idx": [
+        2,
+        3,
+        4
+      ],
+      "error": "",
+      "time": 22.756794437998906
+    },
+    {
+      "answers": "No",
+      "idx": [
+        3,
+        4
+      ],
+      "explanation": "From Premise 4, we know there exists a teacher who does not access student records. Premise 3 explicitly states that if a teacher does not access student records, they cannot update grades online. Therefore, this teacher cannot update grades online, proving that not every teacher can perform this action.",
+      "premises-NL": [
+        "Some teachers use an online grading system.",
+        "If a teacher uses an online grading system, they can access student records.",
+        "If a teacher does not access student records, they cannot update grades online.",
+        "There exists a teacher who does not access student records."
+      ],
+      "questions": "Can every teacher update grades online?",
+      "ref_answers": "No",
+      "ref_idx": [
+        3,
+        4
+      ],
+      "error": "",
+      "time": 17.453615840990096
+    },
+    {
+      "answers": "No",
+      "idx": [
+        5,
+        6
+      ],
+      "explanation": "From Premise 5, we know that some counselors do not lead workshops. Premise 6 states that if a counselor does not lead workshops, they cannot mentor students. Therefore, there exists at least some counselors who cannot mentor students, which means it is not true that all counselors can mentor students.",
+      "premises-NL": [
+        "All schools must have a counselor.",
+        "Some counselors offer career advice.",
+        "If a counselor offers career advice, they must have a certification.",
+        "All counselors with a certification can lead workshops.",
+        "Some counselors do not lead workshops.",
+        "If a counselor does not lead workshops, they cannot mentor students.",
+        "All schools must have a gym.",
+        "Some gyms have fitness classes."
+      ],
+      "questions": "Can all counselors mentor students?",
+      "ref_answers": "No",
+      "ref_idx": [
+        5,
+        6
+      ],
+      "error": "",
+      "time": 15.203483153134584
+    },
+    {
+      "answers": "No",
+      "idx": [
+        2,
+        3
+      ],
+      "explanation": "From Premise 2, we know that joining the debate club requires public speaking skills (if a student joins, they must have the skills). Premise 3 explicitly states that students without public speaking skills cannot join the debate club. Since the question involves a student lacking these skills, Premise 3 directly answers it with a \"No.\"",
+      "premises-NL": [
+        "Some students join the debate club.",
+        "If a student joins the debate club, they must have public speaking skills.",
+        "If a student does not have public speaking skills, they cannot join the debate club.",
+        "There exists a student who does not have public speaking skills."
+      ],
+      "questions": "Can a student without public speaking skills join the debate club?",
+      "ref_answers": "No",
+      "ref_idx": [
+        3
+      ],
+      "error": "",
+      "time": 15.880245303967968
+    },
+    {
+      "answers": "No",
+      "idx": [
+        3,
+        4
+      ],
+      "explanation": "From Premise 4, we know there exists a principal who does not mentor teachers. Premise 3 states that if a principal does not mentor teachers, they cannot lead training sessions. Applying these two premises together, we conclude that this specific principal cannot lead training sessions. Since at least one principal exists who cannot lead training sessions, it is not true that every principal can lead training sessions.",
+      "premises-NL": [
+        "Some principals have a teaching background.",
+        "If a principal has a teaching background, they can mentor teachers.",
+        "If a principal does not mentor teachers, they cannot lead training sessions.",
+        "There exists a principal who does not mentor teachers."
+      ],
+      "questions": "Can every principal lead training sessions?",
+      "ref_answers": "No",
+      "ref_idx": [
+        3,
+        4
+      ],
+      "error": "",
+      "time": 17.191605212865397
+    },
+    {
+      "answers": "No",
+      "idx": [
+        1,
+        4,
+        6
+      ],
+      "explanation": "From Premise 1, enrollment requires submitting the form by 20/07/2025. Liam submitted on 22/07/2025 (Premise 6), which is late. Premise 4 states late registration incurs a $200 penalty, meaning enrollment without penalty is impossible if submitted after the deadline. Thus, Liam cannot enroll without paying the penalty.",
+      "premises-NL": [
+        "Students can enroll in a capstone course only if they have completed at least 100 total credits and submitted a registration form by 20/07/2025.",
+        "The capstone course requires 4 prerequisite courses, each worth 5 credits.",
+        "The registration fee for the capstone course is $60 per credit, due by the deadline.",
+        "Late registration (after 20/07/2025) incurs a $200 penalty, but enrollment is allowed if all prerequisites are met.",
+        "Enrollment is rejected if any prerequisite course is incomplete, even if the fee is paid.",
+        "A student, Liam, has 105 total credits, completed 5 prerequisite courses, and submitted the form with a $360 fee on 22/07/2025."
+      ],
+      "questions": "Can Liam enroll in the capstone course without paying a penalty?",
+      "ref_answers": "No",
+      "ref_idx": [
+        1,
+        2,
+        4,
+        6
+      ],
+      "error": "",
+      "time": 35.36627997690812
+    },
+    {
+      "answers": "6.97",
+      "idx": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "explanation": "<p>From Premise 1, Nam's initial GPA is 6.9 over 88 credits (607.2 total grade points). Retaken courses (C1, C2, C3) use the highest score (Premise 5, 6). Adjusting their grade points: C1 (7.0*4=28), C2 (6.8*3=20.4), C3 (7.5*5=37.5). Total retaken grade points: 85.9. Original retaken grade points (C1: 5.2*4=20.8, C2: 6.0*3=18, C3: 7.5*5=37.5) sum to 76.3. Net gain: +9.6 grade points (Premise 6, 7).</p>\n        <p>Repeated failed course C4 (Premise 3, 10): initial 0 credits, now 3 credits with 6.5. Adds 19.5 grade points and 3 credits. New courses (C5, C6) add 32.0 and 7.6 grade points (4+2=6 credits). Total grade points: 607.2 +9.6 +19.5 +39.6 = 675.9. Total credits: 88 +3 +6 =97. Final GPA: 675.9 /97 ≈6.97.</p>",
+      "premises-NL": [
+        "Nam has a GPA of 6.9 after completing 88 credits.",
+        "Nam retook 3 previously passed courses: C1 (4 credits, initial 5.2, retake1 7.0, retake2 3.5), C2 (3 credits, initial 6.0, retake1 6.8, retake2 6.0), C3 (5 credits, initial 7.5, retake1 5.0, retake2 4.0).",
+        "Nam repeated one failed course: C4 (3 credits, initial 3.0, repeat 6.5).",
+        "Nam took two new courses: C5 (4 credits, score 8.0), C6 (2 credits, score 3.8).",
+        "A retake is re-registering a passed course (same course code) to improve the grade.",
+        "For GPA, use the highest score if >= 4.0; if all retake scores < 5.0, deduct 0.2 points per credit from the course's grade points.",
+        "Retaking a course does not add credits.",
+        "Repeating a failed course means re-registering it.",
+        "A failed course (score < 4.0) adds no credits.",
+        "Repeating a failed course adds credits if the new score >= 4.0."
+      ],
+      "questions": "What is Nam's updated GPA after all course attempts?",
+      "ref_answers": "7.04",
+      "ref_idx": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "error": "",
+      "time": 193.61678294907324
+    },
+    {
+      "answers": "B",
+      "idx": [
+        2,
+        6
+      ],
+      "explanation": "From Premise 2, Voice Conversion (VC) technology alters a speaker's voice to sound like another speaker. From Premise 6, VC systems must preserve the linguistic content of the original speech. Together, these confirm that VC changes the voice (identity) while keeping the message intact, matching option B. Options A and D refer to Text-to-Speech (TTS) systems (Premises 1,5), and option C refers to concatenative TTS (Premise 7), which are unrelated to VC.",
+      "premises-NL": [
+        "Text-to-Speech (TTS) systems convert written text into spoken words.",
+        "Voice Conversion (VC) technology alters a speaker's voice to sound like another speaker.",
+        "TTS systems include concatenative, parametric, and neural network-based types.",
+        "VC is used for applications such as voice anonymization and dubbing.",
+        "Neural network-based TTS systems often rely on models like WaveNet.",
+        "VC systems must preserve the linguistic content of the original speech.",
+        "Concatenative TTS systems use pre-recorded speech segments to generate output.",
+        "Voice anonymization changes a speaker's identity in audio."
+      ],
+      "questions": "Which of the following is true about Voice Conversion technology? A) It converts text to speech. B) It changes a speaker's voice while keeping the message intact. C) It relies on pre-recorded speech segments. D) It generates speech using WaveNet.",
+      "ref_answers": "B",
+      "ref_idx": [
+        2,
+        6
+      ],
+      "error": "",
+      "time": 21.218215072061867
+    },
+    {
+      "answers": "Yes",
+      "idx": [
+        4
+      ],
+      "explanation": "From Premise 4, we know that each newer version of Bluetooth generally offers improvements in energy efficiency. Since Bluetooth 5.0 is a newer version than Bluetooth 4.0, it follows that Bluetooth 5.0 is generally more energy-efficient than Bluetooth 4.0.",
+      "premises-NL": [
+        "Bluetooth technology enables wireless communication between devices over short distances.",
+        "Bluetooth operates in the 2.4 GHz frequency band.",
+        "There are different versions of Bluetooth, including Bluetooth 1.0, 2.0, 3.0, 4.0, and 5.0.",
+        "Each newer version of Bluetooth generally offers improvements in speed, range, and energy efficiency.",
+        "Bluetooth Low Energy (BLE) is a variant of Bluetooth introduced in Bluetooth 4.0.",
+        "BLE is designed for devices that require low power consumption, such as wearables and IoT devices.",
+        "Bluetooth can be used for various applications, including audio streaming, file transfer, and device pairing.",
+        "Bluetooth devices can connect in a piconet, which is a network of up to eight devices."
+      ],
+      "questions": "Is Bluetooth 5.0 generally more energy-efficient than Bluetooth 4.0?",
+      "ref_answers": "Yes",
+      "ref_idx": [
+        3,
+        4
+      ],
+      "error": "",
+      "time": 15.90993706905283
+    },
+    {
+      "answers": "A",
+      "idx": [
+        5
+      ],
+      "explanation": "From Premise 5, we know that if a pull request is merged and addresses issue 'issue1', then 'issue1' is closed. Since Premise 2 confirms that 'pr1' is merged and Premise 1 states that 'pr1' addresses 'issue1', we can conclude that 'issue1' is closed. The other options are not supported by the premises: the target branch is 'dev' (not 'master') per Premise 1, and there is no information about branch deletion or commit removal from 'forkRepo'.",
+      "premises-NL": [
+        "There is a pull request 'pr1' addressed issue 'issue1' from branch 'featureA' in 'forkRepo' to branch 'dev' in 'mainRepo'.",
+        "Pull request 'pr1' is merged.",
+        "Commit 'commit1' is included in 'pr1'.",
+        "When a pull request is merged, its commits are added to the target branch.",
+        "If a pull request is merged and addresses issue 'issue1', then 'issue1' is closed."
+      ],
+      "questions": "What is true after pull request 'pr1' is merged?\nA. 'issue1' is closed.\nB. 'commit1' is in branch 'master' of 'mainRepo'.\nC. Branch 'featureA' is deleted from 'forkRepo'.\nD. 'commit1' is no longer in 'forkRepo'.",
+      "ref_answers": "A",
+      "ref_idx": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "error": "",
+      "time": 26.129834048915654
+    },
+    {
+      "answers": "C",
+      "idx": [
+        3,
+        6
+      ],
+      "explanation": "From Premise 3, we know classification tasks typically use Hinge Loss or Cross-Entropy Loss. The question specifies penalizing confident wrong predictions, which is directly addressed by Premise 6 stating Cross-Entropy Loss heavily penalizes confident and incorrect predictions. This matches the requirement in the question, making Cross-Entropy Loss (option C) the correct choice.",
+      "premises-NL": [
+        "Loss functions in machine learning quantify the error between a model's predictions and the true values.",
+        "Regression problems often use loss functions like Mean Squared Error (MSE) or Huber Loss.",
+        "Classification problems typically employ loss functions such as Hinge Loss or Cross-Entropy Loss.",
+        "Mean Squared Error (MSE) is sensitive to outliers because it squares the differences between predicted and actual values.",
+        "Huber Loss combines properties of MSE and MAE, making it less sensitive to outliers than MSE.",
+        "Cross-Entropy Loss is effective because it penalizes confident and incorrect predictions heavily.",
+        "In deep learning, the loss function guides the gradient descent algorithm to minimize prediction errors.",
+        "The choice of loss function can affect a model's robustness and convergence speed during training."
+      ],
+      "questions": "Which loss function is suitable for a deep learning classification task that needs to penalize confident wrong predictions? A) MSE B) Huber Loss C) Cross-Entropy Loss D) Hinge Loss",
+      "ref_answers": "C",
+      "ref_idx": [
+        3,
+        6
+      ],
+      "error": "",
+      "time": 17.448398219887167
+    },
+    {
+      "answers": "D",
+      "idx": [
+        2,
+        3
+      ],
+      "explanation": "From Premise 2, we know that the key in the Hill cipher must be a square matrix that is invertible modulo the alphabet size. Premise 3 adds that the determinant of the key matrix must be non-zero and coprime with the modulus to ensure invertibility. This directly supports option D, which states the key matrix must be invertible modulo the alphabet size. Options A and B are contradicted by Premises 2 and 6 (non-square matrices and zero determinant are invalid). Option C is refuted by Premise 8, which notes vulnerabilities to known-plaintext attacks.",
+      "premises-NL": [
+        "The Hill cipher is a polygraphic substitution cipher that uses linear algebra for encryption and decryption.",
+        "In the Hill cipher, the key is a square matrix that must be invertible modulo the size of the alphabet.",
+        "The determinant of the key matrix must be non-zero and coprime with the modulus for the matrix to be invertible.",
+        "The Hill cipher encrypts a plaintext vector by multiplying it with the key matrix modulo the alphabet size.",
+        "Decryption in the Hill cipher involves multiplying the ciphertext vector by the inverse of the key matrix modulo the alphabet size.",
+        "If the determinant of the key matrix is zero, the matrix is not invertible, and decryption is impossible.",
+        "For a 2x2 matrix, the inverse exists if the determinant is non-zero and coprime with the modulus.",
+        "The Hill cipher can be broken if the key matrix is not chosen carefully, as it is vulnerable to known-plaintext attacks."
+      ],
+      "questions": "Which of the following is true about the Hill cipher? A) It uses a non-square matrix for encryption. B) The key matrix must have a determinant of zero. C) It is secure against all types of attacks. D) The key matrix must be invertible modulo the alphabet size.",
+      "ref_answers": "D",
+      "ref_idx": [
+        2
+      ],
+      "error": "",
+      "time": 35.956529868999496
+    },
+    {
+      "answers": "A",
+      "idx": [
+        1,
+        2
+      ],
+      "explanation": "From Premise 2, we know that SystemA has a weak password. Premise 1 establishes that a system with a weak password is vulnerable to brute-force attacks. Applying Premise 1 to SystemA's condition (weak password), we conclude SystemA is vulnerable to brute-force attacks. Other premises (3-4) discuss SystemH and malware/attachments, which are unrelated to SystemA's vulnerability status.",
+      "premises-NL": [
+        "If a system has a weak password, it is vulnerable to brute-force attacks.",
+        "SystemA has a weak password.",
+        "If a system does not have malware installed, it does not have an infected attachment opened on it.",
+        "EmailF has an infected attachment, and UserG opened it on SystemH."
+      ],
+      "questions": "Which conclusion about SystemA logically follows from the premises?\nA. SystemA is vulnerable to brute-force attacks.\nB. SystemA has no weak password.\nC. SystemA has malware installed.\nD. SystemA is not vulnerable to brute-force attacks.",
+      "ref_answers": "A",
+      "ref_idx": [
+        1,
+        2
+      ],
+      "error": "",
+      "time": 16.549346818123013
+    },
+    {
+      "answers": "B",
+      "idx": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "explanation": "From Premise 5, Emma has completed all prerequisite courses, satisfying the first condition in Premise 1. However, Premise 2 states that failing a course in the previous semester (as Emma did) results in academic probation. Premise 1 explicitly requires students to not be on probation to enroll. While Premise 4 allows probationary students to enroll with special approval by 10/07/2025, Premise 5 confirms Emma has no such approval. Therefore, Emma is denied enrollment due to probation and lack of approval (Premise 1, 2, 4, 5).",
+      "premises-NL": [
+        "Students can enroll in an advanced seminar only if they have completed all required prerequisite courses and are not on academic probation.",
+        "A student is placed on academic probation if they fail any course in the previous semester.",
+        "All prerequisite courses must be verified as completed by the registration deadline of 15/07/2025.",
+        "If a student is on probation, they can still enroll if they receive special approval from the academic advisor by 10/07/2025.",
+        "A student, Emma, has completed all prerequisite courses but failed one course last semester and has no special approval."
+      ],
+      "questions": "Emma attempts to enroll in the advanced seminar for the upcoming semester. What is the outcome of her enrollment attempt?\nA. Emma is allowed to enroll because she completed all prerequisite courses.\nB. Emma is denied enrollment due to her probation status and lack of special approval.\nC. Emma is allowed to enroll if she verifies her prerequisites after the deadline.\nD. Emma is denied enrollment because her prerequisites are not completed.",
+      "ref_answers": "B",
+      "ref_idx": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "error": "",
+      "time": 43.698615092085674
+    },
+    {
+      "answers": "B",
+      "idx": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "explanation": "From Premise 5, Noah has completed all preparatory courses, satisfying part of Premise 1's requirement. However, he has one incomplete grade, which violates Premise 2 (clear academic standing requires no incomplete grades). Premise 4 allows enrollment with incomplete grades if a resolution form is submitted by 25/07/2025, but Premise 5 explicitly states Noah did not submit such a form. Since Noah fails both the clear academic standing requirement (Premise 2) and the resolution form exception (Premise 4), his enrollment is denied under Premise 1.",
+      "premises-NL": [
+        "Students can enroll in a research workshop only if they have completed all required preparatory courses and have a clear academic standing.",
+        "A student has a clear academic standing only if they have no incomplete grades from the previous semester.",
+        "Preparatory courses must be verified as completed by the enrollment deadline of 01/08/2025.",
+        "Students with incomplete grades can enroll if they submit a grade resolution form by 25/07/2025.",
+        "A student, Noah, has completed all preparatory courses, has one incomplete grade, and did not submit a grade resolution form."
+      ],
+      "questions": "Noah attempts to enroll in the research workshop for the upcoming semester. What is the outcome of his enrollment attempt?\nA. Noah is allowed to enroll because he completed all preparatory courses.\nB. Noah is denied enrollment due to an incomplete grade and lack of a resolution form.\nC. Noah is allowed to enroll if he verifies his courses after the deadline.\nD. Noah is denied enrollment because his preparatory courses are incomplete.",
+      "ref_answers": "B",
+      "ref_idx": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "error": "",
+      "time": 35.10920012393035
+    },
+    {
+      "answers": "No",
+      "idx": [
+        2,
+        3,
+        4
+      ],
+      "explanation": "From Premise 4, we know Liam failed a required course last semester, which by Premise 2 places him on academic suspension. Premise 3 allows students on suspension to enroll only if dean's approval is received by 01/08/2025. Since the question specifies approval occurs after this date, the exception does not apply. Thus, Liam remains on suspension and cannot enroll per Premise 1.",
+      "premises-NL": [
+        "Students can enroll in a senior seminar only if they have completed all prerequisite courses and are not on academic suspension.",
+        "A student is on academic suspension if they failed a required course in the previous semester.",
+        "Students on academic suspension can enroll if they receive a dean's approval by 01/08/2025.",
+        "A student, Liam, has completed all prerequisite courses, failed one required course last semester, and has no dean's approval."
+      ],
+      "questions": "Can Liam enroll in the senior seminar if he receives dean's approval after 01/08/2025?",
+      "ref_answers": "No",
+      "ref_idx": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "error": "",
+      "time": 23.63877882808447
+    },
+    {
+      "answers": "No",
+      "idx": [
+        2,
+        3,
+        4
+      ],
+      "explanation": "From Premise 4, Emma has a low GPA from the previous semester, which by Premise 2 means she is on academic probation. Premise 3 allows students on probation to enroll only if they obtain a faculty waiver by 10/08/2025. Since Emma obtains the waiver after this deadline, the waiver does not satisfy the requirement in Premise 3. Therefore, Emma remains ineligible to enroll in the advanced workshop.",
+      "premises-NL": [
+        "Students can enroll in an advanced workshop only if they have completed all core courses and are not on academic probation.",
+        "A student is on academic probation if they have a low GPA from the previous semester.",
+        "Students on academic probation can enroll if they obtain a faculty waiver by 10/08/2025.",
+        "A student, Emma, has completed all core courses, has a low GPA last semester, and has no faculty waiver."
+      ],
+      "questions": "Can Emma enroll in the advanced workshop if she obtains a faculty waiver after 10/08/2025?",
+      "ref_answers": "No",
+      "ref_idx": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "error": "",
+      "time": 24.32381186215207
+    },
+    {
+      "answers": "22, No",
+      "idx": [
+        8,
+        5,
+        7
+      ],
+      "explanation": "To calculate the internship prep hours, we use Premise 5, which specifies prep hours per credit for courses with grades ≥4.0. The student's courses include:\n        - C1 (3 credits, 5.8): 5 hours (Premise 5).\n        - C2 (4 credits, 6.5): 7 hours (Premise 5).\n        - C3 (5 credits, 7.0): 10 hours (Premise 5).\n        - C1 retake (3 credits, 6.8): 5 hours (Premise 4 states retakes use the highest grade but do not add extra credits; prep hours depend on credit count, not grade).\n        - C4 (3 credits, 3.5): 0 hours (Premise 3: failed courses contribute 0 prep hours).\n        Total prep hours: 5 + 7 + 10 + 5 = 22.\n\n        For eligibility (Premise 1), the student must have ≥78 credits (they have 80), GPA ≥6.0 (they have 6.2), and ≥50 prep hours. Since 22 < 50, they are not eligible.",
+      "premises-NL": [
+        "Total program credits are 120; internship eligibility requires >= 78 credits (65%), GPA >= 6.0 (scale 0-10), and >= 50 internship prep hours.",
+        "First-year students (Year 1) have < 40 credits.",
+        "Failed courses (grade < 4.0) contribute 0 credits.",
+        "Improvement retakes (grade >= 4.0) use highest grade, no extra credits.",
+        "Each course (grade >= 4.0) adds prep hours: 3 credits = 5 hours, 4 credits = 7 hours, 5 credits = 10 hours.",
+        "Third-year students (Year 3) with < 78 credits can join prep workshops (20 hours), if GPA >= 5.5.",
+        "A student (Year 2) has a GPA of 6.2, 80 credits, including C1 (3 credits, 5.8, 5 hours), C2 (4 credits, 6.5, 7 hours).",
+        "The student took C3 (5 credits, 7.0), retook C1 (6.8), took C4 (3 credits, 3.5, failed)."
+      ],
+      "questions": "How many internship prep hours has the student accumulated, and are they eligible for an internship?",
+      "ref_answers": "120, No",
+      "ref_idx": [
+        1,
+        5,
+        7,
+        8
+      ],
+      "error": "",
+      "time": 117.96889232285321
+    },
+    {
+      "answers": "B",
+      "idx": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "explanation": "From Premise 4, Noah has completed all foundational courses, satisfying the first condition in Premise 1. However, Premise 2 establishes that failing to complete a mandatory advising session (which Noah did) creates an academic hold. Premise 3 allows enrollment with an academic hold only if a hold release form is submitted by 05/08/2025. Since Premise 4 explicitly states Noah has not submitted such a form, his academic hold remains active. Premise 1 requires both completed foundational courses and no academic holds for enrollment. Noah fails the second condition, so his enrollment is denied. This matches option B.",
+      "premises-NL": [
+        "Students can enroll in a capstone course only if they have completed all foundational courses and have no academic holds.",
+        "A student has an academic hold if they failed to complete a mandatory advising session in the previous semester.",
+        "Students with academic holds can enroll if they submit a hold release form by 05/08/2025.",
+        "A student, Noah, has completed all foundational courses, failed to complete an advising session last semester, and has not submitted a hold release form."
+      ],
+      "questions": "Noah attempts to enroll in the capstone course for the upcoming semester. What is the outcome of his enrollment attempt?\nA. Noah is allowed to enroll because he completed all foundational courses.\nB. Noah is denied enrollment due to his academic hold and lack of a hold release form.\nC. Noah is allowed to enroll if he completes an advising session after the deadline.\nD. Noah is denied enrollment because his foundational courses are incomplete.",
+      "ref_answers": "B",
+      "ref_idx": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "error": "",
+      "time": 24.90552271506749
+    },
+    {
+      "answers": "110, No",
+      "idx": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "explanation": "1. **Capstone Hours Calculation**:\n           - From Premise 7: The student has 100 capstone hours from existing courses (C1 and C2).\n           - From Premise 8: \n             - C3 (5 credits, 4.5) adds 10 hours (Premise 5: 5 credits = 10 hours).\n             - Retake of C1 (6.5) does not add extra hours (Premise 4: retakes use highest grade, no extra hours).\n             - C4 (3 credits, 3.8) adds 0 hours (Premise 3: failed courses add 0).\n             - Workshops add 0 hours (Premise 6: only for Year 4 students).\n           - Total capstone hours = 100 + 10 = 110.\n\n        2. **Thesis Eligibility**:\n           - From Premise 1: Requires >=100 credits, GPA >=5.5, capstone completion, and >=80 capstone hours.\n           - The student has 85 credits (Premise 7) < 100, so fails the credit requirement.\n           - GPA (5.8) and capstone hours (110) meet requirements, but credit requirement is unmet.\n           - Capstone completion is satisfied (C3 is a 5-credit course with grade 4.5, and 85 credits >=80).\n           - Since the student lacks >=100 credits, they are not eligible.",
+      "premises-NL": [
+        "Thesis eligibility requires >= 100 credits, GPA >= 5.5 (scale 0-10), capstone completion, and >= 80 capstone hours.",
+        "Capstone completion requires >= 80 credits and a 5-credit capstone course (grade >= 4.0).",
+        "Failed courses (grade < 4.0) add 0 credits, 0 capstone hours.",
+        "Improvement retakes (grade >= 4.0) use highest grade, no extra credits/hours.",
+        "Each course (grade >= 4.0) adds capstone hours: 3 credits = 6 hours, 4 credits = 8 hours, 5 credits = 10 hours.",
+        "Final-year students (Year 4) with capstone but < 80 hours can join capstone workshops (15 hours), if GPA >= 5.0.",
+        "A student (Year 3) has a GPA of 5.8, 85 credits, 100 capstone hours, no capstone course, including C1 (3 credits, 6.0, 6 hours), C2 (4 credits, 5.5, 8 hours).",
+        "The student took capstone course C3 (5 credits, 4.5), retook C1 (6.5), took C4 (3 credits, 3.8, failed), joined 2 workshops."
+      ],
+      "questions": "How many capstone hours has the student accumulated, and are they eligible for the thesis?",
+      "ref_answers": "124, No",
+      "ref_idx": [
+        7,
+        8,
+        5,
+        1
+      ],
+      "error": "",
+      "time": 120.81061610393226
+    },
+    {
+      "answers": "B",
+      "idx": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "explanation": "From Premise 5, Ava has completed all prerequisite courses (satisfying part of Premise 1) but has one unexcused absence. Premise 2 states that unexcused absences trigger academic probation, so Ava is on probation. Premise 1 requires students to not be on probation for enrollment, which Ava fails. Premise 4 offers an exception for probation students who submit a clearance form by 10/08/2025, but Ava has not submitted such a form (Premise 5). Additionally, Premise 3 requires advisor consent via a signed form by 15/08/2025, which Ava lacks. Since neither the probation exception (Premise 4) nor the general requirements (Premise 1) are met, Ava’s enrollment is denied. This aligns with option B.",
+      "premises-NL": [
+        "Students can enroll in a thesis seminar only if they have completed all prerequisite courses, are not on academic probation, and have advisor consent.",
+        "A student is on academic probation if they have any unexcused absences in the previous semester.",
+        "Advisor consent requires a signed approval form submitted by 15/08/2025.",
+        "Students on academic probation can enroll if they submit a probation clearance form by 10/08/2025, even without advisor consent.",
+        "A student, Ava, has completed all prerequisite courses, has one unexcused absence, has no signed approval form, and has not submitted a probation clearance form."
+      ],
+      "questions": "Ava attempts to enroll in the thesis seminar for the upcoming semester. What is the outcome of her enrollment attempt?\nA. Ava is allowed to enroll because she completed all prerequisite courses.\nB. Ava is denied enrollment due to her academic probation and lack of clearance or advisor consent.\nC. Ava is allowed to enroll if she submits a signed approval form after the deadline.\nD. Ava is denied enrollment because her prerequisite courses are incomplete.",
+      "ref_answers": "B",
+      "ref_idx": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "error": "",
+      "time": 57.00258763600141
+    },
+    {
+      "answers": "B",
+      "idx": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "explanation": "From Premise 5, we know Liam failed a core exam last semester. Premise 2 states this makes him on academic probation. Premise 1 requires students to not be on probation for enrollment. However, Premise 4 allows probationary students to enroll if they pass a probation review by 15/08/2025. Since Premise 5 explicitly states Liam has not passed a probation review, this exception does not apply. Additionally, Premise 3 requires departmental approval via a recommendation letter submitted by 20/08/2025, but Premise 5 confirms Liam has no such letter. Thus, Liam fails both the probation review (Premise 4) and departmental approval (Premise 3) requirements, leading to denial under Premise 1.",
+      "premises-NL": [
+        "Students can enroll in a graduate colloquium only if they have completed all required seminars, are not on academic probation, and have departmental approval.",
+        "A student is on academic probation if they failed a core exam in the previous semester.",
+        "Departmental approval requires a recommendation letter submitted by 20/08/2025.",
+        "Students on academic probation can enroll if they pass a probation review by 15/08/2025, regardless of departmental approval.",
+        "A student, Liam, has completed all required seminars, failed a core exam last semester, has no recommendation letter, and has not passed a probation review."
+      ],
+      "questions": "Liam attempts to enroll in the graduate colloquium for the upcoming semester. What is the outcome of his enrollment attempt?\nA. Liam is allowed to enroll because he completed all required seminars.\nB. Liam is denied enrollment due to his academic probation and lack of probation review or departmental approval.\nC. Liam is allowed to enroll if he submits a recommendation letter after the deadline.\nD. Liam is denied enrollment because his required seminars are incomplete.",
+      "ref_answers": "B",
+      "ref_idx": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "error": "",
+      "time": 31.59004736598581
+    },
+    {
+      "answers": "28, No",
+      "idx": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "explanation": "<p>Total credits are calculated by summing year 1 and year 2 credits. From Premise 5, year 1 starts with 20 credits but has 1 credit deducted due to a failed course, resulting in 19 credits. From Premise 6, year 2 adds 10 earned credits minus 1 credit for a failed course, totaling 9 credits. Thus, 19 + 9 = 28 total credits.</p>\n        <p>To choose a major (Premise 1), the student must have ≥30 credits, GPA ≥2.5, <2 violations, and second-year status (>24 credits). The student has 28 credits (insufficient), GPA 2.83 (calculated from Premises 5 and 6, accounting for penalties), and 2 violations (Premise 3 allows up to 2 violations). While GPA and violations meet requirements, the credit threshold is not met, so they cannot choose a major.</p>",
+      "premises-NL": [
+        "Choosing a major requires >= 30 credits, GPA >= 2.5 (scale 0-4), < 2 violations; second-year status (> 24 credits).",
+        "Each failed course deducts 1 credit; each violation reduces GPA by 0.1.",
+        "Students with > 2 violations cannot choose a major, regardless of credits or GPA.",
+        "GPA is calculated from passed courses (grade >= 1.0); failed courses contribute 0 credits.",
+        "A student in year 1 has 20 credits, GPA 2.8, 1 violation (GPA penalty 0.1), failed 1 course (3 credits, 1 credit deducted).",
+        "In year 2, the student earns 10 credits (GPA 3.0 for new courses), fails 1 course (4 credits, 1 credit deducted), incurs 1 violation."
+      ],
+      "questions": "How many total credits has the student accumulated, and can they choose a major?",
+      "ref_answers": "28, No",
+      "ref_idx": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "error": "",
+      "time": 102.67605449003167
+    },
+    {
+      "answers": "$100",
+      "idx": [
+        3,
+        6
+      ],
+      "explanation": "From Premise 3, late updates between 15/03 and 20/03/2025 incur a $20/day penalty if Faculty-approved. Premise 6 states Minh added 3 courses with updates on 17/03 (2 days late), 17/03 (2 days late), and 16/03 (1 day late), all Faculty-approved. Calculating penalties:  \n        - 2 days × $20 = $40 for the first course.  \n        - 2 days × $20 = $40 for the second course.  \n        - 1 day × $20 = $20 for the third course.  \n        Total penalty = $40 + $40 + $20 = $100.",
+      "premises-NL": [
+        "Scholarships require >= 20 credits, GPA >= 8.0 ($500 award), or GPA >= 9.0 ($1000 award); all courses must have grades >= 6.0 (scale 0-10).",
+        "Credits earned = 0.5 * total grade points (sum of grades across courses); GPA = sum(grade * credits)/total credits.",
+        "Scores locked on 15/03/2025; late updates (15/03â€“20/03/2025) incur $20/day penalty if Faculty-approved.",
+        "Unapproved late scores are excluded; approved scores after 20/03/2025 are invalid.",
+        "Minh has 15 credits, GPA 7.8, all grades >= 6.0, scores locked on 15/03/2025.",
+        "Minh adds 3 courses: 9.0 (4 credits, updated 17/03/2025), 8.5 (5 credits, 17/03/2025), 7.5 (3 credits, 16/03/2025); Faculty approves delays.",
+        "Minh's initial courses: 6 credits at 8.0, 9 credits at 7.7."
+      ],
+      "questions": "What is the total penalty fee for Minh's late score updates?",
+      "ref_answers": "$100",
+      "ref_idx": [
+        3,
+        6
+      ],
+      "error": "",
+      "time": 57.63806684687734
+    },
+    {
+      "answers": "$130, No",
+      "idx": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "explanation": "<p>Total cost calculation:</p>\n        <ul>\n            <li>HT removal fees: 2 courses × $50 = $100 (Premise 3 and 6)</li>\n            <li>English test fee: $30 (Premise 4 and 7)</li>\n            <li>Total: $100 + $30 = $130</li>\n        </ul>\n        <p>Graduation eligibility:</p>\n        <ul>\n            <li>Credits: Duy has 42 base credits + (85/100 × 3 for Statistics) + 0 (Economics score 55 < 60) = 42 + 2.55 + 0 = 44.55 credits (Premise 2, 5, 6). This is below the 45-credit requirement (Premise 1).</li>\n            <li>English test score: 80 ≥ 75 (Premise 7), but credit requirement fails.</li>\n        </ul>\n        <p>Conclusion: Duy is not eligible due to insufficient credits.</p>",
+      "premises-NL": [
+        "On-time graduation requires >= 45 credits, all courses scored >= 60/100, English test score >= 75/100 by 30/06/2025.",
+        "Each course (3 credits) contributes credits = (score/100) * 3; scores < 60 contribute 0 credits.",
+        "HT grades require $50/attempt removal fee; unresolved HTs by 15/06/2025 block graduation.",
+        "English test results are released 10 days after the test; tests cost $30/attempt.",
+        "Duy has 42 credits, 2 HT courses (Statistics, Economics, 3 credits each), scores pending.",
+        "Duy submits HT removal for Statistics (score 85, $50, 10/06/2025) and Economics (score 55, $50, 12/06/2025).",
+        "Duy takes English test on 25/06/2025 (score 80, $30)."
+      ],
+      "questions": "What is Duy's total cost (HT removal and English test fees), and is he eligible to graduate on time?",
+      "ref_answers": "$130, No",
+      "ref_idx": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "error": "",
+      "time": 44.66657477314584
+    },
+    {
+      "answers": "A",
+      "idx": [
+        2,
+        4,
+        5
+      ],
+      "explanation": "From Premise 4, we know there exists at least one robot. Premise 5 states that if an individual is a robot, they are a programmer. Combining this with Premise 2 (if a programmer, then a software engineer), we conclude that the robot must be a software engineer. Therefore, the existence of a robot guarantees at least one software engineer. This reasoning uses Premises 2, 4, and 5.",
+      "premises-NL": [
+        "Every individual is a programmer.",
+        "If an individual is a programmer, then they are a software engineer.",
+        "If an individual is not a software engineer, then they are not a robot.",
+        "There exists an individual who is a robot.",
+        "If an individual is a robot, then they are a programmer."
+      ],
+      "questions": "Do the premises allow us to conclude that if there is at least one robot, then there is at least one software engineer?\nA. Yes, if there is a robot, there is a software engineer.\nB. No, this cannot be concluded.\nC. The premises lead to a contradiction about robots and software engineers.\nD. Every robot must not be a software engineer.",
+      "ref_answers": "A",
+      "ref_idx": [
+        2,
+        4,
+        5
+      ],
+      "error": "",
+      "time": 33.89328791294247
+    },
+    {
+      "answers": "A",
+      "idx": [
+        1,
+        2
+      ],
+      "explanation": "From Premise 2, we know that \"If an individual is not a reptile, then they are not a plant.\" This directly supports the conclusion that non-reptiles cannot be plants. Premise 1 states \"Every individual is a reptile,\" which ensures there are no non-reptiles. Since there are no non-reptiles, the condition in Premise 2 is vacuously true. Additionally, Premise 5 confirms the existence of at least one reptile, satisfying the antecedent of the question's conditional statement. Thus, the premises allow us to conclude that if there is at least one reptile, non-reptiles cannot be plants.",
+      "premises-NL": [
+        "Every individual is a reptile.",
+        "If an individual is not a reptile, then they are not a plant.",
+        "Every individual is a plant.",
+        "If an individual is a plant, then they are a species.",
+        "There exists an individual who is a reptile."
+      ],
+      "questions": "Do the premises allow us to conclude that if there is at least one reptile, then non-reptiles cannot be plants?\nA. Yes, if there is a reptile, non-reptiles cannot be plants.\nB. No, this cannot be concluded.\nC. The premises lead to a contradiction about reptiles and plants.\nD. Some non-reptiles must be plants.",
+      "ref_answers": "B",
+      "ref_idx": [],
+      "error": "",
+      "time": 100.86334958998486
+    },
+    {
+      "answers": "B",
+      "idx": [
+        4
+      ],
+      "explanation": "The question asks whether the existence of a qualified student allows us to conclude that non-university students are not programming students. Premise 4 states: \"If a student is not a university student, then they are not a programming student.\" However, Premise 1 asserts that \"Every student is a university student,\" meaning there are no non-university students who are students. Thus, Premise 4 applies only to students, and its antecedent (a student not being a university student) is always false, making the implication vacuously true. \n\n        The question, however, refers to \"non-university students\" in general, which could include non-students. The premises do not provide information about non-students (e.g., whether they are programming students or not). Since the premises only constrain students and do not address non-students, we cannot conclude that all non-university students (including non-students) are not programming students. The existence of a qualified student (Premise 5) does not affect this conclusion because qualified students are, by Premise 2, students, and the premises do not link qualified students to non-students. Therefore, the premises do not allow the stated conclusion.",
+      "premises-NL": [
+        "Every student is a university student.",
+        "Every student is a qualified student.",
+        "If a student is a university student, then they are a technology student.",
+        "If a student is not a university student, then they are not a programming student.",
+        "There exists a qualified student."
+      ],
+      "questions": "Do the premises allow us to conclude that if there exists a qualified student, then non-university students are not programming students?\nA. Yes, the existence of a qualified student implies non-university students are not programming students.\nB. No, this cannot be concluded.\nC. The premises lead to a contradiction about qualified students.\nD. Qualified students imply all students are programming students.",
+      "ref_answers": "B",
+      "ref_idx": [
+        5
+      ],
+      "error": "",
+      "time": 95.08901573996991
+    },
+    {
+      "answers": "",
+      "idx": [],
+      "explanation": "",
+      "premises-NL": [
+        "Students begin specialization before internships or projects.",
+        "Internship eligibility requires >= 80 credits, third year, and GPA >= 6.0 (scale 0-10).",
+        "Major-specific project requires internship completion, >= 90 credits, and >= 12 social work days.",
+        "Thesis eligibility requires >= 100 credits, >= 15 social work days, MOS certificate, and language certificate.",
+        "A failed course (grade < 4.0) contributes 0 credits.",
+        "Improvement retakes (passed courses) use the highest grade but add no credits.",
+        "Repeating a failed course adds credits if grade >= 4.0.",
+        "Graduation requires thesis completion, GPA >= 5.0, and >= 20 social work days.",
+        "A student has a GPA of 6.8 with 82 credits, including C1 (4 credits, grade 5.5, failed retake at 3.8), C2 (3 credits, grade 7.0).",
+        "The student took C3 (5 credits, grade 8.0), repeated C1 (grade 6.0), and took C4 (4 credits, grade 3.5, failed)."
+      ],
+      "questions": "What is the studentâ€™s updated GPA after all course attempts?",
+      "ref_answers": "6.84",
+      "ref_idx": [
+        9,
+        10,
+        5,
+        6,
+        7
+      ],
+      "error": "CUDA out of memory. Tried to allocate 122.00 MiB. GPU 0 has a total capacity of 23.64 GiB of which 143.75 MiB is free. Process 1782 has 16.53 MiB memory in use. Including non-PyTorch memory, this process has 23.18 GiB memory in use. Of the allocated memory 22.15 GiB is allocated by PyTorch, and 592.99 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+    },
+    {
+      "answers": "5.86",
+      "idx": [
+        6,
+        7
+      ],
+      "explanation": "The student's current GPA is 5.8 with 90 credits (Premise 6). They took C3 (5 credits, grade 7.0) and C4 (3 credits, grade 3.8, failed). Failed courses contribute 0 credits (Premise 3), so only C3 adds 5 credits. The total grade points are calculated as follows:  \n        - Original grade points: 5.8 * 90 = 522  \n        - C3 contributes 5 * 7.0 = 35 grade points  \n        - Total grade points after C3: 522 + 35 = 557  \n        - Total credits: 90 + 5 = 95  \n        - New GPA: 557 / 95 ≈ 5.863, rounded to 5.9 (matching the original GPA's precision).  \n        Social activities (Premise 7) affect CTXH hours but not GPA.",
+      "premises-NL": [
+        "Graduation requires >= 130 credits, GPA >= 5.5 (scale 0-10), >= 120 CTXH hours, and a certificate.",
+        "Each course (>= 4.0 grade) contributes: 3 credits = 8 CTXH hours, 4 credits = 12 hours, 5 credits = 16 hours.",
+        "Failed courses (grade < 4.0) add 0 credits, 0 CTXH hours.",
+        "Social activities contribute CTXH: club = 20 hours, event = 10 hours; requires >= 50 credits to join.",
+        "Students with GPA < 6.0 get 0.5 CTXH hours per credit instead of standard course hours.",
+        "A student has a GPA of 5.8 with 90 credits, 180 CTXH hours, no certificate, including C1 (3 credits, grade 6.0, CTXH 0), C2 (4 credits, grade 5.5, CTXH 0).",
+        "The student took C3 (5 credits, grade 7.0), C4 (3 credits, grade 3.8, failed), joined 2 clubs and 3 events."
+      ],
+      "questions": "What is the student's updated GPA after all courses and activities?",
+      "ref_answers": "5.85",
+      "ref_idx": [
+        3,
+        6,
+        7
+      ],
+      "error": "",
+      "time": 105.42390169599093
+    }
+  ]

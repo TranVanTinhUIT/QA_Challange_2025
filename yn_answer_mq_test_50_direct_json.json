@@ -1,0 +1,12 @@
+[
+  {
+    "question": "Does attending lectures initiate a causal chain leading to increased earning potential, according to the premises?",
+    "answer": "Error: Pipeline Exception",
+    "idx": [],
+    "explanation": "Pipeline Error: bad escape (end of pattern) at position 0\nRaw Output (if available): [N/A]",
+    "timing": {
+      "error": "Pipeline exception: bad escape (end of pattern) at position 0"
+    },
+    "original_index": 0
+  }
+]
