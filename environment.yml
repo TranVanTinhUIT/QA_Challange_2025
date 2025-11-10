@@ -1,4 +1,4 @@
-name: QA-host
+name: Py310
 channels:
   - defaults
   - https://repo.anaconda.com/pkgs/main
@@ -140,4 +140,4 @@ dependencies:
       - xxhash==3.5.0
       - yarl==1.20.0
       - zstandard==0.23.0
-prefix: /home/manh/miniconda3/envs/QA-host
+prefix: /home/tinhtv/anaconda3/envs/Py310

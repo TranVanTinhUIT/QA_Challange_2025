@@ -55,31 +55,28 @@ app.config["JWT_SECRET_KEY"] = "3f9e4302dd42404485369b13d2988ff0cae93f1efbcc47dd
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(days=30)
 jwt = JWTManager(app)
 
-def get_model(model_name = "Qwen/Qwen2.5-7B-Instruct", bnb_config = BitsAndBytesConfig(load_in_8bit=True,llm_int8_threshold=6.0,)):
+# def get_model(model_name = "Qwen/Qwen2.5-7B-Instruct", bnb_config = BitsAndBytesConfig(load_in_8bit=True,llm_int8_threshold=6.0,)):
+def get_model(model_name = "Qwen/Qwen2.5-32B-Instruct-AWQ"):
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
-        quantization_config=bnb_config,
+        # quantization_config=bnb_config,
         device_map="auto",
         trust_remote_code=True,
     )
     return tokenizer, model
 
-# tokenizer, model = get_model(model_name="Qwen/Qwen3-32B-AWQ") # Model
-# tokenizer, model = get_model(model_name="Qwen/Qwen2.5-7B-Instruct") # Model
-# tokenizer, model = get_model(model_name="Qwen/Qwen2.5-32B-Instruct-AWQ") # Model
 tokenizer, model = get_model() # Model
 
 embedding_model = SentenceTransformer('BAAI/bge-m3')
 
-yn_index_path= "/home/tinhtv/code/RAG/api/datastore/yn_index"
-choice_index_path= "/home/tinhtv/code/RAG/api/datastore/choice_index"
-hm_index_path= "/home/tinhtv/code/RAG/api/datastore/hm_index"
+yn_index_path= "/home/tinhtv/code/QA_Challange_2025/api/datastore/yn_index"
+choice_index_path= "/home/tinhtv/code/QA_Challange_2025/api/datastore/choice_index"
+hm_index_path= "/home/tinhtv/code/QA_Challange_2025/api/datastore/hm_index"
 q_classifier = SimilarClassification(yn_index_path=yn_index_path, choice_index_path=choice_index_path, hm_index_path=hm_index_path) # Instance of question classifier
 
 choice_pipeline = ChoicePipeline4()
 yesno_pipeline = YesNoPipeline2()
-# hm_pipeline = HmPipeline2(embedding_model=embedding_model)  
 hm_pipeline = HmPipeline3(embedding_model=embedding_model)  
 
 def validate(request):
