@@ -1,0 +1,121 @@
+Traceback (most recent call last):
+  File "/home/tinhtv/anaconda3/envs/Py310/bin/flask", line 8, in <module>
+    sys.exit(main())
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/flask/cli.py", line 1129, in main
+    cli.main()
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/click/core.py", line 1082, in main
+    rv = self.invoke(ctx)
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/click/core.py", line 1691, in invoke
+    cmd_name, cmd, args = self.resolve_command(ctx, args)
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/click/core.py", line 1738, in resolve_command
+    cmd = self.get_command(ctx, cmd_name)
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/flask/cli.py", line 618, in get_command
+    self._load_plugin_commands()
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/flask/cli.py", line 613, in _load_plugin_commands
+    self.add_command(ep.load(), ep.name)
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+    module = import_module(match.group('module'))
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/flasgger/__init__.py", line 9, in <module>
+    from jsonschema import ValidationError  # noqa
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/jsonschema/__init__.py", line 13, in <module>
+    from jsonschema._format import FormatChecker
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/jsonschema/_format.py", line 11, in <module>
+    from jsonschema.exceptions import FormatError
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/jsonschema/exceptions.py", line 14, in <module>
+    from attrs import define
+ModuleNotFoundError: No module named 'attrs'
+/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/flask_limiter/extension.py:324: UserWarning: Using the in-memory storage for tracking rate limits as no storage was explicitly specified. This is not recommended for production use. See: https://flask-limiter.readthedocs.io#configuring-a-storage-backend for documentation about configuring the storage backend.
+  warnings.warn(
+/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/torch/cuda/__init__.py:235: UserWarning: 
+NVIDIA GeForce RTX 5060 Ti with CUDA capability sm_120 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_50 sm_60 sm_70 sm_75 sm_80 sm_86 sm_90.
+If you want to use the NVIDIA GeForce RTX 5060 Ti GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  warnings.warn(
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:04<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/tinhtv/anaconda3/envs/Py310/bin/flask", line 8, in <module>
+    sys.exit(main())
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/flask/cli.py", line 1129, in main
+    cli.main()
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/click/core.py", line 1082, in main
+    rv = self.invoke(ctx)
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/click/core.py", line 1697, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/click/core.py", line 1443, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/click/core.py", line 788, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/click/decorators.py", line 92, in new_func
+    return ctx.invoke(f, obj, *args, **kwargs)
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/click/core.py", line 788, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/flask/cli.py", line 977, in run_command
+    raise e from None
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/flask/cli.py", line 961, in run_command
+    app: WSGIApplication = info.load_app()  # pyright: ignore
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/flask/cli.py", line 349, in load_app
+    app = locate_app(import_name, name)
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/flask/cli.py", line 245, in locate_app
+    __import__(module_name)
+  File "/home/tinhtv/code/QA_Challange_2025/api/main.py", line 71, in <module>
+    tokenizer, model = get_model() # Model
+  File "/home/tinhtv/code/QA_Challange_2025/api/main.py", line 61, in get_model
+    model = AutoModelForCausalLM.from_pretrained(
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 571, in from_pretrained
+    return model_class.from_pretrained(
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/transformers/modeling_utils.py", line 279, in _wrapper
+    return func(*args, **kwargs)
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/transformers/modeling_utils.py", line 4399, in from_pretrained
+    ) = cls._load_pretrained_model(
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/transformers/modeling_utils.py", line 4833, in _load_pretrained_model
+    disk_offload_index, cpu_offload_index = _load_state_dict_into_meta_model(
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/transformers/modeling_utils.py", line 789, in _load_state_dict_into_meta_model
+    param = param.to(casting_dtype)
+RuntimeError: CUDA error: no kernel image is available for execution on the device
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/flask_limiter/extension.py:324: UserWarning: Using the in-memory storage for tracking rate limits as no storage was explicitly specified. This is not recommended for production use. See: https://flask-limiter.readthedocs.io#configuring-a-storage-backend for documentation about configuring the storage backend.
+  warnings.warn(
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:51<02:35, 51.78s/it]Loading checkpoint shards:  50%|█████     | 2/4 [01:21<01:17, 38.99s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [01:51<00:34, 34.54s/it]Loading checkpoint shards: 100%|██████████| 4/4 [02:18<00:00, 31.77s/it]Loading checkpoint shards: 100%|██████████| 4/4 [02:18<00:00, 34.64s/it]
+Loading existing index and metadata...
+ * Serving Flask app 'main'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.21.83.152:5000
+Press CTRL+C to quit
+/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/flask_limiter/extension.py:324: UserWarning: Using the in-memory storage for tracking rate limits as no storage was explicitly specified. This is not recommended for production use. See: https://flask-limiter.readthedocs.io#configuring-a-storage-backend for documentation about configuring the storage backend.
+  warnings.warn(
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:32<01:37, 32.35s/it]Loading checkpoint shards:  50%|█████     | 2/4 [01:05<01:05, 32.94s/it]Loading checkpoint shards:  50%|█████     | 2/4 [01:13<01:13, 36.83s/it]
+
+Aborted!
+/home/tinhtv/anaconda3/envs/Py310/lib/python3.10/site-packages/flask_limiter/extension.py:324: UserWarning: Using the in-memory storage for tracking rate limits as no storage was explicitly specified. This is not recommended for production use. See: https://flask-limiter.readthedocs.io#configuring-a-storage-backend for documentation about configuring the storage backend.
+  warnings.warn(
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]
