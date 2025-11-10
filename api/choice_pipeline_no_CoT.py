@@ -2,15 +2,16 @@ import json
 import re
 import time
 import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
 DEFAULT_TEMPERATURE = 0.7
 DEFAULT_TOP_P = 0.8
 DEFAULT_TOP_K = 20
 DEFAULT_MIN_P = 0
 
-class ChoicePipeline3:
+class ChoicePipelineNoCoT:
     """
-    Choice pipeline integrating OPM with only one times call LLM
+    Choice pipeline without CoT
     """
     def __init__(self):
         pass
@@ -155,28 +156,76 @@ PROMPT_USER_INIT = """
 """
 
 PROMPT_SYS_GUILDLINE = """
-You are a reasoning assistant trained to modeling the given natural language premises using Object Process methodology (OPM) according to ISO 19450:2015 standard and logical inference on OPM to answer multiple-choice questions.
-Given a set of premises expressed in natural language, a multiple-choice question and a list of answer options. Your task is to follow these steps:
-  1. **Modeling**: Identify and define relevant objects and their states using OPM.
-  2. **Representation*: Map each premise to components of the OPM model.
-  3. **Inference**: Perform logical inference on premise presentation to evaluate each answer option:
-    - Apply logical reasoning step by step, based on representation of the premises.
-    - Evaluate whether the option logically follows or conflicts with the information provided.
-    - Provide a detailed explanation of your reasoning, explicitly referencing relevant premises in each step.
-  3. Conclusion: After evaluating all options, determine which one is best supported by the premises and reasoning. Clearly state your final answer.
-  4. Finalize your response in the following format:
-    ```xml
-    <response>
-      <answer>{answer}</answer>
-      <idx>{idx}</idx>
-      <explanation>{explanation}</explanation>
-    </response>
-    ```
-    Where:
-    - `{answer}` is  the chosen option’s letter. eg 'A', 'B', 'C', 'D'
-    - `{explanation}` is a detailed textual explanation. Typically, includes three components:
-        + A clear justification for the correct answer with referenced premises.
-        + Briefly explain why each of the other options is incorrect, showing how they conflict with or are unsupported by the premises.
-        + A concluding statement confirming your choice.
-    - `{idx}` is list the numerical indexes of the premises (from `Premise #X`) that support the chosen answer.
+You are a reasoning assistant trained to answer the question based on the given domain knowledge.
+Your task is to answer the question using the given domain knowledge expressed in set of natural language premises.
+
+Put your response to following format:
+```
+<response>
+    <answer>{answer}</answer>
+    <explanation>{explanation}</explanation>
+    <idx>{idx}</idx>
+</response>
+```
+Field description:
+  - `{answer}`: The final concise answer, answer only is your choice letter. (e.g. 'A', 'B', 'C', 'D')
+  - `{explanation}`: Your reasoning text written in natural language, clearly referring to the source premises (e.g., “From Premise 2, we know that…”).
+  - `{idx}`: A comma-separated list of the premise numbers (from `Premise #X`) that support the final answer.
 """
+
+def get_model(model_name = "Qwen/Qwen2.5-32B-Instruct-AWQ"):
+    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+        device_map="auto",
+        trust_remote_code=True,
+    )
+    return tokenizer, model
+
+if __name__ == "__main__":
+    pipeline = ChoicePipelineNoCoT() 
+    tokenizer, model = get_model() # Model
+
+    ds_folder = os.path.dirname(os.path.abspath(__file__)) + '/../dataset'
+    out_folder = os.path.dirname(os.path.abspath(__file__)) + '/../out'
+
+    with open(ds_folder + '/choice_test.json', "r", encoding="utf-8") as f:
+        choice_test = json.load(f)
+    
+    test_ds = choice_test
+    print(len(test_ds))
+
+    results = []
+
+    out_file = out_folder + f"/output_choice_no_CoT.json"
+    if os.path.exists(out_file):
+        with open(out_file, "r", encoding="utf-8") as f:
+            results = json.load(f)
+    
+    for index, item in enumerate(test_ds):
+        if index < len(results):
+            continue
+        print('Test item ', index)
+        if index %50 == 0 :
+            with open(out_file, "w", encoding="utf-8") as f:
+                json.dump(results, f, ensure_ascii=False, indent=2)
+        premises = item['premises-NL']
+        question = item['question']
+        
+        choice_result = pipeline.run(premises=premises, question=question, tokenizer=tokenizer, model=model, trace=True)
+
+        result = {
+            'premises': premises,
+            'question': question
+        }
+        
+        result['ref_answer'] = item['answer'],
+        result['ref_index'] = item['idx']
+        result['ref_explanation'] = item['explanation']
+        result['pred_answer'] = choice_result['answer']
+        result['pred_idx'] = choice_result['idx']
+        result['pred_explanation'] = choice_result['explanation']
+        results.append(result)
+    
+    with open(out_file, "w", encoding="utf-8") as f:
+        json.dump(results, f, ensure_ascii=False, indent=2)
