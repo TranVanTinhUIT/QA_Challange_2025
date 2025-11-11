@@ -10,9 +10,9 @@ DEFAULT_TOP_P = 0.8
 DEFAULT_TOP_K = 20
 DEFAULT_MIN_P = 0
 
-class ChoicePipelineNoCoT:
+class YesNoPipelineNoCoT:
     """
-    Choice pipeline without CoT
+    Yes No pipeline without CoT
     """
     def __init__(self):
         pass
@@ -158,7 +158,7 @@ PROMPT_USER_INIT = """
 
 PROMPT_SYS_GUILDLINE = """
 You are a reasoning assistant trained to answer the question based on the given domain knowledge.
-Your task is to answer a multiple choice question using the given domain knowledge expressed in set of natural language premises.
+Your task is to answer a Yes/No/Uncertain question using the given domain knowledge expressed in set of natural language premises.
 
 Put your response to following format:
 ```
@@ -169,7 +169,7 @@ Put your response to following format:
 </response>
 ```
 Field description:
-  - `{answer}`: The final concise answer, answer only is your choice letter. (e.g. 'A', 'B', 'C', 'D')
+  - `{answer}`: The final concise answer (e.g. 'Yes', 'No', 'Uncertain')
   - `{explanation}`: Your reasoning text written in natural language, clearly referring to the source premises (e.g., “From Premise 2, we know that…”).
   - `{idx}`: A comma-separated list of the premise numbers (from `Premise #X`) that support the final answer.
 """
@@ -184,26 +184,26 @@ def get_model(model_name = "Qwen/Qwen2.5-32B-Instruct-AWQ"):
     return tokenizer, model
 
 if __name__ == "__main__":
-    pipeline = ChoicePipelineNoCoT() 
+    pipeline = YesNoPipelineNoCoT() 
     tokenizer, model = get_model() # Model
 
     ds_folder = os.path.dirname(os.path.abspath(__file__)) + '/../dataset'
     out_folder = os.path.dirname(os.path.abspath(__file__)) + '/../out'
 
-    with open(ds_folder + '/choice_test.json', "r", encoding="utf-8") as f:
-        choice_test = json.load(f)
+    with open(ds_folder + '/yn_test.json', "r", encoding="utf-8") as f:
+        yn_test = json.load(f)
     
-    test_ds = choice_test
+    test_ds = yn_test
     print(len(test_ds))
 
     results = []
 
-    out_file = out_folder + f"/output_choice_no_CoT.json"
+    out_file = out_folder + f"/output_yn_no_CoT.json"
     if os.path.exists(out_file):
         with open(out_file, "r", encoding="utf-8") as f:
             results = json.load(f)
     
-    for index, item in enumerate(test_ds):
+    for index, item in enumerate(results):
         if index < len(results):
             continue
         print('Test item ', index)
@@ -213,7 +213,7 @@ if __name__ == "__main__":
         premises = item['premises-NL']
         question = item['question']
         
-        choice_result = pipeline.run(premises=premises, question=question, tokenizer=tokenizer, model=model, trace=True)
+        yn_result = pipeline.run(premises=premises, question=question, tokenizer=tokenizer, model=model, trace=True)
 
         result = {
             'premises': premises,
@@ -223,9 +223,9 @@ if __name__ == "__main__":
         result['ref_answer'] = item['answer']
         result['ref_index'] = item['idx']
         result['ref_explanation'] = item['explanation']
-        result['pred_answer'] = choice_result['answer']
-        result['pred_idx'] = choice_result['idx']
-        result['pred_explanation'] = choice_result['explanation']
+        result['pred_answer'] = yn_result['answer']
+        result['pred_idx'] = yn_result['idx']
+        result['pred_explanation'] = yn_result['explanation']
         results.append(result)
     
     with open(out_file, "w", encoding="utf-8") as f:

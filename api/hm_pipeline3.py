@@ -7,7 +7,9 @@ from tools.retriever2 import Retriever
 from tools.utils import create_prompt, get_model, create_math_reasoning, create_reasoning, create_presmise_index, create_guideline, generate_full_response
 import json
 import re
+import os
 from sentence_transformers import SentenceTransformer
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
 def parse_indices(model_output):
     # Use regex to find all numbers between <begin_idx> and <end_idx>
@@ -179,11 +181,14 @@ class HmPipeline3:
     def parse_custom_string(self, s):
         pass
 
-    def answer(self, premises, tokenizer, model, question):
+    def answer(self, premises, tokenizer, model, question, disable_retrieval = False):
         try:
             premises_nl = create_presmise_index(premises)
 
-            similaries = self.retriever.retrieve(question, threshold=0.5, top_k=3)
+            if disable_retrieval == False:
+                similaries = self.retriever.retrieve(question, threshold=0.5, top_k=3)
+            else:
+                similaries = []
             print(similaries)
             flag = 1
             guide_prompt_r2 = ""
@@ -418,24 +423,65 @@ class HmPipeline3:
                 "explanation": f"Error occurred during processing: {str(e)}"
             }
 
-    def run(self, premises, question, tokenizer, model, trace=False):
-        return self.answer(premises, tokenizer, model, question)
+    def run(self, premises, question, tokenizer, model, disable_retrieval = False, trace=False):
+        return self.answer(premises, tokenizer, model, question, disable_retrieval=disable_retrieval)
 
-# if __name__ == "__main__":
-#     tt = HmPipeline2()
-#     premises = [
-#       "Thesis eligibility requires ≥ 100 credits, GPA ≥ 5.5 (scale 0–10), capstone completion, and ≥ 80 capstone hours.",
-#       "Capstone completion requires ≥ 80 credits and a 5-credit capstone course (grade ≥ 4.0).",
-#       "Failed courses (grade < 4.0) add 0 credits, 0 capstone hours.",
-#       "Improvement retakes (grade ≥ 4.0) use highest grade, no extra credits/hours.",
-#       "Each course (grade ≥ 4.0) adds capstone hours: 3 credits = 6 hours, 4 credits = 8 hours, 5 credits = 10 hours.",
-#       "Final-year students (Year 4) with capstone but < 80 hours can join capstone workshops (15 hours), if GPA ≥ 5.0.",
-#       "A student (Year 3) has a GPA of 5.8, 85 credits, 100 capstone hours, no capstone course, including C1 (3 credits, 6.0, 6 hours), C2 (4 credits, 5.5, 8 hours).",
-#       "The student took capstone course C3 (5 credits, 4.5), retook C1 (6.5), took C4 (3 credits, 3.8, failed), joined 2 workshops."
-#     ]
-#     question = "How many capstone hours has the student accumulated, and are they eligible for the thesis?"
-#     tokenizer, model = get_model(model_name="Qwen/Qwen2.5-32B-Instruct-AWQ")
-#     ttt = tt.run(premises, question, tokenizer, model)
-#     print("##############################")
-#     print(type(ttt["idx"]))
-#     print(ttt['idx'])  
+
+def get_model(model_name = "Qwen/Qwen2.5-32B-Instruct-AWQ"):
+    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+        device_map="auto",
+        trust_remote_code=True,
+    )
+    return tokenizer, model
+
+if __name__ == "__main__":
+    embedding_model = SentenceTransformer('BAAI/bge-m3')
+    pipeline = HmPipeline3(embedding_model=embedding_model)
+    tokenizer, model = get_model() # Model
+
+    ds_folder = os.path.dirname(os.path.abspath(__file__)) + '/../dataset'
+    out_folder = os.path.dirname(os.path.abspath(__file__)) + '/../out'
+
+    with open(ds_folder + '/hm_test.json', "r", encoding="utf-8") as f:
+        hm_test = json.load(f)
+    
+    test_ds = hm_test
+    print(len(test_ds))
+
+    results = []
+
+    out_file = out_folder + f"/output_hm_no_Retrieval.json"
+    if os.path.exists(out_file):
+        with open(out_file, "r", encoding="utf-8") as f:
+            results = json.load(f)
+    
+    for index, item in enumerate(test_ds):
+        if index < len(results):
+            continue
+        print('Test item ', index)
+        if index %50 == 0 :
+            with open(out_file, "w", encoding="utf-8") as f:
+                json.dump(results, f, ensure_ascii=False, indent=2)
+        premises = item['premises-NL']
+        question = item['question']
+        
+        hm_result = pipeline.run(premises=premises, question=question, tokenizer=tokenizer, model=model, disable_retrieval=True, trace=True)
+
+        result = {
+            'premises': premises,
+            'question': question
+        }
+        
+        result['ref_answer'] = item['answer']
+        result['ref_index'] = item['idx']
+        result['ref_explanation'] = item['explanation']
+        result['pred_answer'] = hm_result['answer']
+        result['pred_idx'] = hm_result['idx']
+        result['pred_explanation'] = hm_result['explanation']
+        results.append(result)
+    
+    with open(out_file, "w", encoding="utf-8") as f:
+        json.dump(results, f, ensure_ascii=False, indent=2)
+   
