@@ -10,6 +10,9 @@ DEFAULT_TOP_P = 0.8
 DEFAULT_TOP_K = 20
 DEFAULT_MIN_P = 0
 
+ANALYZE_TOKEN_PER_PREMISE = 50
+REASON_TOKEN_PER_PREMISE = 100
+
 class ChoicePipeline4:
     """
     Choice pipeline 4
@@ -85,10 +88,18 @@ class ChoicePipeline4:
         new_answer = {'answer': '', 'idx': [], 'explanation': '' }
         answer_start = llm_response.find('<answer>')
         answer_end = llm_response.find('</answer>')
+
         idx_start = llm_response.lower().find('<idx>')
         idx_end = llm_response.lower().find('</idx>')
+
         explanation_start = llm_response.find('<explanation>')
         explanation_end = llm_response.find('</explanation>')
+
+        entities_start = llm_response.find('<entities>')
+        entities_end = llm_response.find('</entities>')
+
+        reasoning_start = llm_response.find('<reasoning>')
+        reasoning_end = llm_response.find('</reasoning>')
 
         if answer_start > 0 and answer_end > 0 and answer_start < answer_end :
             answer_raw_str = llm_response[answer_start: answer_end].replace('<answer>', '').replace('</answer>', '').strip()
@@ -103,6 +114,14 @@ class ChoicePipeline4:
         if explanation_start > 0 and explanation_end > 0 and explanation_start < explanation_end:
             explanation_raw_str = llm_response[explanation_start: explanation_end].replace('<explanation>', '').replace('</explanation>', '').strip()
             new_answer['explanation'] = explanation_raw_str
+        
+        if entities_start > 0 and entities_end > 0 and entities_start < entities_end:
+            entities_raw_str = llm_response[entities_start: entities_end].replace('<entities>', '').replace('</entities>', '').strip()
+            new_answer['entities'] = entities_raw_str
+        
+        if reasoning_start > 0 and reasoning_end > 0 and reasoning_start < reasoning_end:
+            reasoning_raw_str = llm_response[reasoning_start: reasoning_end].replace('<reasoning>', '').replace('</reasoning>', '').strip()
+            new_answer['reasoning'] = reasoning_raw_str
 
         return new_answer
 
@@ -112,6 +131,7 @@ class ChoicePipeline4:
         
         guildline = PROMPT_SYS_GUILDLINE
 
+        # first step
         prompt_input = self.create_user_input(premises=premises, question=question)
         messages = [
             {"role": "system", "content": guildline},
@@ -121,12 +141,32 @@ class ChoicePipeline4:
             print(guildline)
             print(prompt_input)
 
-        finalize_response = self.generate_answer(tokenizer=tokenizer, model=model, messages=messages, max_new_tokens= 2000, enable_thinking=enable_thinking)
+        first_response = self.generate_answer(tokenizer=tokenizer, model=model, messages=messages, max_new_tokens= len(premises)*ANALYZE_TOKEN_PER_PREMISE, enable_thinking=enable_thinking)
         if trace:
-            print(finalize_response)
+            print("FIRST STEP: \n", first_response)
         llm_call_times +=1
         step1_completed_time = time.perf_counter()
         step1_cost = step1_completed_time - start_time
+
+        # step 2: option reasoning
+        messages.append({"role": "assistant", "content": first_response})
+        messages.append({"role": "user", "content": PROMPT_USER_STEP_2})
+        second_response = self.generate_answer(tokenizer=tokenizer, model=model, messages=messages, max_new_tokens= len(premises)*REASON_TOKEN_PER_PREMISE, enable_thinking=enable_thinking)
+        if trace:
+            print("SECOND STEP: \n", second_response)
+        llm_call_times +=1
+        step2_completed_time = time.perf_counter()
+        step2_cost = step2_completed_time - step1_completed_time
+
+        # step final: extracting
+        messages.append({"role": "assistant", "content": second_response})
+        messages.append({"role": "user", "content": PROMPT_USER_STEP_3})
+        finalize_response = self.generate_answer(tokenizer=tokenizer, model=model, messages=messages, max_new_tokens= 800, enable_thinking=enable_thinking)
+        if trace:
+            print("FINAL STEP: \n", finalize_response)
+        llm_call_times +=1
+        step3_completed_time = time.perf_counter()
+        step3_cost = step3_completed_time - step2_completed_time
 
         final_answer = { 'question': question, 'answer': '', 'idx': [], 'explanation': '', 'res': finalize_response , 'error': '', 'manual': False }
         try:
@@ -134,6 +174,8 @@ class ChoicePipeline4:
             final_answer['answer'] = parsed_res['answer']
             final_answer['idx'] = parsed_res['idx']
             final_answer['explanation'] = parsed_res['explanation']
+            final_answer['entities'] = parsed_res['entities']
+            final_answer['reasoning'] = parsed_res['reasoning']
         except Exception as e:
             if trace:
                 print('   Cannot parse response: ', str(e))
@@ -144,7 +186,7 @@ class ChoicePipeline4:
             final_answer['explanation'] = manual_parsed_answer['explanation']
             final_answer['manual'] = True
 
-        final_answer['time'] = step1_cost
+        final_answer['time'] = step1_cost + step2_cost + step3_cost
         return final_answer
     
 
@@ -154,44 +196,50 @@ PROMPT_USER_INIT = """
 
 ## Question: <?question> 
 
+In this step, analyze the premises. For each premise, extract:
+  - Key entities, facts, or definitions.
+  - Logical conditions or rules (e.g., “if…then…”)
+DO NOT include any inference in response.
 """
 
-PROMPT_SYS_GUILDLINE = """
-You are a reasoning assistant trained to answer the question based on the given domain knowledge.
-Given domain knowledge expressed in set of natural language premises and a question. Your task is **reason step by step** to answer the question  according to the strict requirements below.
-
-**Strict Requirements**
-  - Use ONLY pieces of information in the given knowledge. DO NOT introduce any external knowledge or assumptions.
-  - Focus on step-by-step reasoning to answer the question. Clearly cite the source of every fact or condition used, refer to the premise number or quote the relevant part.
-  - Do not include irrelevant premises or facts that are not directly required for answering the question
-  - If a conclusion cannot be reached with certainty, explicitly state that it cannot be determined based on the available premises.
-
-Steps to follow:
-Step 1: Analyze the Premises:
-  - For each premise, extract:
-    - Key entities, facts, or definitions.
-    - Logical conditions or rules (e.g., “if…then…”)
-    - Do not perform inference in this step
-Step 2: Perform step-by-step reasoning to answer the question.
+PROMPT_USER_STEP_2 = """
+Next, perform step-by-step reasoning to answer the question.
   - Use the extracted facts to reason toward the answer.
   - At each step:
     - Clearly state what is being concluded.
     - Cite the exact premise(s) used or refer to earlier steps.
     - Avoid skipping logical steps or assuming information not provided.
-Step 3: Finalize answer and put your response to following format:
+"""
+
+PROMPT_USER_STEP_3 = """
+Finally, summarize and put the response into the following format:
 ```
 <response>
     <answer>{answer}</answer>
     <explanation>{explanation}</explanation>
     <idx>{idx}</idx>
+    <entities>{entities}</entities>
+    <reasoning>{reasoning}</reasoning>
 </response>
 ```
 Field description:
   - `{answer}`: The final concise answer, answer only is your choice letter. (e.g. 'A', 'B', 'C', 'D')
-  - `{explanation}`: Your reasoning text written in natural language, clearly referring to the source premises (e.g., “From Premise 2, we know that…”).
+  - `{explanation}`: Summarize reasoning text written in natural language, clearly referring to the source premises (e.g., “From Premise 2, we know that…”).
   - `{idx}`: A comma-separated list of the premise numbers (from `Premise #X`) that support the final answer.
+  - `{entities}`: represent each of entities. 
+  - `{reasoning}`: Full details of step-by-step reasoning, beauty format (e.g., “Step 1: From Premise 1, we know that…”).
+
 """
 
+PROMPT_SYS_GUILDLINE = """
+You are a reasoning assistant trained to answer the question based on the given domain knowledge.
+Your task is to answer multiple choice questions strictly based on the given premises
+
+**Strict Requirements**
+  - Use ONLY pieces of information in the given knowledge. DO NOT introduce any external knowledge or assumptions.
+  - Clearly cite the source of every fact or condition used, refer to the premise number or quote the relevant part.
+  - If the answer cannot be determined, explicitly state so.
+"""
 
 def get_model(model_name = "Qwen/Qwen2.5-32B-Instruct-AWQ"):
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
@@ -213,11 +261,10 @@ if __name__ == "__main__":
         choice_test = json.load(f)
     
     test_ds = choice_test
-    print(len(test_ds))
 
     results = []
 
-    out_file = out_folder + f"/output_choice_pipeline.json"
+    out_file = out_folder + f"/output_choice_pipeline_new.json"
     if os.path.exists(out_file):
         with open(out_file, "r", encoding="utf-8") as f:
             results = json.load(f)
@@ -226,7 +273,7 @@ if __name__ == "__main__":
         if index < len(results):
             continue
         print('Test item ', index)
-        if index %50 == 0 :
+        if index %10 == 0 :
             with open(out_file, "w", encoding="utf-8") as f:
                 json.dump(results, f, ensure_ascii=False, indent=2)
         premises = item['premises-NL']
@@ -245,6 +292,8 @@ if __name__ == "__main__":
         result['pred_answer'] = choice_result['answer']
         result['pred_idx'] = choice_result['idx']
         result['pred_explanation'] = choice_result['explanation']
+        result['entities'] = choice_result['entities']
+        result['reasoning'] = choice_result['reasoning']
         results.append(result)
     
     with open(out_file, "w", encoding="utf-8") as f:
