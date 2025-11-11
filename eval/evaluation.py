@@ -1,6 +1,6 @@
 import json
 import numpy as np
-from sklearn.metrics import f1_score
+from sklearn.metrics import f1_score, precision_score, recall_score
 import os
 
 # Cal Precision, Recall, F1 for answer, idx
@@ -32,11 +32,42 @@ def calculate_f1_score(true_indices, pred_indices):
     
     return f1_score(true_binary, pred_binary)
 
+def calculate_metrics(true_indices, pred_indices):
+    """Calculate precision, recall, and F1 score between true and predicted indices."""
+    true_indices = np.sort(true_indices)
+    pred_indices = np.sort(pred_indices)
+
+    max_idx = max(max(true_indices) if true_indices.size > 0 else 0, 
+                  max(pred_indices) if pred_indices.size > 0 else 0)
+    
+    if max_idx == 0:
+        if len(true_indices) == 0 and len(pred_indices) == 0:
+            return 1.0, 1.0, 1.0  
+        return 0.0, 0.0, 0.0
+    
+    true_binary = np.zeros(max_idx + 1, dtype=int)
+    pred_binary = np.zeros(max_idx + 1, dtype=int)
+    
+    for idx in true_indices:
+        true_binary[idx] = 1
+    
+    for idx in pred_indices:
+        pred_binary[idx] = 1
+    
+    precision = precision_score(true_binary, pred_binary)
+    recall = recall_score(true_binary, pred_binary)
+    f1 = f1_score(true_binary, pred_binary)
+    
+    return precision, recall, f1
+
+
 def evaluate_predictions(file_path, eval_out_file_path):
     """Evaluate predictions against reference data."""
     ds = load_json_file(file_path)
     answer_scores = []
-    idx_scores = []
+    idx_precision_scores = []
+    idx_recall_scores = []
+    idx_f1_scores = []
     final_scores = []
     
     for i, item in enumerate(ds):
@@ -44,21 +75,27 @@ def evaluate_predictions(file_path, eval_out_file_path):
         answer_score = 1.0 if item['ref_answer'] == item['pred_answer'] else 0.0
         answer_scores.append(answer_score)
 
-        idx_score = calculate_f1_score(item['ref_index'], item['pred_idx'])
-        idx_scores.append(idx_score)
+        precision, recall, f1 = calculate_metrics(item['ref_index'], item['pred_idx'])
+        idx_precision_scores.append(precision)
+        idx_recall_scores.append(recall)
+        idx_f1_scores.append(f1)
         
-        final_score = answer_score * 0.6 + idx_score * 0.4
+        final_score = answer_score * 0.6 + f1 * 0.4  # Still using F1 for final score
         final_scores.append(final_score)
     
     avg_answer_score = np.mean(answer_scores)
-    avg_idx_score = np.mean(idx_scores)
+    avg_idx_precision = np.mean(idx_precision_scores)
+    avg_idx_recall = np.mean(idx_recall_scores)
+    avg_idx_f1 = np.mean(idx_f1_scores)
     avg_final_score = np.mean(final_scores)
     
     out_json = {
         'answer_score': avg_answer_score,
-        'idx_score': avg_idx_score,
+        'precision_idx_score': avg_idx_precision,
+        'recall_idx_score': avg_idx_recall,
+        'f1_idx_score': avg_idx_f1,
         'final_score': avg_final_score,
-        'details': list(zip(answer_scores, idx_scores, final_scores))
+        'details': list(zip(answer_scores, idx_precision_scores, idx_recall_scores, idx_f1_scores, final_scores))
     }
     with open(eval_out_file_path, "w", encoding="utf-8") as f:
         json.dump(out_json, f, ensure_ascii=False, indent=2)
@@ -69,9 +106,9 @@ if __name__ == "__main__":
 
     # evaluate_predictions(file_path = out_folder + '/output_yn_no_CoT.json', eval_out_file_path=eval_out_folder + '/yn_no_CoT_eval_answer_idx.json')
     # evaluate_predictions(file_path = out_folder + '/output_choice_no_CoT.json', eval_out_file_path=eval_out_folder + '/choice_no_CoT_eval_answer_idx.json')
-    evaluate_predictions(file_path = out_folder + '/output_choice_no_CoT_new.json', eval_out_file_path=eval_out_folder + '/choice_no_CoT_new_eval_answer_idx.json')
-    # evaluate_predictions(file_path = out_folder + '/output_choice_pipeline.json', eval_out_file_path=eval_out_folder + '/choice_pileline_eval_answer_idx.json')
-    evaluate_predictions(file_path = out_folder + '/output_choice_pipeline_new.json', eval_out_file_path=eval_out_folder + '/choice_pipeline_new_eval_answer_idx.json')
+    # evaluate_predictions(file_path = out_folder + '/output_choice_no_CoT_new.json', eval_out_file_path=eval_out_folder + '/choice_no_CoT_new_eval_answer_idx.json')
+    # evaluate_predictions(file_path = out_folder + '/choice_pipeline_old.json', eval_out_file_path=eval_out_folder + '/choice_pileline_old_eval_answer_idx.json')
+    evaluate_predictions(file_path = out_folder + '/choice_pipeline.json', eval_out_file_path=eval_out_folder + '/choice_pipeline_eval_answer_idx.json')
     # evaluate_predictions(file_path = out_folder + '/output_hm_no_CoT.json', eval_out_file_path=eval_out_folder + '/hm_no_CoT_eval_answer_idx.json')
     # evaluate_predictions(file_path = out_folder + '/output_hm_no_Retrieval.json', eval_out_file_path=eval_out_folder + '/hm_no_Retrieval_eval_answer_idx.json')
     # evaluate_predictions(file_path = out_folder + '/output_no_classify.json', eval_out_file_path=eval_out_folder + '/no_classify_eval_answer_idx.json')

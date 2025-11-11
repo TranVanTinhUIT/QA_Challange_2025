@@ -452,7 +452,7 @@ if __name__ == "__main__":
 
     results = []
 
-    out_file = out_folder + f"/output_hm_no_Retrieval.json"
+    out_file = out_folder + f"/hm_no_Retrieval.json"
     if os.path.exists(out_file):
         with open(out_file, "r", encoding="utf-8") as f:
             results = json.load(f)

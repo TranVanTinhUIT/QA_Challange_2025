@@ -10,9 +10,9 @@ DEFAULT_TOP_P = 0.8
 DEFAULT_TOP_K = 20
 DEFAULT_MIN_P = 0
 
-class HmPipelineNoCoT:
+class ChoicePipeline4:
     """
-    How many pipeline without CoT
+    Choice pipeline 4
     """
     def __init__(self):
         pass
@@ -157,10 +157,28 @@ PROMPT_USER_INIT = """
 """
 
 PROMPT_SYS_GUILDLINE = """
-You are a reasoning assistant.
-Given domain knowledge expressed as a set of natural language premises and a numerical/chain question, answer using ONLY the given premises.
+You are a reasoning assistant trained to answer the question based on the given domain knowledge.
+Given domain knowledge expressed in set of natural language premises and a question. Your task is **reason step by step** to answer the question  according to the strict requirements below.
 
-Put your response to following format:
+**Strict Requirements**
+  - Use ONLY pieces of information in the given knowledge. DO NOT introduce any external knowledge or assumptions.
+  - Focus on step-by-step reasoning to answer the question. Clearly cite the source of every fact or condition used, refer to the premise number or quote the relevant part.
+  - Do not include irrelevant premises or facts that are not directly required for answering the question
+  - If a conclusion cannot be reached with certainty, explicitly state that it cannot be determined based on the available premises.
+
+Steps to follow:
+Step 1: Analyze the Premises:
+  - For each premise, extract:
+    - Key entities, facts, or definitions.
+    - Logical conditions or rules (e.g., “if…then…”)
+    - Do not perform inference in this step
+Step 2: Perform step-by-step reasoning to answer the question.
+  - Use the extracted facts to reason toward the answer.
+  - At each step:
+    - Clearly state what is being concluded.
+    - Cite the exact premise(s) used or refer to earlier steps.
+    - Avoid skipping logical steps or assuming information not provided.
+Step 3: Finalize answer and put your response to following format:
 ```
 <response>
     <answer>{answer}</answer>
@@ -169,10 +187,11 @@ Put your response to following format:
 </response>
 ```
 Field description:
-  - `{answer}`: The final concise answer, if there are multiple sub questions, separate each answer with comma. (e.g. '$2', '$2, No')
-  - `{explanation}`: concise explanation for the final answer, clearly referring to the source premises (e.g., “From Premise 2, we know that…”).
+  - `{answer}`: The final concise answer, answer only is your choice letter. (e.g. 'A', 'B', 'C', 'D')
+  - `{explanation}`: Your reasoning text written in natural language, clearly referring to the source premises (e.g., “From Premise 2, we know that…”).
   - `{idx}`: A comma-separated list of the premise numbers (from `Premise #X`) that support the final answer.
 """
+
 
 def get_model(model_name = "Qwen/Qwen2.5-32B-Instruct-AWQ"):
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
@@ -184,21 +203,21 @@ def get_model(model_name = "Qwen/Qwen2.5-32B-Instruct-AWQ"):
     return tokenizer, model
 
 if __name__ == "__main__":
-    pipeline = HmPipelineNoCoT() 
+    pipeline = ChoicePipeline4() 
     tokenizer, model = get_model() # Model
 
     ds_folder = os.path.dirname(os.path.abspath(__file__)) + '/../dataset'
     out_folder = os.path.dirname(os.path.abspath(__file__)) + '/../out'
 
-    with open(ds_folder + '/hm_test.json', "r", encoding="utf-8") as f:
-        hm_test = json.load(f)
+    with open(ds_folder + '/choice_test.json', "r", encoding="utf-8") as f:
+        choice_test = json.load(f)
     
-    test_ds = hm_test
+    test_ds = choice_test
     print(len(test_ds))
 
     results = []
 
-    out_file = out_folder + f"/hm_no_CoT.json"
+    out_file = out_folder + f"/choice_pipeline.json"
     if os.path.exists(out_file):
         with open(out_file, "r", encoding="utf-8") as f:
             results = json.load(f)
@@ -213,7 +232,7 @@ if __name__ == "__main__":
         premises = item['premises-NL']
         question = item['question']
         
-        hm_result = pipeline.run(premises=premises, question=question, tokenizer=tokenizer, model=model, trace=True)
+        choice_result = pipeline.run(premises=premises, question=question, tokenizer=tokenizer, model=model, trace=True)
 
         result = {
             'premises': premises,
@@ -223,9 +242,9 @@ if __name__ == "__main__":
         result['ref_answer'] = item['answer']
         result['ref_index'] = item['idx']
         result['ref_explanation'] = item['explanation']
-        result['pred_answer'] = hm_result['answer']
-        result['pred_idx'] = hm_result['idx']
-        result['pred_explanation'] = hm_result['explanation']
+        result['pred_answer'] = choice_result['answer']
+        result['pred_idx'] = choice_result['idx']
+        result['pred_explanation'] = choice_result['explanation']
         results.append(result)
     
     with open(out_file, "w", encoding="utf-8") as f:

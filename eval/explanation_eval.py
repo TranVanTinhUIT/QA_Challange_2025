@@ -40,10 +40,10 @@ if __name__ == "__main__":
     eval_out_folder = os.path.dirname(os.path.abspath(__file__)) + '/eval_out'
 
     # explanation_val(file_path = out_folder + '/output_yn_no_CoT.json', eval_out_file_path=eval_out_folder + '/yn_no_CoT_eval_explanation.json')
-    explanation_val(file_path = out_folder + '/output_choice_no_CoT.json', eval_out_file_path=eval_out_folder + '/choice_no_CoT_eval_explanation.json')
+    # explanation_val(file_path = out_folder + '/output_choice_no_CoT.json', eval_out_file_path=eval_out_folder + '/choice_no_CoT_eval_explanation.json')
     # explanation_val(file_path = out_folder + '/output_choice_no_CoT_new.json', eval_out_file_path=eval_out_folder + '/choice_no_CoT_new_eval_explanation.json')
     # explanation_val(file_path = out_folder + '/output_choice_pipeline.json', eval_out_file_path=eval_out_folder + '/choice_pipeline_eval_explanation.json')
-    explanation_val(file_path = out_folder + '/output_choice_pipeline_new.json', eval_out_file_path=eval_out_folder + '/choice_pipeline_new_eval_explanation.json')
+    explanation_val(file_path = out_folder + '/choice_pipeline.json', eval_out_file_path=eval_out_folder + '/choice_pipeline_eval_explanation.json')
     # explanation_val(file_path = out_folder + '/output_hm_no_CoT.json', eval_out_file_path=eval_out_folder + '/hm_no_CoT_eval_explanation.json')
     # explanation_val(file_path = out_folder + '/output_hm_no_Retrieval.json', eval_out_file_path=eval_out_folder + '/hm_no_Retrieval_eval_explanation.json')
     # explanation_val(file_path = out_folder + '/output_no_classify.json', eval_out_file_path=eval_out_folder + '/no_classify_eval_explanation.json')
