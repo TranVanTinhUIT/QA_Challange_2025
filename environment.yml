@@ -1,4 +1,4 @@
-name: Py310
+name: xAI-py310
 channels:
   - defaults
   - https://repo.anaconda.com/pkgs/main
