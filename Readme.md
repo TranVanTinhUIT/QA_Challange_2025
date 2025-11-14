@@ -26,7 +26,7 @@ AI for Educational QA Challenge [1] at TRNS-AI@IJCNN
 deployment in educational setting
 
 # Folder stucture
-- `/dataset`: contain dataset of the Explainable AI for Educational QA Challenge at TRNS-AI@IJCNN 2025.
+- `/dataset`: contain dataset of the Explainable AI for Educational QA Challenge at [TRNS-AI@IJCNN 2025](https://sites.google.com/view/trns-ai/challenge/).
 - `/api`: contain source code of all experiments in the paper.
   + `/api/datastore`: contain datastore using in classification module.
   + `/api/data`: contain datastore using to retrieves similar question in Numerical pipeline.
