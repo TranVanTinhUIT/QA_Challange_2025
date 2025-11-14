@@ -4,10 +4,11 @@ from rouge_score import rouge_scorer
 import numpy as np
 
 scorer = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
-def explanation_val(file_path, eval_out_file_path):
+def explanation_val(file_path, eval_out_file_path, max_items=None):
     with open(file_path, "r", encoding="utf-8") as f:
         ds = json.load(f)
-
+    if max_items is not None:
+        ds = ds[:max_items]
     rouge1_scores, rouge2_scores, rougel_scores = [], [], []
     scores =[]
 
@@ -38,12 +39,14 @@ def explanation_val(file_path, eval_out_file_path):
 if __name__ == "__main__":
     out_folder = os.path.dirname(os.path.abspath(__file__)) + '/../out'
     eval_out_folder = os.path.dirname(os.path.abspath(__file__)) + '/eval_out'
-
-    # explanation_val(file_path = out_folder + '/output_yn_no_CoT.json', eval_out_file_path=eval_out_folder + '/yn_no_CoT_eval_explanation.json')
-    # explanation_val(file_path = out_folder + '/output_choice_no_CoT.json', eval_out_file_path=eval_out_folder + '/choice_no_CoT_eval_explanation.json')
-    # explanation_val(file_path = out_folder + '/output_choice_no_CoT_new.json', eval_out_file_path=eval_out_folder + '/choice_no_CoT_new_eval_explanation.json')
-    # explanation_val(file_path = out_folder + '/output_choice_pipeline.json', eval_out_file_path=eval_out_folder + '/choice_pipeline_eval_explanation.json')
-    explanation_val(file_path = out_folder + '/choice_pipeline.json', eval_out_file_path=eval_out_folder + '/choice_pipeline_eval_explanation.json')
-    # explanation_val(file_path = out_folder + '/output_hm_no_CoT.json', eval_out_file_path=eval_out_folder + '/hm_no_CoT_eval_explanation.json')
-    # explanation_val(file_path = out_folder + '/output_hm_no_Retrieval.json', eval_out_file_path=eval_out_folder + '/hm_no_Retrieval_eval_explanation.json')
-    # explanation_val(file_path = out_folder + '/output_no_classify.json', eval_out_file_path=eval_out_folder + '/no_classify_eval_explanation.json')
+    max_items = None
+    
+    explanation_val(max_items=max_items, file_path = out_folder + '/yes_no_pipeline_final.json', eval_out_file_path=eval_out_folder + '/yes_no_pipeline_final_explanation.json')
+    explanation_val(max_items=max_items, file_path = out_folder + '/yes_no_pipeline_final_ablation_analyze.json', eval_out_file_path=eval_out_folder + '/yes_no_pipeline_final_ablation_analyze_explanation.json')
+    
+    explanation_val(max_items=max_items, file_path = out_folder + '/choice_pipeline_final.json', eval_out_file_path=eval_out_folder + '/choice_pipeline_final_explanation.json')
+    explanation_val(max_items=max_items, file_path = out_folder + '/choice_pipeline_final_ablation_step1.json', eval_out_file_path=eval_out_folder + '/choice_pipeline_final_ablation_step1_explanation.json')
+    
+    explanation_val(file_path = out_folder + '/hm_pipeline_final.json', eval_out_file_path=eval_out_folder + '/hm_pipeline_final_explanation.json')
+    explanation_val(file_path = out_folder + '/hm_pipeline_final_empty_retrieval.json', eval_out_file_path=eval_out_folder + '/hm_pipeline_final_empty_retrieval_explanation.json')
+    

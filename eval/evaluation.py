@@ -61,15 +61,17 @@ def calculate_metrics(true_indices, pred_indices):
     return precision, recall, f1
 
 
-def evaluate_predictions(file_path, eval_out_file_path):
+def evaluate_predictions(file_path, eval_out_file_path, max_items=None):
     """Evaluate predictions against reference data."""
     ds = load_json_file(file_path)
+    if max_items is not None:
+        ds = ds[:max_items]
     answer_scores = []
     idx_precision_scores = []
     idx_recall_scores = []
     idx_f1_scores = []
     final_scores = []
-    
+    times = []
     for i, item in enumerate(ds):
        
         answer_score = 1.0 if item['ref_answer'] == item['pred_answer'] else 0.0
@@ -82,12 +84,14 @@ def evaluate_predictions(file_path, eval_out_file_path):
         
         final_score = answer_score * 0.6 + f1 * 0.4  # Still using F1 for final score
         final_scores.append(final_score)
+        times.append(item['time'])
     
     avg_answer_score = np.mean(answer_scores)
     avg_idx_precision = np.mean(idx_precision_scores)
     avg_idx_recall = np.mean(idx_recall_scores)
     avg_idx_f1 = np.mean(idx_f1_scores)
     avg_final_score = np.mean(final_scores)
+    agv_time = np.mean(times)
     
     out_json = {
         'answer_score': avg_answer_score,
@@ -95,6 +99,7 @@ def evaluate_predictions(file_path, eval_out_file_path):
         'recall_idx_score': avg_idx_recall,
         'f1_idx_score': avg_idx_f1,
         'final_score': avg_final_score,
+        'agv_time': agv_time,
         'details': list(zip(answer_scores, idx_precision_scores, idx_recall_scores, idx_f1_scores, final_scores))
     }
     with open(eval_out_file_path, "w", encoding="utf-8") as f:
@@ -103,12 +108,14 @@ def evaluate_predictions(file_path, eval_out_file_path):
 if __name__ == "__main__":
     out_folder = os.path.dirname(os.path.abspath(__file__)) + '/../out'
     eval_out_folder = os.path.dirname(os.path.abspath(__file__)) + '/eval_out'
+    max_items = None
 
-    # evaluate_predictions(file_path = out_folder + '/output_yn_no_CoT.json', eval_out_file_path=eval_out_folder + '/yn_no_CoT_eval_answer_idx.json')
-    # evaluate_predictions(file_path = out_folder + '/output_choice_no_CoT.json', eval_out_file_path=eval_out_folder + '/choice_no_CoT_eval_answer_idx.json')
-    # evaluate_predictions(file_path = out_folder + '/output_choice_no_CoT_new.json', eval_out_file_path=eval_out_folder + '/choice_no_CoT_new_eval_answer_idx.json')
-    # evaluate_predictions(file_path = out_folder + '/choice_pipeline_old.json', eval_out_file_path=eval_out_folder + '/choice_pileline_old_eval_answer_idx.json')
-    evaluate_predictions(file_path = out_folder + '/choice_pipeline.json', eval_out_file_path=eval_out_folder + '/choice_pipeline_eval_answer_idx.json')
-    # evaluate_predictions(file_path = out_folder + '/output_hm_no_CoT.json', eval_out_file_path=eval_out_folder + '/hm_no_CoT_eval_answer_idx.json')
-    # evaluate_predictions(file_path = out_folder + '/output_hm_no_Retrieval.json', eval_out_file_path=eval_out_folder + '/hm_no_Retrieval_eval_answer_idx.json')
-    # evaluate_predictions(file_path = out_folder + '/output_no_classify.json', eval_out_file_path=eval_out_folder + '/no_classify_eval_answer_idx.json')
+    evaluate_predictions(max_items=max_items, file_path = out_folder + '/yes_no_pipeline_final.json', eval_out_file_path=eval_out_folder + '/yes_no_pipeline_final_eval.json')
+    evaluate_predictions(max_items=max_items, file_path = out_folder + '/yes_no_pipeline_final_ablation_analyze.json', eval_out_file_path=eval_out_folder + '/yes_no_pipeline_final_ablation_analyze_eval.json')
+    
+    evaluate_predictions(max_items=max_items, file_path = out_folder + '/choice_pipeline_final.json', eval_out_file_path=eval_out_folder + '/choice_pipeline_final_eval.json')
+    evaluate_predictions(max_items=max_items, file_path = out_folder + '/choice_pipeline_final_ablation_step1.json', eval_out_file_path=eval_out_folder + '/choice_pipeline_final_ablation_step1_eval.json')
+    
+    evaluate_predictions(file_path = out_folder + '/hm_pipeline_final.json', eval_out_file_path=eval_out_folder + '/hm_pipeline_final_eval.json')
+    evaluate_predictions(file_path = out_folder + '/hm_pipeline_final_empty_retrieval.json', eval_out_file_path=eval_out_folder + '/hm_pipeline_final_empty_retrieval_eval.json')
+    

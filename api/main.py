@@ -13,10 +13,10 @@ from sentence_transformers import SentenceTransformer
 import time
 
 from similar_classification import SimilarClassification
-from choice_pipeline_4 import ChoicePipeline4
-from yes_no_pipeline_2 import YesNoPipeline2
+from choice_pipeline_final import ChoicePipeline
+from yes_no_pipeline_final import YesNoPipeline
 # from hm_pipeline2 import HmPipeline2  
-from hm_pipeline3 import HmPipeline3  
+from hm_pipeline_final import HmPipeline
 
 # Khởi tạo Flask app
 app = Flask(__name__)
@@ -70,14 +70,16 @@ tokenizer, model = get_model() # Model
 
 embedding_model = SentenceTransformer('BAAI/bge-m3')
 
-yn_index_path= "/home/tinhtv/code/QA_Challange_2025/api/datastore/yn_index"
-choice_index_path= "/home/tinhtv/code/QA_Challange_2025/api/datastore/choice_index"
-hm_index_path= "/home/tinhtv/code/QA_Challange_2025/api/datastore/hm_index"
+datastore_folder = os.path.dirname(os.path.abspath(__file__)) + '/datastore'
+
+yn_index_path = datastore_folder + "/yn_index"
+choice_index_path = datastore_folder + "/choice_index"
+hm_index_path= datastore_folder + "/hm_index"
 q_classifier = SimilarClassification(yn_index_path=yn_index_path, choice_index_path=choice_index_path, hm_index_path=hm_index_path) # Instance of question classifier
 
-choice_pipeline = ChoicePipeline4()
-yesno_pipeline = YesNoPipeline2()
-hm_pipeline = HmPipeline3(embedding_model=embedding_model)  
+choice_pipeline = ChoicePipeline()
+yesno_pipeline = YesNoPipeline()
+hm_pipeline = HmPipeline(embedding_model=embedding_model)  
 
 def validate(request):
     """

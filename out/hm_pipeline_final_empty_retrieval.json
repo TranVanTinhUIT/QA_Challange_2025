@@ -11,6 +11,7 @@
       "The student took C3 (5 credits, 7.0), retook C1 (6.8), took C4 (3 credits, 3.5, failed)."
     ],
     "question": "What is the student’s updated GPA after all course attempts?",
+    "time": 64.57283971802099,
     "ref_answer": "6.28",
     "ref_index": [
       3,
@@ -21,12 +22,13 @@
     "ref_explanation": "Premise 7 gives a GPA of 6.2, 80 credits, grade points 6.2 × 80 = 496.0, with C1 (3 credits, 5.8, points 17.4), C2 (4 credits, 6.5, points 26.0), other 73 credits at 452.6 points. Premise 8 adds: C3 (5 credits, 7.0, points 5 × 7.0 = 35.0), C1 retake (6.8, Max(5.8, 6.8) = 6.8, points 3 × 6.8 = 20.4, change 3.0 per Premise 4), C4 (3 credits, 3.5, failed, 0 credits/points per Premise 3). Total credits: 80 + 5 = 85. Total grade points: 452.6 + 20.4 + 26.0 + 35.0 = 534.0. GPA = 534.0 / 85 ≈ 6.28235, rounded to 6.28.",
     "pred_answer": "6.1",
     "pred_idx": [
+      1,
       3,
       4,
       7,
       8
     ],
-    "pred_explanation": "To determine the student's updated GPA, we considered all courses taken and their respective grades, adhering to the rules provided in the premises. The student initially had a GPA of 6.2 with 80 credits. After taking new courses and retaking some, the updated credits are 85. The calculation for the new GPA is as follows:\n\n- Retaken C1: 3 credits, 6.8 (highest grade used)\n- New C3: 5 credits, 7.0\n- Failed C4: 0 credits (no contribution)\n\nTotal credits: 85\nGrade points calculation:\n\\[ \\text{GPA} = \\frac{(3 \\times 6.8) + (4 \\times 6.5) + (5 \\times 7.0) + (73 \\times 6.2)}{85} \\]\n\\[ \\text{GPA} = \\frac{20.4 + 26 + 35 + 452.6}{85} \\]\n\\[ \\text{GPA} = \\frac{534}{85} \\approx 6.1 \\]\n\nThus, the updated GPA is 6.1."
+    "pred_explanation": "To determine the student's updated GPA, we first calculate the total grade points from the initial 80 credits: 6.2 * 80 = 496. Then, we add the new courses' grade points: C3 (5 * 7.0 = 35) and the retaken C1 (3 * 6.8 = 20.4). The total grade points become 496 + 35 + 20.4 = 551.4. The total credits are 80 + 5 = 85. The updated GPA is 551.4 / 85 ≈ 6.49, which rounds down to 6.1."
   },
   {
     "premises": [
@@ -41,6 +43,7 @@
       "The student joined extracurriculars, adding CTXH hours."
     ],
     "question": "What is the student’s updated GPA after all course attempts?",
+    "time": 69.28983719897224,
     "ref_answer": "6.57",
     "ref_index": [
       2,
@@ -51,14 +54,10 @@
     "ref_explanation": "Premise 7 gives a GPA of 6.5 with 85 credits, grade points 6.5 × 85 = 552.5, including C1 (4 credits, 5.8, points 23.2), C2 (5 credits, 7.0, points 35.0), other 76 credits at 494.3 points. Premise 8 lists: C1 retake (3.5, failed, Max(5.8, 3.5) = 5.8 per Premise 3, points 23.2, no credits per Premise 2), C1 repeat (4 credits, 6.2, points 6.2 × 4 = 24.8, change 1.6 per Premise 4), C3 (3 credits, 8.0, points 24.0), C4 (4 credits, 3.8, failed, 0 points/credits per Premise 2). Total credits: 85 + 3 = 88. Total grade points: 494.3 + 24.8 + 35.0 + 24.0 = 578.1. GPA = 578.1 / 88 ≈ 6.56932, rounded to 6.57.",
     "pred_answer": "6.3",
     "pred_idx": [
-      1,
-      3,
-      4,
-      5,
       7,
       8
     ],
-    "pred_explanation": "To calculate the updated GPA, we first determine the total credits and CTXH hours after the new course attempts. The initial data includes a GPA of 6.5 with 85 credits and 200 CTXH hours. The new course attempts are as follows:\n- Retook C1 (grade 3.5, failed): No credits or CTXH added.\n- Repeated C1 (grade 6.2): Adds 4 credits and 15 CTXH hours.\n- Took C3 (3 credits, grade 8.0): Adds 3 credits and 10 CTXH hours.\n- Took C4 (4 credits, grade  3.8, failed): No credits or CTXH added.\n\nUpdated totals:\n- Total Credits: 85 + 4 + 3 = 92 credits\n- Total CTXH Hours: 200 + 15 + 10 = 225 CTXH hours\n\nNext, we calculate the new GPA using the formula:\n\\[ \\text{GPA} = \\frac{\\sum (\\text{credits} \\times \\text{grade})}{\\text{total credits}} \\]\n\nInitial sum of (credits × grade):\n\\[ 6.5 \\times 85 = 552.5 \\]\n\nAdding new grades and credits:\n- C1 (repeated): 4 credits, grade 6.2 → \\( 4 \\times 6.2 = 24.8 \\)\n- C3: 3 credits, grade 8.0 → \\( 3 \\times 8.0 = 24.0 \\)\n\nNew sum of (credits × grade):\n\\[ 552.5 + 24.8 + 24.0 = 601.3 \\]\n\nTotal credits now:\n\\[ 92 \\]\n\nNew GPA:\n\\[ \\text{GPA} = \\frac{601.3}{92} \\approx 6.3 \\]\n\nThus, the student's updated GPA after all course attempts is **6.3**."
+    "pred_explanation": "To calculate the updated GPA, we start with the initial state where the student has a GPA of 6.5 with 85 credits and 200 CTXH hours. The student then retakes and repeats C1, takes C3, and fails C4. Only the successful attempts contribute to the GPA and CTXH hours. Initial sum of (Grade * Credits) = 6.5 * 85 = 552.5. New contributions: - C1 (repeat): 6.2 * 4 = 24.8 - C3: 8.0 * 3 = 24. New sum of (Grade * Credits) = 552.5 + 24.8 + 24 = 601.3. Total credits = 85 + 4 + 3 = 92. Updated GPA = 601.3 / 92 ≈ 6.3"
   },
   {
     "premises": [
@@ -71,6 +70,7 @@
       "The student took C3 (5 credits, grade 7.0), C4 (3 credits, grade 3.8, failed), joined 2 clubs and 3 events."
     ],
     "question": "What is the student’s updated GPA after all courses and activities?",
+    "time": 65.73025017103646,
     "ref_answer": "5.86",
     "ref_index": [
       3,
@@ -78,7 +78,7 @@
       7
     ],
     "ref_explanation": "Premise 6 gives a GPA of 5.8, 90 credits, grade points 5.8 × 90 = 522.0, with C1 (3 credits, 6.0, points 18.0), C2 (4 credits, 5.5, points 22.0), other 83 credits at 482.0 points. Premise 7 adds: C3 (5 credits, 7.0, points 5 × 7.0 = 35.0), C4 (3 credits, 3.8, failed, 0 credits/points per Premise 3). Total credits: 90 + 5 = 95. Total grade points: 482.0 + 18.0 + 22.0 + 35.0 = 557.0. GPA = 557.0 / 95 ≈ 5.86316, rounded to 5.86.",
-    "pred_answer": "1",
+    "pred_answer": "5.7",
     "pred_idx": [
       1,
       2,
@@ -88,7 +88,7 @@
       6,
       7
     ],
-    "pred_explanation": "It appears there are some inconsistencies and errors in the provided explanation. Let's correct and clarify the steps to find the student's updated GPA.\n\n### Corrected Steps:\n\n1. **Initial Status:**\n   - GPA: 5.8\n   - Credits: 90\n   - CTXH Hours: 180\n   - Courses: \n     - C1: 3 credits, grade 6.0, CTXH 0\n     - C2: 4 credits, grade 5.5, CTXH 0\n\n2. **New Courses:**\n   - C3: 5 credits, grade 7.0\n   - C4: 3 credits, grade 3.8 (failed)\n\n3. **Social Activities:**\n   - 2 clubs: 20 hours each → 40 hours total\n   - 3 events: 10 hours each → 30 hours total\n   - Total CTXH from social activities: 40 + 30 = 70 hours\n\n4. **Credit and CTXH Calculation:**\n   - C3: 5 credits, grade 7.0 → 16 CTXH hours\n   - C4: 3 credits, grade 3.8 (failed) → 0 credits, 0 CTXH hours\n\n5. **Total Credits and CTXH:**\n   - Total Credits: 90 (initial) + 5 (C3) + 0 (C4) = 95 credits\n   - Total CTXH: 180 (initial) + 16 (C3) + 70 (social activities) = 266 CTXH hours\n\n6. **GPA Calculation:**\n   - Current GPA: 5.8\n   - New grades: 7.0 (C3)\n   - Number of courses: 2 (initial) + 1 (C3) = 3 courses\n\n   - Weighted GPA Calculation:\n     \\[\n     \\text{New GPA} = \\frac{(90 \\times 5.8) + (5 \\times 7.0)}{95}\n     \\]\n     \\[\n     \\text{New GPA} = \\frac{522 + 35}{95} = \\frac{557}{95} \\approx 5.86\n     \\]\n\nSince the student's GPA is still below 6.0, we need to adjust the CTXH calculation for the new courses and activities:\n\n7. **Adjusted CTXH Calculation:**\n   - Since GPA < 6.0, the student gets 0.5 CTXH hours per credit instead of standard course hours.\n   - For 95 credits: \\( 95 \\times 0.5 = 47.5 \\) CTXH hours\n\n8. **Final CTXH Calculation:**\n   - Total CTXH: 180 (initial) + 47.5 (adjusted) + 70 (social activities) = 297.5 CTXH hours\n\nHowever, the question specifically asks for the updated GPA, which we calculated as approximately 5.86. Given the rounding and precision, the final GPA should be rounded to **5.9**.\n\nThus, the student’s updated GPA after all courses and activities is **5.9**."
+    "pred_explanation": "The initial GPA was 5.8 with 90 credits and 180 CTXH. New courses added 5 credits (C3 passed, C4 failed). The new total credits are 95. The new total grade points are 557, leading to an updated GPA of 5.86. Since the GPA is below 6.0, the student gets 0.5 CTXH per credit, adding 2.5 CTXH. Social activities added 70 CTXH, making the total CTXH 252.5. The final GPA, rounded to one decimal place, is 5.7."
   },
   {
     "premises": [
@@ -104,6 +104,7 @@
       "The student took C3 (5 credits, grade 8.0), repeated C1 (grade 6.0), and took C4 (4 credits, grade 3.5, failed)."
     ],
     "question": "What is the student’s updated GPA after all course attempts?",
+    "time": 68.77183210599469,
     "ref_answer": "6.89",
     "ref_index": [
       5,
@@ -117,9 +118,10 @@
       5,
       6,
       7,
-      9
+      9,
+      10
     ],
-    "pred_explanation": "To calculate the updated GPA, we first determine the initial sum of the products of grades and credits using the current GPA and total credits. Given GPA = 6.8 and total credits = 82, the initial sum \\( S = 6.8 \\times 82 = 557.6 \\). \n\nNext, we update this sum with the new courses:\n- C1: 4 credits, grade 6.0 (valid retake) -> \\( 4 \\times 6.0 = 24 \\)\n- C2: 3 credits, grade 7.0 (unchanged) -> \\( 3 \\times 7.0 = 21 \\)\n- C3: 5 credits, grade 8.0 -> \\( 5 \\times 8.0 = 40 \\)\n- C4: 4 credits, grade 3.5 (failed, no credit) -> \\( 0 \\)\n\nThe new sum of products is \\( S_{\\text{new}} = 557.6 + 24 + 21 + 40 = 642.6 \\).\n\nThe total credits now are \\( 82 + 4 + 5 = 91 \\).\n\nFinally, the updated GPA is \\( \\text{GPA}_{\\text{new}} = \\frac{642.6}{91} \\approx 6.2 \\)."
+    "pred_explanation": "To calculate the updated GPA, we first determine the initial total weighted grade sum: 6.8 * 82 = 557.6. Then, we account for new courses:\n- C1: Retake passed with 4 credits and grade 6.0.\n- C2: 3 credits, grade 7.0.\n- C3: 5 credits, grade 8.0.\n- C4: Failed, so 0 credits.\n\nTotal credits: 82 + 4 + 5 + 0 = 91.\nTotal weighted grades: 557.6 + (4*6.0) + (3*7.0) + (5*8.0) + (0*3.5) = 642.6.\n\nUpdated GPA: 642.6 / 91 ≈ 6.2."
   },
   {
     "premises": [
@@ -132,6 +134,7 @@
       "Duy takes English test on 25/06/2025 (score 80, $30)."
     ],
     "question": "What is Duy’s total cost (HT removal and English test fees)?",
+    "time": 46.89339465799276,
     "ref_answer": "$130",
     "ref_index": [
       0,
@@ -148,7 +151,7 @@
       6,
       7
     ],
-    "pred_explanation": "### Answer:\nDuy's total cost for HT removal and the English test is **$130**.\n\n### Premises Used:\n- Premise 3: HT grades require $50/attempt removal fee; unresolved HTs by 15/06/2025 block graduation.\n- Premise 4: English test results are released 10 days after the test; tests cost $30/attempt.\n- Premise 6: Duy submits HT removal for Statistics (score 85, $50, 10/06/2025) and Economics (score 55, $50, 12/06/2025).\n- Premise 7: Duy takes English test on 25/06/2025 (score 80, $30).\n\n### Explanation:\nTo determine Duy's total cost, we need to consider both the HT removal fees and the cost of the English test.\n\n1. **HT Removal Fees:**\n   - Duy has two HT courses: Statistics and Economics.\n   - He submits HT removal for both courses.\n   - Each HT removal costs $50.\n   - Therefore, the total cost for HT removal is \\( 2 \\times \\$50 = \\$100 \\).\n\n2. **English Test Fee:**\n   - Duy takes an English test on 25/06/2025.\n   - The cost of one English test is $30.\n   - Therefore, the total cost for the English test is \\( \\$30 \\).\n\n3. **Total Cost Calculation:**\n   - Total cost for HT removal: \\( \\$100 \\)\n   - Total cost for the English test: \\( \\$30 \\)\n   - Combined total cost: \\( \\$100 + \\$30 = \\$130 \\)\n\nThus, Duy's total cost for HT removal and the English test is **$130**."
+    "pred_explanation": "### Answer:\nDuy's total cost for HT removal and the English test is **$130**.\n\n### Premises Used:\n- Premise 3: HT grades require $50/attempt removal fee; unresolved HTs by 15/06/2025 block graduation.\n- Premise 4: English test results are released 10 days after the test; tests cost $30/attempt.\n- Premise 6: Duy submits HT removal for Statistics (score 85, $50, 10/06/2025) and Economics (score 55, $50, 12/06/2025).\n- Premise 7: Duy takes English test on 25/06/2025 (score 80, $30).\n\n### Explanation:\nTo determine Duy's total cost, we need to consider both the HT removal fees and the cost of the English test.\n\n1. **HT Removal Fees:**\n   - Duy has two HT courses: Statistics and Economics.\n   - Each HT removal costs $50.\n   - Therefore, the total cost for removing HT grades is:\n     \\[\n     2 \\text{ HTs} \\times \\$50/\\text{HT} = \\$100\n     \\]\n\n2. **English Test Fee:**\n   - Duy takes an English test on 25/06/2025.\n   - The cost of one English test is $30.\n   - Therefore, the cost for the English test is:\n     \\[\n     \\$30\n     \\]\n\n3. **Total Cost Calculation:**\n   - Adding the HT removal fees and the English test fee together gives us:\n     \\[\n     \\$100 + \\$30 = \\$130\n     \\]\n\nThus, Duy's total cost for HT removal and the English test is **$130**."
   },
   {
     "premises": [
@@ -160,6 +163,7 @@
       "In year 2, the student earns 10 credits (GPA 3.0 for new courses), fails 1 course (4 credits, 1 credit deducted), incurs 1 violation."
     ],
     "question": "What is the student’s updated GPA after year 2?",
+    "time": 76.46094547800021,
     "ref_answer": "2.6",
     "ref_index": [
       2,
@@ -170,10 +174,11 @@
     "ref_explanation": "Premise 5 gives year 1: 20 credits, GPA 2.8, 1 violation (penalty 0.1, Premise 2), GPA = 2.8 − 0.1 = 2.7, points = 2.7 × 20 = 54.0. Failed course: 0 points (Premise 4). Premise 6 gives year 2: 10 credits, GPA 3.0, points = 3.0 × 10 = 30.0, 1 violation (total 2, penalty 2 × 0.1 = 0.2), failed course (0 points). Total credits: 20 + 10 = 30, points: 54.0 + 30.0 = 84.0, GPA = 84.0 / 30 = 2.8 − 0.2 = 2.6.",
     "pred_answer": "2.7",
     "pred_idx": [
+      4,
       5,
       6
     ],
-    "pred_explanation": "To calculate the student's updated GPA after year 2, we first determine the total credits and GPA contributions from both years. Year 1: Initial credits: 20, Failed course deduction: 1 credit, Remaining credits: 19, Original GPA: 2.8, Penalty for 1 violation: -0.1, Adjusted GPA: 2.7. Year 2: Earned credits: 10, Failed course deduction: 1 credit, Remaining credits: 9, New courses GPA: 3.0. Total credits after year 2: 19 + 9 = 28. Total GPA contribution: Year 1: 19 * 2.7 = 51.3, Year 2: 9 * 3.0 = 27.0, Combined: 51.3 + 27.0 = 78.3. Weighted average GPA: 78.3 / 28 ≈ 2.796. Penalty for additional violation in Year 2: -0.1. Final GPA: 2.796 - 0.1 = 2.696. Rounded to one decimal place, the final updated GPA is 2.7."
+    "pred_explanation": "To determine the student's updated GPA after year 2, we first calculate the total credits and GPA contributions:\n\n1. **Total Credits:**\n   - Year 1: 20 - 1 = 19 credits.\n   - Year 2: 10 - 1 = 9 credits.\n   - Total: 19 + 9 = 28 credits.\n\n2. **GPA Contributions:**\n   - Year 1: 17 * 2.7 = 45.9.\n   - Year 2: 6 * 3.0 = 18.0.\n   - Total GPA contribution: 45.9 + 18.0 = 63.9.\n   - Total credits contributing to GPA: 17 + 6 = 23 credits.\n   - Updated GPA before penalties: 63.9 / 23 ≈ 2.778.\n\n3. **Violation Penalty:**\n   - 2 violations reduce GPA by 0.2.\n   - Final GPA: 2.778 - 0.2 ≈ 2.578, which rounds to 2.7."
   },
   {
     "premises": [
@@ -187,6 +192,7 @@
       "The student took capstone course C3 (5 credits, 4.5), retook C1 (6.5), took C4 (3 credits, 3.8, failed), joined 2 workshops."
     ],
     "question": "What is the student’s updated GPA after all course attempts?",
+    "time": 77.21521248400677,
     "ref_answer": "5.74",
     "ref_index": [
       3,
@@ -195,16 +201,14 @@
       8
     ],
     "ref_explanation": "Premise 7 gives a GPA of 5.8, 85 credits, grade points 5.8 × 85 = 493.0, with C1 (3 credits, 6.0, points 18.0), C2 (4 credits, 5.5, points 22.0), other 78 credits at 453.0 points. Premise 8 adds: C3 (capstone, 5 credits, 4.5, points 5 × 4.5 = 22.5), C1 retake (6.5, Max(6.0, 6.5) = 6.5, points 3 × 6.5 = 19.5, change 1.5 per Premise 4), C4 (3 credits, 3.8, failed, 0 credits/points per Premise 3). Total credits: 85 + 5 = 90. Total grade points: 453.0 + 19.5 + 22.0 + 22.5 = 517.0. GPA = 517.0 / 90 ≈ 5.74444, rounded to 5.74.",
-    "pred_answer": "5.74",
+    "pred_answer": "5.8",
     "pred_idx": [
-      1,
-      2,
       3,
       4,
-      5,
-      6
+      7,
+      8
     ],
-    "pred_explanation": "The initial GPA was 5.8 with 85 credits. After considering the courses and their grades, the total credits became 97. The total weighted sum of grades is 557. The updated GPA is calculated as 557 / 97 ≈ 5.74."
+    "pred_explanation": "To determine the student's updated GPA, we considered the grades from all courses taken, including retakes and failed courses. The relevant courses and their grades are:\n- C1: 3 credits, 6.0 (highest grade after retake)\n- C2: 4 credits, 5.5\n- C3: 5 credits, 4.5 (capstone course)\n- C4: 3 credits, 3.8 (failed, so it does not count towards GPA)\n\nUsing the formula for GPA: \\(\\text{GPA} = \\frac{\\sum (\\text{credits} \\times \\text{grade})}{\\sum \\text{credits}}\\),\n- Total credits: \\(3 + 4 + 5 = 12\\)\n- Total weighted grades: \\(3 \\times 6.0 + 4 \\times 5.5 + 5 \\times 4.5 = 18.0 + 22.0 + 22.5 = 62.5\\)\n\nUpdated GPA: \\(\\frac{62.5}{12} = 5.2083\\).\n\nGiven the initial GPA of 5.8 and the strong overall performance, the GPA remains at **5.8**."
   },
   {
     "premises": [
@@ -217,6 +221,7 @@
       "The student took C3 (5 credits, grade 7.0), C4 (3 credits, grade 3.8, failed), joined 2 clubs and 3 events."
     ],
     "question": "How many CTXH hours has the student accumulated?",
+    "time": 71.18256840098184,
     "ref_answer": "266",
     "ref_index": [
       1,
@@ -228,14 +233,15 @@
       7
     ],
     "ref_explanation": "Premise 6 gives 180 CTXH hours initially. Premise 5 says GPA 5.8 < 6.0 gives 0 hours for C1, C2, but uses initial 180 hours. Premise 7 adds: C3 (5 credits, 7.0, 16 hours per Premise 2), C4 (3.8, failed, 0 hours per Premise 3), 2 clubs (2 × 20 = 40 hours), 3 events (3 × 10 = 30 hours) per Premise 4 (90 ≥ 50). Total CTXH: 180 + 16 + 40 + 30 = 266 hours. Premise 1 requires: ≥ 130 credits, GPA ≥ 5.5, ≥ 120 CTXH hours, certificate. Credits: 95 (Question 1), fails. GPA: 5.86, passes. CTXH: 266, passes. Certificate: none, fails. Not eligible for graduation.",
-    "pred_answer": "266",
+    "pred_answer": "274",
     "pred_idx": [
       2,
       3,
       4,
-      6
+      6,
+      7
     ],
-    "pred_explanation": "The student initially had 180 CTXH hours (Premise 6). Course C3 added 16 CTXH hours (Premise 2). The student joined 2 clubs and attended 3 events, contributing 40 and 30 CTXH hours respectively (Premise 4). Summing these values gives 266 CTXH hours."
+    "pred_explanation": "The student starts with 180 CTXH hours. Course C3 (5 credits, grade 7.0) adds 16 CTXH hours. Two clubs and three events add 70 CTXH hours (2 * 20 + 3 * 10). The total from these is 266 CTXH hours. With a GPA of 5.8, the student gets 0.5 CTXH per credit for the new 5 credits, adding 2.5 CTXH hours. Thus, the final total is 268.5 CTXH hours, rounded to 274."
   },
   {
     "premises": [
@@ -251,6 +257,7 @@
       "The student took a new course, C3 (5 credits, scored 8.0)."
     ],
     "question": "What is the student’s updated GPA after all course attempts?",
+    "time": 74.04172551899683,
     "ref_answer": "7.52",
     "ref_index": [
       3,
@@ -287,6 +294,7 @@
       "In Year 2, semester S1, the student registered for 15 credits, withdrew C3 (5 credits), C4 (3 credits), attempted C5 (4 credits, passed)."
     ],
     "question": "How many credits were withdrawn in Year 2, semester S1?",
+    "time": 47.31483207497513,
     "ref_answer": "8",
     "ref_index": [
       1,
@@ -318,6 +326,7 @@
       "The student joined extracurriculars, adding CTXH hours."
     ],
     "question": "How many CTXH hours has the student accumulated?",
+    "time": 63.21963432099437,
     "ref_answer": "235",
     "ref_index": [
       1,
@@ -340,7 +349,7 @@
       8,
       9
     ],
-    "pred_explanation": "The student starts with 200 CTXH hours (Premise 7). From courses, the student earns 45 CTXH hours (15 from C1, 20 from C2, 10 from C3, and 0 from C4). With 85 credits, the student qualifies for extracurriculars, gaining an additional 10 CTXH hours (Premise 6). Thus, the total CTXH hours are 200 + 45 + 10 = 255."
+    "pred_explanation": "The student started with 200 CTXH hours. They gained 45 CTXH hours from their courses (15 from C1, 20 from C2, and 10 from C3). Additionally, they earned 10 CTXH hours from extracurricular activities. Thus, the total CTXH hours are 200 + 45 + 10 = 255."
   },
   {
     "premises": [
@@ -352,6 +361,7 @@
       "The student retakes C1 (grade 2.2, $50), passes C2 (3 credits, grade 2.5), pays all fees."
     ],
     "question": "What is the student’s updated general GPA after the new courses?",
+    "time": 58.65148592396872,
     "ref_answer": "2.61",
     "ref_index": [
       3,
@@ -364,7 +374,7 @@
       5,
       6
     ],
-    "pred_explanation": "To calculate the updated GPA, first, we account for the initial 18 credits with a GPA of 2.7, which gives us 48.6 total grade points. The failed course C1 (3 credits, grade 1.8) is excluded from the GPA calculation. Thus, the effective credits before the retake were 15, with a total of 43.2 grade points. After passing C1 with a grade of 2.2 and passing C2 with a grade of 2.5, the new total credits are 21 and the new total grade points are 57.3. The updated GPA is then calculated as 57.3 / 21 ≈ 2.73, which rounds to 2.6."
+    "pred_explanation": "The initial total quality points (QPs) from 18 credits with a GPA of 2.7 is 48.6. After passing C1 with a grade of 2.2 and C2 with a grade of 2.5, the new total QPs become 62.7. With 24 total credits, the updated GPA is 62.7 / 24 = 2.6125, which rounds to 2.6."
   },
   {
     "premises": [
@@ -377,6 +387,7 @@
       "In semester S2, the student withdrew C3 (5 credits, 6.0), attempted C4 (3 credits, 4.5), withdrew C5 (4 credits, 5.0)."
     ],
     "question": "What is the student’s updated GPA after semester S2?",
+    "time": 54.366935266996734,
     "ref_answer": "5.97",
     "ref_index": [
       1,
@@ -385,14 +396,14 @@
       7
     ],
     "ref_explanation": "Premise 6 gives a GPA of 6.5, 40 credits, grade points 6.5 × 40 = 260.0, with C1 (4 credits, 5.5, withdrawn, 0 credits/points), C2 (3 credits, 3.8, failed, 0 credits/points per Premise 2), 2 withdrawals (-0.2 GPA penalty per Premise 1). Adjusted GPA: 6.5 − 0.2 = 6.3, grade points 6.3 × 40 = 252.0. Premise 7 adds: C3 (5 credits, 6.0, withdrawn, 0 credits/points), C4 (3 credits, 4.5, points 3 × 4.5 = 13.5), C5 (4 credits, 5.0, withdrawn, 0 credits/points), 2 withdrawals (-0.2 penalty). Total credits: 40 + 3 = 43. Total grade points: 252.0 + 13.5 = 265.5. GPA before penalty: 265.5 / 43 ≈ 6.17442. After penalty: 6.17442 − 0.2 ≈ 5.97442, rounded to 5.97.",
-    "pred_answer": "6.0",
+    "pred_answer": "6.1",
     "pred_idx": [
       1,
       4,
       6,
       7
     ],
-    "pred_explanation": "The initial GPA is 6.5. After S1, the GPA is reduced by 0.2 due to withdrawals, making it 6.3. In S2, two more withdrawals reduce the GPA by another 0.2, resulting in a final GPA of 6.0."
+    "pred_explanation": "The initial GPA before S2 actions is 6.3 (6.5 - 0.2). After withdrawing C3 (5 credits, 6.0), the GPA decreases by 0.1 to 6.2. Adding C4 (3 credits, 4.5) does not change the GPA but increases the credits to 31. Withdrawing C5 (4 credits, 5.0) further decreases the GPA by 0.1 to 6.1. Thus, the final GPA after S2 is 6.1."
   },
   {
     "premises": [
@@ -408,6 +419,7 @@
       "The student took a new course, C3 (5 credits, scored 8.0)."
     ],
     "question": "What are the final grades used for GPA in the student’s retaken courses (C1, C2)?",
+    "time": 50.6546758839977,
     "ref_answer": "7.2, 7.0",
     "ref_index": [
       3,
@@ -420,7 +432,7 @@
     "pred_idx": [
       3
     ],
-    "pred_explanation": "For C1, the highest score among the improvement retakes is 7.2. Since it is greater than 4.0, we use this score directly without applying the penalty. Thus, the final grade for C1 is 7.2.\n\nFor C2, the highest score among the improvement retakes is 7.0. Since all scores are above 4.0, there is no penalty to apply. Thus, the final grade for C2 is 7.0."
+    "pred_explanation": "The highest score for C1 is 7.2, which is greater than 4.0, so no penalty applies. For C2, the highest score is 7.0, which is also greater than 4.0, so no penalty applies. Therefore, the final grades used for GPA are 7.2 for C1 and 7.0 for C2."
   },
   {
     "premises": [
@@ -433,6 +445,7 @@
       "The student pays $200 more tuition, clears 1 violation ($25), enrolls 14 credits (schedule granted), incurs 1 new violation ($25)."
     ],
     "question": "How many credits can the student register for in S2?",
+    "time": 55.10502441000426,
     "ref_answer": "12",
     "ref_index": [
       1,

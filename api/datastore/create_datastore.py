@@ -11,11 +11,13 @@ import json
 from sklearn.cluster import KMeans
 
 embedding_model_name = "BAAI/bge-m3"
-train_ys_path = "./../train_yn.json"
-train_choice_path = "./../train_choice.json"
-train_hm_path = "./../train_hm.json"
+dataset_dir = './../../dataset'
+train_ys_path =  dataset_dir + "/yn.json"
+train_choice_path = dataset_dir + "/choice.json"
+train_hm_path = dataset_dir + "/hm.json"
 
-n_clusters = 25 # Don't set value greater than record number of minimize set  
+is_clustering = True
+num_clusters = 25 # Don't set value greater than record number of minimize set  
 
 class Cluster:
     def __init__(self):
@@ -43,7 +45,7 @@ class Indexer:
         else:
             question_embeddings = embedding_model.encode(questions, convert_to_tensor=True)
             question_embeddings = question_embeddings.cpu().numpy()
-            embeddings = embeddings / np.linalg.norm(embeddings, axis=1, keepdims=True) # normalize
+            embeddings = question_embeddings / np.linalg.norm(question_embeddings, axis=1, keepdims=True) # normalize
         
         dimension = embeddings.shape[1]
         index_flat = faiss.IndexFlatIP(dimension)
@@ -68,12 +70,13 @@ if __name__ == '__main__':
         hm_ds = json.load(f)
     hm_questions = [item['question'] for item in hm_ds]
 
+    
     # Create faiss index
-    yn_index = indexer.create_index(yn_questions, True, n_clusters=n_clusters)
+    yn_index = indexer.create_index(yn_questions, clustering=is_clustering, n_clusters=num_clusters)
     faiss.write_index(yn_index, "./yn_index")
 
-    choice_index = indexer.create_index(choice_questions, True, n_clusters=n_clusters)
+    choice_index = indexer.create_index(choice_questions, clustering=is_clustering, n_clusters=num_clusters)
     faiss.write_index(choice_index, "./choice_index")
 
-    hm_index = indexer.create_index(hm_questions, True, n_clusters=n_clusters)
+    hm_index = indexer.create_index(hm_questions, clustering=is_clustering, n_clusters=num_clusters)
     faiss.write_index(hm_index, "./hm_index")

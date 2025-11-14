@@ -23,12 +23,14 @@ except ImportError:
 # (Keep these accessible, either as module-level constants or class attributes)
 
 PROMPT_COT_SYS_YN = """
-You are a helpful assistant. Given premises and a Yes/No/Uncertain question,
-reason step-by-step using ONLY the minimal set of premises necessary to answer the question.
-Focus on logical deduction and clearly state which premises support each step.
-Avoid including premises that are not directly required to derive the answer.
-If the premises do not contain sufficient information to answer the question with certainty, 
-your answer should be 'Uncertain' with an empty list of premise indices.
+You are a helpful assistant trained to answer the question based on the given domain knowledge. Given premises and a Yes/No/Uncertain question, reason step-by-step  to answer the question.
+
+**Strict Requirements**
+ - Using ONLY the minimal set of given premises necessary to answer.
+ - Avoid including premises that are not directly required to derive the answer.
+ - Focus on logical deduction and clearly state which premises support each step.
+ - If the given premises do not contain sufficient information to answer the question with certainty, 
+    your answer should be 'Uncertain' with an empty list of premise indices. 
 """
 
 PROMPT_COT_USER_STEP_1 = """
@@ -37,8 +39,16 @@ PROMPT_COT_USER_STEP_1 = """
 
 ## Question: <?question>
 
-## Reasoning Steps Towards Answer:
-(Provide a focused, step-by-step deduction using the premises to answer the question.)
+Steps to be follow:
+1. Analyze the given premises.
+For each premise, extract:
+ - Key entities, facts, or definitions.
+ - Logical conditions or rules (e.g., “if…then…”)
+DO NOT include any inference in this step. 
+Also include all extracted entities in response with the enclosed <entities></entities> tag.
+
+2. Reasoning Steps Towards Answer:
+(Provide a focused, step-by-step deduction using the premises to answer the question, enclosing the reasoning in response within <reasoning></reasoning> tags.)
 """
 
 PROMPT_COT_USER_STEP_2_YN = """
@@ -73,33 +83,10 @@ List the numeric indices of **all and only** the original premises explicitly me
 -   If the answer is 'Uncertain' because the premises are insufficient, leave this empty.
 """
 
-# Final prompt asks LLM to construct the JSON
-PROMPT_COT_USER_FINAL_YN = """
-Now, based on the following information:
-- Concise Answer: '<?concise_answer>'
-- Identified Premise Indices: <?idx_list_str> # String representation, e.g., "1,3,5" or ""
-- Step-by-Step Explanation: "<?explanation>"
-
-Construct the final JSON object EXACTLY in the format below. Output ONLY the JSON object and nothing else.
-
-Response in the following JSON format:
-```json
-{
-  "answer": "<Yes | No | Uncertain>",
-  "idx": [<List the index of used premises>],
-  "explanation": "<explanation>"
-}
-where:
-  - `answer` is the answer to the question.
-  - `explanation` is detailed explanation which is escaped json. Proper escaping is crucial to prevent JSON syntax errors — DO NOT VIOLATE it.
-  - `idx` is list the index of premises referenced in explanation.
-```
-
-"""
-
 QS_TYPE_YN = 'Yes/No/Uncertain'
 
 # Default generation parameters (can be overridden in process method if needed)
+ANALYZE_TOKENS_PER_PREMISE = 70
 DEFAULT_MAX_TOKENS_STEP_1 = 650
 DEFAULT_MAX_TOKENS_STEP_2 = 30
 DEFAULT_MAX_TOKENS_STEP_3 = 400
@@ -108,7 +95,7 @@ DEFAULT_MAX_TOKENS_STEP_5 = 500
 DEFAULT_TEMPERATURE = 0.7
 DEFAULT_TOP_P = 0.9
 
-class YesNoPipeline2:
+class YesNoPipeline:
     """
     Encapsulates the multi-step logic for answering Yes/No/Uncertain questions based on premises.
 
@@ -117,80 +104,7 @@ class YesNoPipeline2:
     """
     def __init__(self):
         pass
-    # def __init__(self,
-    #              model_name: str = "Qwen/Qwen2.5-7B-Instruct",
-    #              use_quantization: bool = True,
-    #              device_map: str = "auto",
-    #              torch_dtype: Any = "auto", # Use Any for flexibility, common default is "auto"
-    #              trust_remote_code: bool = True):
-    #     """
-    #     Initializes the pipeline by loading the model and tokenizer.
-
-    #     Args:
-    #         model_name: The name or path of the Hugging Face model to load.
-    #         use_quantization: Whether to use BitsAndBytes 8-bit quantization.
-    #                           Requires `bitsandbytes` and `accelerate` libraries.
-    #         device_map: The device map strategy for model loading (e.g., "auto", "cuda:0").
-    #         torch_dtype: The torch dtype for model loading (e.g., torch.float16, "auto").
-    #         trust_remote_code: Whether to trust remote code execution for model loading.
-
-    #     Raises:
-    #         ImportError: If required libraries (transformers, torch, bitsandbytes) are missing.
-    #         RuntimeError: If model/tokenizer loading fails for other reasons.
-    #     """
-    #     print(f"Initializing YesNoPipeline with model: {model_name}")
-    #     # Check if necessary classes were imported
-    #     if AutoModelForCausalLM is None or AutoTokenizer is None:
-    #         raise ImportError("Transformers library not found. Please install it: pip install transformers")
-    #     if use_quantization and BitsAndBytesConfig is None:
-    #         raise ImportError("BitsAndBytesConfig not found. Please install bitsandbytes: pip install bitsandbytes")
-
-    #     self.model_name = model_name
-    #     self.tokenizer: Optional[PreTrainedTokenizer] = None
-    #     self.model: Optional[PreTrainedModel] = None
-    #     self.device = device_map # Store device preference for potential future use
-
-    #     load_start_time = time.time()
-    #     try:
-    #         quantization_config = None
-    #         if use_quantization:
-    #             print("Applying 8-bit quantization...")
-    #             quantization_config = BitsAndBytesConfig(load_in_8bit=True, llm_int8_threshold=6.0)
-    #         else:
-    #             print("Quantization disabled.")
-
-    #         self.tokenizer = AutoTokenizer.from_pretrained(
-    #             model_name,
-    #             trust_remote_code=trust_remote_code
-    #         )
-    #         print("Tokenizer loaded.")
-
-    #         self.model = AutoModelForCausalLM.from_pretrained(
-    #             model_name,
-    #             torch_dtype=torch_dtype,
-    #             device_map=device_map,
-    #             quantization_config=quantization_config,
-    #             trust_remote_code=trust_remote_code,
-    #         )
-    #         print(f"Model loaded to device: {self.model.device}")
-
-    #         if self.tokenizer.pad_token is None:
-    #             # Common practice for models without a pad token
-    #             self.tokenizer.pad_token = self.tokenizer.eos_token
-    #             print("Set pad_token to eos_token")
-
-    #         self.model.eval()  # Set model to evaluation mode
-    #         print(f"Model and tokenizer initialized successfully in {time.time() - load_start_time:.2f} seconds.")
-
-    #     except ImportError as ie:
-    #         # Catch specific ImportErrors related to optional dependencies like bitsandbytes
-    #         print(f"ImportError during initialization: {ie}. Please ensure necessary libraries are installed for the selected configuration (e.g., `pip install bitsandbytes accelerate` for quantization).")
-    #         raise
-    #     except Exception as e:
-    #         print(f"Error loading model or tokenizer: {e}")
-    #         # Wrap generic exceptions in RuntimeError for clarity
-    #         raise RuntimeError(f"Failed to initialize YesNoPipeline: {e}") from e
-
+    
     # --- Private Helper Methods --- 
 
     def _generate_prompt(self, template: str, data_dict: Dict[str, Any]) -> str:
@@ -227,30 +141,6 @@ class YesNoPipeline2:
     def _create_user_prompt_step4(self, explanation: str) -> str:
         """Creates the user prompt for extracting premise indices."""
         return self._generate_prompt(PROMPT_COT_USER_STEP_4_IDX, {"explanation": explanation})
-
-    def _create_user_prompt_step5(self, concise_answer: str, idx_list_str: str, explanation: str) -> str:
-        """Creates the user prompt for the final JSON generation step."""
-        try:
-            if idx_list_str and idx_list_str.strip():
-                parsed_idx = [int(i.strip()) for i in idx_list_str.split(',') if i.strip().isdigit()]
-                # Ensure indices are unique and sorted before creating JSON list string
-                idx_list_json = json.dumps(sorted(list(set(parsed_idx))))
-            else:
-                idx_list_json = "[]"
-        except Exception as e:
-            print(f"Warning: Error converting index list string '{idx_list_str}' to JSON list: {e}")
-            idx_list_json = "[]"
-
-        # Escape the explanation string to be safely embedded within the JSON structure of the prompt
-        # json.dumps adds quotes, so we slice them off [1:-1] if embedding inside existing quotes
-        cleaned_explanation_escaped = json.dumps(explanation.strip())[1:-1]
-
-        return self._generate_prompt(PROMPT_COT_USER_FINAL_YN, {
-            "concise_answer": concise_answer,
-            "idx_list_str": idx_list_str,
-            "idx_list_json": idx_list_json,
-            "explanation": cleaned_explanation_escaped
-        })
 
     @torch.no_grad() # Disable gradient calculations for inference
     def _generate_answer(self, messages: List[Dict[str, str]], tokenizer, model, max_tokens: int) -> str:
@@ -410,6 +300,20 @@ class YesNoPipeline2:
             import traceback
             traceback.print_exc()
             return None
+    
+    def extract_entities_step_1(self, llm_response):
+        entities_start = llm_response.find('<entities>')
+        entities_end = llm_response.find('</entities>')
+        entities = ''
+        if entities_start > 0 and entities_end > 0 and entities_start < entities_end :
+            entities = llm_response[entities_start: entities_end].replace('<entities>', '').replace('</entities>', '').strip()
+
+        reasoning_start = llm_response.find('<reasoning>')
+        reasoning_end = llm_response.find('</reasoning>')
+        reasoning = ''
+        if reasoning_start > 0 and reasoning_end > 0 and reasoning_start < reasoning_end :
+            reasoning = llm_response[reasoning_start: reasoning_end].replace('<reasoning>', '').replace('</reasoning>', '').strip()
+        return entities, reasoning
 
     # --- Public Process Method --- 
 
@@ -443,7 +347,9 @@ class YesNoPipeline2:
             "idx": [],
             "explanation": "Pipeline did not complete successfully.",
             "timing": step_times, # Reference the timing dict
-            "error": None # Add error key, initially None
+            "error": None, # Add error key, initially None,
+            'entities': '',
+            'reasoning': ''
         }
 
         try:
@@ -459,11 +365,17 @@ class YesNoPipeline2:
             messages_s1 = [{"role": "system", "content": sys_prompt}, {"role": "user", "content": user_prompt_s1}]
             if trace: print('Step 1: Generating initial reasoning...')
             s1_start = time.time()
-            step_1_reasoning = self._generate_answer(messages=messages_s1, tokenizer=tokenizer, model=model, max_tokens= DEFAULT_MAX_TOKENS_STEP_1)
+            step_1_reasoning = self._generate_answer(messages=messages_s1, tokenizer=tokenizer, model=model, max_tokens= ANALYZE_TOKENS_PER_PREMISE*len(premises) + DEFAULT_MAX_TOKENS_STEP_1)
+            if trace: print('Step 1 => \n', step_1_reasoning)
+            
             step_times['step_1_reasoning'] = time.time() - s1_start
             if trace: print(f"Step 1 took {step_times['step_1_reasoning']:.2f}s")
             if step_1_reasoning.startswith("Error:"): raise RuntimeError(f"Step 1 failed: {step_1_reasoning}")
             final_output_str = step_1_reasoning # Store last successful output
+
+            entities, reasoning = self.extract_entities_step_1(final_output_str)
+            result_dict['entities'] = entities
+            result_dict['reasoning'] = reasoning
 
             # --- Step 2: Concise Answer ---            
             user_prompt_s2 = self._create_user_prompt_step2()
@@ -513,68 +425,21 @@ class YesNoPipeline2:
                 if trace: print("Step 4: Skipped index extraction (Answer is Uncertain)")
                 step_times['step_4_indices'] = 0.0 # Indicate skipped step
 
-            # --- Step 5: Final JSON Generation ---            
-            user_prompt_s5 = self._create_user_prompt_step5(step_2_answer, step_4_indices_str, step_3_explanation)
-            messages_s5 = messages_s1 + [ # Base context + final instruction            
-                {"role": "system", "content": f"Context for JSON Generation:\nConcise Answer: {step_2_answer}\nIndices String: {step_4_indices_str}\nExplanation:\n{step_3_explanation}"}, 
-                {"role": "user", "content": user_prompt_s5}
-            ] 
-            if trace: print('Step 5: Generating final JSON output...')
-            s5_start = time.time()
-            final_output_str = self._generate_answer(messages=messages_s5,tokenizer=tokenizer, model=model, max_tokens= DEFAULT_MAX_TOKENS_STEP_5)
-            step_times['final_json_generation'] = time.time() - s5_start
-            if trace: print(f"Step 5 took {step_times['final_json_generation']:.2f}s")
-            if final_output_str.startswith("Error:"): raise RuntimeError(f"Step 5 failed: {final_output_str}")
+            # --- Step 5: Synthetic final Response ---
+            result_dict['answer'] = step_2_answer
+            idx = []
+            try:
+                if step_4_indices_str and step_4_indices_str.strip():
+                    arr = [int(i.strip()) for i in step_4_indices_str.split(',') if i.strip().isdigit()]
+                    # Ensure indices are unique and sorted before creating JSON list string
+                    idx = sorted(list(set(arr)))
 
-            # --- Parse Final Output ---            
-            parsed_result = self._parse_final_output(final_output_str, sample_info=f"for question '{question[:50]}...'")
+            except Exception as e:
+                # ignore
+                idx = []
 
-            # --- Populate Result Dictionary --- 
-            if parsed_result:
-                # Update result dict with parsed values
-                result_dict['answer'] = parsed_result['answer']
-                result_dict['idx'] = parsed_result['idx']
-                result_dict['explanation'] = parsed_result['explanation']
-                result_dict['error'] = None # Explicitly set error to None on success
-
-                explanation = result_dict['explanation']
-
-                import codecs
-                explanation = codecs.decode(explanation, 'unicode_escape')
-                explanation = explanation.replace('\n', ' ')
-                explanation = explanation.replace('“', '"').replace('”', '"')  
-                explanation = explanation.replace('’', "'")  
-                explanation = explanation.replace('→', '→')  
-
-                explanation = ' '.join(explanation.split())
-
-                result_dict['explanation'] = explanation  
-
-            else:
-                # Parsing failed, update result dict with error info
-                #result_dict['answer'] = "Error: Parse Failed"
-                #result_dict['explanation'] = f"Parsing Failed. Raw Output: {final_output_str or '[No Raw Output]'}"
-                #result_dict['error'] = "Failed to parse final JSON output from LLM."
-                #result_dict['raw_output'] = final_output_str # Include raw output for debugging
-
-                fixed_str = final_output_str + '"}'
-                cleaned_str = re.sub(r'^```json\n', '', fixed_str)
-                data = json.loads(cleaned_str)
-
-                result_dict['answer'] = repr(data['answer'])
-                result_dict['idx'] = data['idx']
-                explanation = data['explanation']
-
-                import codecs
-                explanation = codecs.decode(explanation, 'unicode_escape')
-                explanation = explanation.replace('\n', ' ')
-                explanation = explanation.replace('“', '"').replace('”', '"')  
-                explanation = explanation.replace('’', "'")  
-                explanation = explanation.replace('→', '→')  
-
-                explanation = ' '.join(explanation.split())
-
-                result_dict['explanation'] = explanation  
+            result_dict['idx'] = idx
+            result_dict['explanation'] = step_3_explanation
 
         except ValueError as ve:
             # Handle input validation errors
@@ -600,3 +465,65 @@ class YesNoPipeline2:
         if trace: print(f"Total pipeline time: {total_time:.2f}s")
         
         return result_dict
+
+
+def get_model(model_name = "Qwen/Qwen2.5-32B-Instruct-AWQ"):
+    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+        device_map="auto",
+        trust_remote_code=True,
+    )
+    return tokenizer, model
+
+if __name__ == "__main__":
+    pipeline = YesNoPipeline()
+    tokenizer, model = get_model() # Model
+
+    ds_folder = os.path.dirname(os.path.abspath(__file__)) + '/../dataset'
+    out_folder = os.path.dirname(os.path.abspath(__file__)) + '/../out'
+
+    with open(ds_folder + '/yn_test.json', "r", encoding="utf-8") as f:
+        yn_test = json.load(f)
+    
+    test_ds = yn_test
+    print(len(test_ds))
+
+    results = []
+
+    out_file = out_folder + f"/yes_no_pipeline_final.json"
+    if os.path.exists(out_file):
+        with open(out_file, "r", encoding="utf-8") as f:
+            results = json.load(f)
+    
+    for index, item in enumerate(test_ds):
+        if index < len(results):
+            continue
+        print('Test item ', index)
+        if index %10 == 0 :
+            with open(out_file, "w", encoding="utf-8") as f:
+                json.dump(results, f, ensure_ascii=False, indent=2)
+        premises = item['premises-NL']
+        question = item['question']
+        start_time = time.perf_counter()
+        yn_result = pipeline.run(premises=premises, question=question, tokenizer=tokenizer, model=model, trace=True)
+        endtime_time = time.perf_counter()
+        result = {
+            'premises': premises,
+            'question': question
+        }
+        result['time'] = endtime_time - start_time
+        
+        result['ref_answer'] = item['answer']
+        result['ref_index'] = item['idx']
+        result['ref_explanation'] = item['explanation']
+        result['pred_answer'] = yn_result['answer']
+        result['pred_idx'] = yn_result['idx']
+        result['pred_explanation'] = yn_result['explanation']
+        result['entities'] = yn_result['entities']
+        result['reasoning'] = yn_result['reasoning']
+        results.append(result)
+    
+    with open(out_file, "w", encoding="utf-8") as f:
+        json.dump(results, f, ensure_ascii=False, indent=2)
+   

@@ -10,6 +10,7 @@ import re
 import os
 from sentence_transformers import SentenceTransformer
 from transformers import AutoTokenizer, AutoModelForCausalLM
+import time
 
 def parse_indices(model_output):
     # Use regex to find all numbers between <begin_idx> and <end_idx>
@@ -172,7 +173,7 @@ def validate_answer(answer_item, question):
             
     return True, "Valid answer"
 
-class HmPipeline3:
+class HmPipeline:
     def __init__(self, embedding_model: SentenceTransformer):
         self.retriever = Retriever(embedding_model)
         self.retriever.encode("data/preprocessed_train_v1.json")
@@ -438,7 +439,7 @@ def get_model(model_name = "Qwen/Qwen2.5-32B-Instruct-AWQ"):
 
 if __name__ == "__main__":
     embedding_model = SentenceTransformer('BAAI/bge-m3')
-    pipeline = HmPipeline3(embedding_model=embedding_model)
+    pipeline = HmPipeline(embedding_model=embedding_model)
     tokenizer, model = get_model() # Model
 
     ds_folder = os.path.dirname(os.path.abspath(__file__)) + '/../dataset'
@@ -452,7 +453,7 @@ if __name__ == "__main__":
 
     results = []
 
-    out_file = out_folder + f"/hm_no_Retrieval.json"
+    out_file = out_folder + f"/hm_pipeline_final.json"
     if os.path.exists(out_file):
         with open(out_file, "r", encoding="utf-8") as f:
             results = json.load(f)
@@ -466,13 +467,14 @@ if __name__ == "__main__":
                 json.dump(results, f, ensure_ascii=False, indent=2)
         premises = item['premises-NL']
         question = item['question']
-        
-        hm_result = pipeline.run(premises=premises, question=question, tokenizer=tokenizer, model=model, disable_retrieval=True, trace=True)
-
+        start_time = time.perf_counter()
+        hm_result = pipeline.run(premises=premises, question=question, tokenizer=tokenizer, model=model, disable_retrieval=False, trace=True)
+        endtime_time = time.perf_counter()
         result = {
             'premises': premises,
             'question': question
         }
+        result['time'] = endtime_time - start_time
         
         result['ref_answer'] = item['answer']
         result['ref_index'] = item['idx']
