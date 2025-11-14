@@ -1,0 +1,770 @@
+[
+  {
+    "premises-NL": [
+      "Nam has a GPA of 6.9 after completing 88 credits.\n- Key entities: Nam, GPA, 6.9, 88 credits.\n- Logical conditions: None.\n- Representation: Nam's GPA is 6.9 and he has completed 88 credits.",
+      "Nam retook 3 previously passed courses: C1 (4 credits, initial 5.2, retake1 7.0, retake2 3.5), C2 (3 credits, initial 6.0, retake1 6.8, retake2 6.0), C3 (5 credits, initial 7.5, retake1 5.0, retake2 4.0).\n- Key entities: Nam, C1, C2, C3, 4 credits, 3 credits, 5 credits, initial grades, retake grades.\n- Logical conditions: None.\n- Representation: Nam retakes three courses with their respective initial and retake scores.",
+      "Nam repeated one failed course: C4 (3 credits, initial 3.0, repeat 6.5).\n- Key entities: Nam, C4, 3 credits, initial 3.0, repeat 6.5.\n- Logical conditions: None.\n- Representation: Nam repeats a failed course C4 with an initial score of 3.0 and a repeat score of 6.5.",
+      "Nam took two new courses: C5 (4 credits, score 8.0), C6 (2 credits, score 3.8).\n- Key entities: Nam, C5, C6, 4 credits, 2 credits, score 8.0, score 3.8.\n- Logical conditions: None.\n- Representation: Nam takes two new courses with their respective scores.",
+      "A retake is re-registering a passed course (same course code) to improve the grade.\n- Key entities: retake, passed course, same course code, improve grade.\n- Logical conditions: None.\n- Representation: Definition of retake.",
+      "For GPA, use the highest score if ≥ 4.0; if all retake scores < 5.0, deduct 0.2 points per credit from the course’s grade points.\n- Key entities: GPA, highest score, retake scores, 4.0, 5.0, 0.2 points per credit.\n- Logical conditions: If highest score ≥ 4.0, use it for GPA; if all retake scores < 5.0, deduct 0.2 points per credit.\n- Representation: Rules for calculating GPA based on retake scores.",
+      "Retaking a course does not add credits.\n- Key entities: retaking a course, credits.\n- Logical conditions: None.\n- Representation: Retaking a course does not increase the total number of credits.",
+      "Repeating a failed course means re-registering it.\n- Key entities: repeating a failed course, re-registering.\n- Logical conditions: None.\n- Representation: Definition of repeating a failed course.",
+      "A failed course (score < 4.0) adds no credits.\n- Key entities: failed course, score < 4.0, credits.\n- Logical conditions: If score < 4.0, no credits added.\n- Representation: A failed course with a score less than 4.0 does not contribute to the total credits.",
+      "Repeating a failed course adds credits if the new score ≥ 4.0.\n- Key entities: repeating a failed course, credits, new score ≥ 4.0.\n- Logical conditions: If new score ≥ 4.0, add credits.\n- Representation: Repeating a failed course adds credits if the new score is 4.0 or higher."
+    ],
+    "question": "What are the final scores used for GPA in Nam’s retaken courses?",
+    "answer": "7.0, 6.8, 7.5",
+    "idx": [
+      2,
+      6
+    ],
+    "explanation": "Premise 2 gives the scores for three retaken courses: C1 (4 credits, initial 5.2, retake1 7.0, retake2 3.5), C2 (3 credits, initial 6.0, retake1 6.8, retake2 6.0), C3 (5 credits, initial 7.5, retake1 5.0, retake2 4.0). Premise 6 says GPA uses the highest score if ≥ 4.0, with a penalty of 0.2 points per credit if all retake scores are < 5.0. For C1, Max(5.2, 7.0, 3.5) = 7.0, retakes 7.0, 3.5 (not all < 5.0), so score is 7.0. For C2, Max(6.0, 6.8, 6.0) = 6.8, retakes 6.8, 6.0 (not all < 5.0), so score is 6.8. For C3, Max(7.5, 5.0, 4.0) = 7.5, retakes 5.0, 4.0 (all < 5.0), but score remains 7.5 (penalty affects grade points, not score). Final scores: 7.0, 6.8, 7.5.",
+    "premises-NL-old": [
+      "Nam has a GPA of 6.9 after completing 88 credits.",
+      "Nam retook 3 previously passed courses: C1 (4 credits, initial 5.2, retake1 7.0, retake2 3.5), C2 (3 credits, initial 6.0, retake1 6.8, retake2 6.0), C3 (5 credits, initial 7.5, retake1 5.0, retake2 4.0).",
+      "Nam repeated one failed course: C4 (3 credits, initial 3.0, repeat 6.5).",
+      "Nam took two new courses: C5 (4 credits, score 8.0), C6 (2 credits, score 3.8).",
+      "A retake is re-registering a passed course (same course code) to improve the grade.",
+      "For GPA, use the highest score if ≥ 4.0; if all retake scores < 5.0, deduct 0.2 points per credit from the course’s grade points.",
+      "Retaking a course does not add credits.",
+      "Repeating a failed course means re-registering it.",
+      "A failed course (score < 4.0) adds no credits.",
+      "Repeating a failed course adds credits if the new score ≥ 4.0."
+    ],
+    "entities": [
+      "Nam",
+      "GPA",
+      "6.9",
+      "88 credits",
+      "C1",
+      "C2",
+      "C3",
+      "4 credits",
+      "3 credits",
+      "5 credits",
+      "initial grades",
+      "retake grades",
+      "C4",
+      "initial 3.0",
+      "repeat 6.5",
+      "C5",
+      "C6",
+      "2 credits",
+      "score 8.0",
+      "score 3.8",
+      "retake",
+      "passed course",
+      "same course code",
+      "improve grade",
+      "highest score",
+      "retake scores",
+      "4.0",
+      "5.0",
+      "0.2 points per credit",
+      "retaking a course",
+      "credits",
+      "repeating a failed course",
+      "re-registering",
+      "failed course",
+      "score < 4.0",
+      "new score ≥ 4.0"
+    ]
+  },
+  {
+    "premises-NL": [
+      "Nam has a GPA of 6.9 after completing 88 credits.\n- Key entities: Nam, GPA, 6.9, 88 credits.\n- Logical conditions: None.\n- Representation: Nam's GPA is 6.9 and he has completed 88 credits.",
+      "Nam retook 3 previously passed courses: C1 (4 credits, initial 5.2, retake1 7.0, retake2 3.5), C2 (3 credits, initial 6.0, retake1 6.8, retake2 6.0), C3 (5 credits, initial 7.5, retake1 5.0, retake2 4.0).\n- Key entities: Nam, C1, C2, C3, 4 credits, 3 credits, 5 credits, initial grades, retake grades.\n- Logical conditions: None.\n- Representation: Nam retakes three courses with their respective initial and retake scores.",
+      "Nam repeated one failed course: C4 (3 credits, initial 3.0, repeat 6.5).\n- Key entities: Nam, C4, 3 credits, initial 3.0, repeat 6.5.\n- Logical conditions: None.\n- Representation: Nam repeats a failed course C4 with an initial score of 3.0 and a repeat score of 6.5.",
+      "Nam took two new courses: C5 (4 credits, score 8.0), C6 (2 credits, score 3.8).\n- Key entities: Nam, C5, C6, 4 credits, 2 credits, score 8.0, score 3.8.\n- Logical conditions: None.\n- Representation: Nam takes two new courses with their respective scores.",
+      "A retake is re-registering a passed course (same course code) to improve the grade.\n- Key entities: retake, passed course, same course code, improve grade.\n- Logical conditions: None.\n- Representation: Definition of retake.",
+      "For GPA, use the highest score if ≥ 4.0; if all retake scores < 5.0, deduct 0.2 points per credit from the course’s grade points.\n- Key entities: GPA, highest score, retake scores, 4.0, 5.0, 0.2 points per credit.\n- Logical conditions: If highest score ≥ 4.0, use it for GPA; if all retake scores < 5.0, deduct 0.2 points per credit.\n- Representation: Rules for calculating GPA based on retake scores.",
+      "Retaking a course does not add credits.\n- Key entities: retaking a course, credits.\n- Logical conditions: None.\n- Representation: Retaking a course does not increase the total number of credits.",
+      "Repeating a failed course means re-registering it.\n- Key entities: repeating a failed course, re-registering.\n- Logical conditions: None.\n- Representation: Definition of repeating a failed course.",
+      "A failed course (score < 4.0) adds no credits.\n- Key entities: failed course, score < 4.0, credits.\n- Logical conditions: If score < 4.0, no credits added.\n- Representation: A failed course with a score less than 4.0 does not contribute to the total credits.",
+      "Repeating a failed course adds credits if the new score ≥ 4.0.\n- Key entities: repeating a failed course, credits, new score ≥ 4.0.\n- Logical conditions: If new score ≥ 4.0, add credits.\n- Representation: Repeating a failed course adds credits if the new score is 4.0 or higher."
+    ],
+    "question": "What is Nam’s updated GPA after all course attempts?",
+    "answer": "7.02",
+    "idx": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      9,
+      10
+    ],
+    "explanation": "Premise 1 gives Nam a GPA of 6.9 over 88 credits, so grade points are 6.9 × 88 = 607.2. Premise 2 describes retakes: C1 (4 credits, initial 5.2, retake1 7.0, retake2 3.5, original points 20.8), C2 (3 credits, initial 6.0, retake1 6.8, retake2 6.0, original points 18), C3 (5 credits, initial 7.5, retake1 5.0, retake2 4.0, original points 37.5). Premise 6 says use highest score if ≥ 4.0, with 0.2-point penalty per credit if all retakes < 5.0: C1 uses 7.0, points = 7.0 × 4 = 28, change = 28 − 20.8 = 7.2; C2 uses 6.8, points = 6.8 × 3 = 20.4, change = 20.4 − 18 = 2.4; C3 uses 7.5, retakes < 5.0, penalty 0.2 × 5 = 1.0, points = 7.5 × 5 − 1.0 = 36.5, change = 36.5 − 37.5 = −1.0. Premise 3 adds repeat C4 (3 credits, initial 3.0, repeat 6.5), points = 6.5 × 3 = 19.5. Premise 4 adds new courses: C5 (4 credits, 8.0, points = 32), C6 (2 credits, 3.8, failed, 0 points per Premise 9). Total grade points: 607.2 + 7.2 + 2.4 − 1.0 + 19.5 + 32 = 667.3. Total credits (Premises 7, 10): 88 + 0 + 3 + 4 = 95. GPA = 667.3 / 95 ≈ 7.0242, rounded to 7.02.",
+    "premises-NL-old": [
+      "Nam has a GPA of 6.9 after completing 88 credits.",
+      "Nam retook 3 previously passed courses: C1 (4 credits, initial 5.2, retake1 7.0, retake2 3.5), C2 (3 credits, initial 6.0, retake1 6.8, retake2 6.0), C3 (5 credits, initial 7.5, retake1 5.0, retake2 4.0).",
+      "Nam repeated one failed course: C4 (3 credits, initial 3.0, repeat 6.5).",
+      "Nam took two new courses: C5 (4 credits, score 8.0), C6 (2 credits, score 3.8).",
+      "A retake is re-registering a passed course (same course code) to improve the grade.",
+      "For GPA, use the highest score if ≥ 4.0; if all retake scores < 5.0, deduct 0.2 points per credit from the course’s grade points.",
+      "Retaking a course does not add credits.",
+      "Repeating a failed course means re-registering it.",
+      "A failed course (score < 4.0) adds no credits.",
+      "Repeating a failed course adds credits if the new score ≥ 4.0."
+    ],
+    "entities": [
+      "Nam",
+      "GPA",
+      "6.9",
+      "88 credits",
+      "C1",
+      "C2",
+      "C3",
+      "4 credits",
+      "3 credits",
+      "5 credits",
+      "initial grades",
+      "retake grades",
+      "C4",
+      "initial 3.0",
+      "repeat 6.5",
+      "C5",
+      "C6",
+      "2 credits",
+      "score 8.0",
+      "score 3.8",
+      "retake",
+      "passed course",
+      "same course code",
+      "improve grade",
+      "highest score",
+      "retake scores",
+      "4.0",
+      "5.0",
+      "0.2 points per credit",
+      "retaking a course",
+      "credits",
+      "repeating a failed course",
+      "re-registering",
+      "failed course",
+      "score < 4.0",
+      "new score ≥ 4.0"
+    ]
+  },
+  {
+    "premises-NL": [
+      "- Electives require 3 courses from group A (6 credits each), 3 from group B (4 credits each), and 1 from group C (3 credits) for a total of 21 credits.\n- Key entities: Electives, Group A, Group B, Group C, Credits.\n- Logical condition: Total credits required for electives = 21.\n- Representation: Electives = 3A + 3B + 1C where A = 6 credits, B = 4 credits, C = 3 credits.",
+      "- DTBTL = sum(grade × credits) / total credits for selected electives (scale 0–10); DTBTLN excludes non-major courses.\n- Key entities: DTBTL, Grade, Credits, DTBTLN, Non-major courses.\n- Logical condition: DTBTL calculation includes all courses, while DTBTLN excludes non-major courses.\n- Representation: DTBTL = sum(grade × credits) / total credits; DTBTLN excludes non-major courses.",
+      "- Extra elective courses incur $10/credit fee; highest-scoring subset selected to meet A:3, B:3, C:1.\n- Key entities: Extra elective courses, Fee, Highest-scoring subset, Group A, Group B, Group C.\n- Logical condition: If extra courses are taken, a fee is incurred; only the highest-scoring subset meeting the requirements is selected.\n- Representation: Extra courses incur $10/credit fee; select highest-scoring subset to meet A:3, B:3, C:1.",
+      "- Student takes 4 group A courses (grades: 8.0, 7.0, 9.0, 6.5; 6 credits each), 4 group B courses (6.0, 7.5, 8.0, 8.5; 4 credits each), 2 group C courses (7.0, 8.0; 3 credits each); group A is non-major.\n- Key entities: Student, Group A, Group B, Group C, Grades, Credits, Non-major.\n- Logical condition: The student has taken more courses than required, and group A is considered non-major.\n- Representation: Student took 4A (grades: 8.0, 7.0, 9.0, 6.5; 6 credits each), 4B (grades: 6.0, 7.5, 8.0, 8.5; 4 credits each), 2C (grades: 7.0, 8.0; 3 credits each); A is non-major."
+    ],
+    "question": "What is the student’s DTBTL for selected electives?",
+    "answer": "8.0",
+    "idx": [
+      2,
+      3,
+      4
+    ],
+    "explanation": "Premise 4: Courses A (9.0, 8.0, 7.0), B (8.5, 8.0, 7.5), C (8.0). Premise 3: Select highest. Premise 2: DTBTL = (9.0 × 6 + 8.0 × 6 + 7.0 × 6 + 8.5 × 4 + 8.0 × 4 + 7.5 × 4 + 8.0 × 3) / 33 = 264 / 33 = 8.0.",
+    "premises-NL-old": [
+      "Electives require 3 courses from group A (6 credits each), 3 from group B (4 credits each), and 1 from group C (3 credits) for a total of 21 credits.",
+      "DTBTL = sum(grade × credits) / total credits for selected electives (scale 0–10); DTBTLN excludes non-major courses.",
+      "Extra elective courses incur $10/credit fee; highest-scoring subset selected to meet A:3, B:3, C:1.",
+      "Student takes 4 group A courses (grades: 8.0, 7.0, 9.0, 6.5; 6 credits each), 4 group B courses (6.0, 7.5, 8.0, 8.5; 4 credits each), 2 group C courses (7.0, 8.0; 3 credits each); group A is non-major."
+    ],
+    "entities": [
+      "Electives",
+      "Group A",
+      "Group B",
+      "Group C",
+      "Credits",
+      "DTBTL",
+      "Grade",
+      "DTBTLN",
+      "Non-major courses",
+      "Extra elective courses",
+      "Fee",
+      "Highest-scoring subset",
+      "Student",
+      "Grades",
+      "Non-major"
+    ]
+  },
+  {
+    "premises-NL": [
+      "- Key entities: student, course, academic year, remaining credits, total accumulated credits.\n- Logical conditions: \n  - If remaining credits ≥ 10 (Year 1, 2) or ≥ 8 (Year 3+), then a student can withdraw up to 3 courses per academic year.\n  - Each withdrawal deducts 0.5 credits from total accumulated credits.\n- Representation: \n  - If (remaining credits ≥ 10 (Year 1, 2) or remaining credits ≥ 8 (Year 3+)), then (student can withdraw up to 3 courses per academic year).\n  - Each withdrawal → total accumulated credits -= 0.5.",
+      "- Key entities: courses, credits, semester GPA.\n- Logical conditions: \n  - Courses have 3, 4, or 5 credits.\n  - Withdrawn courses contribute 0 credits to semester GPA.\n- Representation: \n  - Courses ∈ {3, 4, 5} credits.\n  - Withdrawn courses → semester GPA += 0.",
+      "- Key entities: students, semester, credits.\n- Logical conditions: \n  - Students must register for 12–18 credits per semester.\n  - Withdrawals reduce semester credits.\n- Representation: \n  - Students must register for 12 ≤ credits ≤ 18 per semester.\n  - Withdrawals → semester credits -=.",
+      "- Key entities: total withdrawals, academic year.\n- Logical conditions: \n  - No regulation limits total withdrawals.\n  - Max 3 withdrawals per year.\n- Representation: \n  - No limit on total withdrawals.\n  - Max 3 withdrawals per academic year.",
+      "- Key entities: student, accumulated credits.\n- Logical conditions: \n  - If accumulated credits < 8, then a student cannot withdraw courses.\n- Representation: \n  - If accumulated credits < 8, then (student cannot withdraw courses).",
+      "- Key entities: student, year, accumulated credits, withdrawn courses, penalty.\n- Logical conditions: \n  - A student (Year 2) has 45 credits.\n  - The student withdrew 2 courses in Year 1 (penalty 1 credit).\n  - Including C1 (4 credits, withdrawn), C2 (3 credits, withdrawn).\n- Representation: \n  - Student (Year 2) → accumulated credits = 45.\n  - Withdrawn courses (C1, C2) → penalty = 1 credit.",
+      "- Key entities: student, year, semester, registered credits, withdrawn courses, attempted courses.\n- Logical conditions: \n  - In Year 2, semester S1, the student registered for 15 credits.\n  - The student withdrew C3 (5 credits), C4 (3 credits).\n  - Attempted C5 (4 credits, passed).\n- Representation: \n  - Year 2, semester S1 → registered credits = 15.\n  - Withdrawn courses (C3, C4).\n  - Attempted course (C5) → passed."
+    ],
+    "question": "What is the student’s total accumulated credits after Year 2, semester S1?",
+    "answer": "47",
+    "idx": [
+      1,
+      6,
+      7
+    ],
+    "explanation": "Premise 6 gives 45 credits, with 2 withdrawals in Year 1 (C1: 4 credits, C2: 3 credits, penalty 2 × 0.5 = 1 credit per Premise 1). Adjusted credits: 45 − 1 = 44. Premise 7 adds: S1 registered 15 credits, C3 (5 credits, withdrawn, 0 credits), C4 (3 credits, withdrawn, 0 credits), C5 (4 credits, passed, +4 credits), 2 withdrawals (penalty 1 credit). Total credits: 44 + 4 = 48 − 1 = 47.",
+    "premises-NL-old": [
+      "A student can withdraw up to 3 courses per academic year if remaining credits ≥ 10 (Year 1, 2) or ≥ 8 (Year 3+); each withdrawal deducts 0.5 credits from total accumulated credits.",
+      "Courses have 3, 4, or 5 credits; withdrawn courses contribute 0 credits to semester GPA.",
+      "Students must register for 12–18 credits per semester; withdrawals reduce semester credits.",
+      "No regulation limits total withdrawals, but max 3 per year.",
+      "A student with < 8 accumulated credits cannot withdraw courses.",
+      "A student (Year 2) has 45 credits, withdrew 2 courses in Year 1 (penalty 1 credit), including C1 (4 credits, withdrawn), C2 (3 credits, withdrawn).",
+      "In Year 2, semester S1, the student registered for 15 credits, withdrew C3 (5 credits), C4 (3 credits), attempted C5 (4 credits, passed)."
+    ],
+    "entities": [
+      "student",
+      "course",
+      "academic year",
+      "remaining credits",
+      "total accumulated credits",
+      "courses",
+      "credits",
+      "semester GPA",
+      "students",
+      "semester",
+      "total withdrawals",
+      "accumulated credits",
+      "year",
+      "withdrawn courses",
+      "penalty",
+      "C1",
+      "C2",
+      "registered credits",
+      "attempted courses",
+      "C3",
+      "C4",
+      "C5"
+    ]
+  },
+  {
+    "premises-NL": [
+      "- Entities: Registration, official schedule, enrolled credits, tuition, violations.\n- Facts: Registration requires an official schedule with at least 12 enrolled credits, tuition is $50 per credit, and there must be no violations.\n- Logical Conditions: If a student has an official schedule with ≥ 12 enrolled credits, full tuition paid ($50/credit), and no violations, then they can register.\n- Representation: Registration → (Official Schedule ∧ Enrolled Credits ≥ 12 ∧ Full Tuition Paid ∧ No Violations)",
+      "- Entities: Partial tuition payment, registration, credits.\n- Facts: Partial tuition payment allows registration for credits proportional to the amount paid, with each $50 paying for 1 credit.\n- Logical Conditions: If a student pays partial tuition, then they can register for credits equal to the amount paid divided by $50, rounded down.\n- Representation: Partial Tuition Payment → (Credits = ⌊Partial Tuition / $50⌋)",
+      "- Entities: Violation, penalty, registration.\n- Facts: Each violation incurs a $25 penalty, and unpaid penalties prevent registration.\n- Logical Conditions: If a student has unpaid penalties, then they cannot register.\n- Representation: Unpaid Penalties → Cannot Register",
+      "- Entities: Official schedule, accumulated credits, violations.\n- Facts: An official schedule requires at least 10 accumulated credits, and a maximum of 3 violations are allowed before registration is banned.\n- Logical Conditions: If a student has ≥ 10 accumulated credits and ≤ 3 violations, then they can have an official schedule.\n- Representation: Official Schedule → (Accumulated Credits ≥ 10 ∧ Violations ≤ 3)",
+      "- Entities: Accumulated credits, registration.\n- Facts: A student with less than 8 accumulated credits cannot register, regardless of other conditions.\n- Logical Conditions: If a student has < 8 accumulated credits, then they cannot register.\n- Representation: Accumulated Credits < 8 → Cannot Register",
+      "- Entities: Student, credits, tuition, violations, official schedule.\n- Facts: A student has 15 credits, paid $400 tuition, 2 violations with $50 unpaid, and no official schedule.\n- Logical Conditions: None.\n- Representation: Student → (Credits = 15 ∧ Tuition Paid = $400 ∧ Violations = 2 ∧ Unpaid Penalties = $50 ∧ No Official Schedule)",
+      "- Entities: Student, tuition, violations, credits, official schedule.\n- Facts: The student pays $200 more tuition, clears 1 violation ($25), enrolls 14 credits (schedule granted), and incurs 1 new violation ($25).\n- Logical Conditions: None.\n- Representation: Student → (Additional Tuition Paid = $200 ∧ Cleared Violations = 1 ∧ New Credits = 14 ∧ Official Schedule Granted ∧ New Violations = 1)"
+    ],
+    "question": "What is the total cost (tuition + penalties paid) for semester S2?",
+    "answer": "$225",
+    "idx": [
+      3,
+      7
+    ],
+    "explanation": "Premise 7 gives S2: additional tuition $200, 1 violation cleared ($25 penalty paid), new violation ($25 unpaid). Total cost: tuition + penalties paid = $200 + $25 = $225.",
+    "premises-NL-old": [
+      "Registration requires an official schedule (≥ 12 enrolled credits), 12–18 credits/semester, full tuition ($50/credit), no violations.",
+      "Partial tuition payment allows registration for credits proportional to payment (1 credit per $50 paid, rounded down).",
+      "Each violation incurs a $25 penalty; unpaid penalties block registration.",
+      "Official schedule requires ≥ 10 accumulated credits; max 3 violations allowed before registration ban.",
+      "A student with < 8 accumulated credits cannot register, even if other conditions are met.",
+      "A student has 15 credits, paid $400 tuition, 2 violations ($50 unpaid), no official schedule.",
+      "The student pays $200 more tuition, clears 1 violation ($25), enrolls 14 credits (schedule granted), incurs 1 new violation ($25)."
+    ],
+    "entities": [
+      "Registration",
+      "official schedule",
+      "enrolled credits",
+      "tuition",
+      "violations",
+      "partial tuition payment",
+      "credits",
+      "penalty",
+      "accumulated credits",
+      "Student"
+    ]
+  },
+  {
+    "premises-NL": [
+      "- Electives require 3 courses from group A (6 credits each), 3 from group B (4 credits each), and 1 from group C (3 credits) for a total of 21 credits.\n- Key entities: Electives, Group A, Group B, Group C, Credits.\n- Logical condition: Total credits required for electives = 21.\n- Representation: Electives = 3A + 3B + 1C where A = 6 credits, B = 4 credits, C = 3 credits.",
+      "- DTBTL = sum(grade × credits) / total credits for selected electives (scale 0–10); DTBTLN excludes non-major courses.\n- Key entities: DTBTL, Grade, Credits, DTBTLN, Non-major courses.\n- Logical condition: DTBTL calculation includes all courses, while DTBTLN excludes non-major courses.\n- Representation: DTBTL = sum(grade × credits) / total credits; DTBTLN excludes non-major courses.",
+      "- Extra elective courses incur $10/credit fee; highest-scoring subset selected to meet A:3, B:3, C:1.\n- Key entities: Extra elective courses, Fee, Highest-scoring subset, Group A, Group B, Group C.\n- Logical condition: If extra courses are taken, a fee is incurred; only the highest-scoring subset meeting the requirements is selected.\n- Representation: Extra courses incur $10/credit fee; select highest-scoring subset to meet A:3, B:3, C:1.",
+      "- Student takes 4 group A courses (grades: 8.0, 7.0, 9.0, 6.5; 6 credits each), 4 group B courses (6.0, 7.5, 8.0, 8.5; 4 credits each), 2 group C courses (7.0, 8.0; 3 credits each); group A is non-major.\n- Key entities: Student, Group A, Group B, Group C, Grades, Credits, Non-major.\n- Logical condition: The student has taken more courses than required, and group A is considered non-major.\n- Representation: Student took 4A (grades: 8.0, 7.0, 9.0, 6.5; 6 credits each), 4B (grades: 6.0, 7.5, 8.0, 8.5; 4 credits each), 2C (grades: 7.0, 8.0; 3 credits each); A is non-major."
+    ],
+    "question": "What is the total fee for extra electives, and what is the DTBTLN?",
+    "answer": "$130, 8.0",
+    "idx": [
+      2,
+      3,
+      4
+    ],
+    "explanation": "Premise 4: Extra courses: 1A (6 credits), 1B (4 credits), 1C (3 credits). Premise 3: Fee = (6 + 4 + 3) × 10 = $130. Premise 4: A non-major. Premise 2: DTBTLN = (8.5 × 4 + 8.0 × 4 + 7.5 × 4 + 8.0 × 3) / 15 = 120 / 15 = 8.0.",
+    "premises-NL-old": [
+      "Electives require 3 courses from group A (6 credits each), 3 from group B (4 credits each), and 1 from group C (3 credits) for a total of 21 credits.",
+      "DTBTL = sum(grade × credits) / total credits for selected electives (scale 0–10); DTBTLN excludes non-major courses.",
+      "Extra elective courses incur $10/credit fee; highest-scoring subset selected to meet A:3, B:3, C:1.",
+      "Student takes 4 group A courses (grades: 8.0, 7.0, 9.0, 6.5; 6 credits each), 4 group B courses (6.0, 7.5, 8.0, 8.5; 4 credits each), 2 group C courses (7.0, 8.0; 3 credits each); group A is non-major."
+    ],
+    "entities": [
+      "Electives",
+      "Group A",
+      "Group B",
+      "Group C",
+      "Credits",
+      "DTBTL",
+      "Grade",
+      "DTBTLN",
+      "Non-major courses",
+      "Extra elective courses",
+      "Fee",
+      "Highest-scoring subset",
+      "Student",
+      "Grades",
+      "Non-major"
+    ]
+  },
+  {
+    "premises-NL": [
+      "Students begin specialization before internships or projects.\n- Key entities: students, specialization, internships, projects.\n- Logical conditions: specialization occurs before internships or projects.\n- Representation: Specialization → Internships/Projects.",
+      "Internship eligibility requires ≥ 80 credits, third year, and GPA ≥ 6.0 (scale 0–10).\n- Key entities: internship eligibility, credits, third year, GPA.\n- Logical conditions: If a student has ≥ 80 credits, is in the third year, and has a GPA ≥ 6.0, then they are eligible for an internship.\n- Representation: Internship Eligibility ↔ (≥ 80 credits ∧ third year ∧ GPA ≥ 6.0).",
+      "Major-specific project requires internship completion, ≥ 90 credits, and ≥ 12 social work days.\n- Key entities: major-specific project, internship completion, credits, social work days.\n- Logical conditions: If a student completes an internship, has ≥ 90 credits, and has ≥ 12 social work days, then they can undertake a major-specific project.\n- Representation: Major-Specific Project ↔ (Internship Completion ∧ ≥ 90 credits ∧ ≥ 12 social work days).",
+      "Thesis eligibility requires ≥ 100 credits, ≥ 15 social work days, MOS certificate, and language certificate.\n- Key entities: thesis eligibility, credits, social work days, MOS certificate, language certificate.\n- Logical conditions: If a student has ≥ 100 credits, ≥ 15 social work days, MOS certificate, and language certificate, then they are eligible for a thesis.\n- Representation: Thesis Eligibility ↔ (≥ 100 credits ∧ ≥ 15 social work days ∧ MOS certificate ∧ language certificate).",
+      "A failed course (grade < 4.0) contributes 0 credits.\n- Key entities: failed course, grade, credits.\n- Logical conditions: If a course grade is less than 4.0, then it contributes 0 credits.\n- Representation: Failed Course (Grade < 4.0) → 0 Credits.",
+      "Improvement retakes (passed courses) use the highest grade but add no credits.\n- Key entities: improvement retakes, passed courses, grade, credits.\n- Logical conditions: If a course is retaken for improvement and was previously passed, the highest grade is used but no additional credits are added.\n- Representation: Improvement Retake (Passed Course) → Highest Grade ∧ No Additional Credits.",
+      "Repeating a failed course adds credits if grade ≥ 4.0.\n- Key entities: repeating, failed course, grade, credits.\n- Logical conditions: If a failed course is repeated and the grade is ≥ 4.0, then credits are added.\n- Representation: Repeating Failed Course (Grade ≥ 4.0) → Add Credits.",
+      "Graduation requires thesis completion, GPA ≥ 5.0, and ≥ 20 social work days.\n- Key entities: graduation, thesis completion, GPA, social work days.\n- Logical conditions: If a student completes a thesis, has a GPA ≥ 5.0, and has ≥ 20 social work days, then they can graduate.\n- Representation: Graduation ↔ (Thesis Completion ∧ GPA ≥ 5.0 ∧ ≥ 20 social work days).",
+      "A student has a GPA of 6.8 with 82 credits, including C1 (4 credits, grade 5.5, failed retake at 3.8), C2 (3 credits, grade 7.0).\n- Key entities: student, GPA, credits, C1, C2.\n- Logical conditions: None.\n- Representation: Student GPA = 6.8, Total Credits = 82, C1 (4 credits, grade 5.5, failed retake at 3.8), C2 (3 credits, grade 7.0).",
+      "The student took C3 (5 credits, grade 8.0), repeated C1 (grade 6.0), and took C4 (4 credits, grade 3.5, failed).\n- Key entities: student, C3, C1, C4.\n- Logical conditions: None.\n- Representation: Student took C3 (5 credits, grade 8.0), repeated C1 (grade 6.0), took C4 (4 credits, grade 3.5, failed)."
+    ],
+    "question": "How many credits has the student accumulated?",
+    "answer": "87",
+    "idx": [
+      4,
+      5,
+      7,
+      9,
+      10
+    ],
+    "explanation": "Premise 9 gives 82 credits initially. Premise 10 adds: C3 (5 credits), C1 repeat (4 credits, grade 6.0 ≥ 4.0, but credits counted originally per Premise 7), C4 (4 credits, 3.5, failed, 0 credits per Premise 5). Total credits: 82 + 5 = 87. Premise 4 requires for thesis eligibility: ≥ 100 credits, ≥ 15 social work days, MOS and language certificates. With 87 credits, the student fails the credit requirement; social work and certificates are unspecified, so assumed unmet. Thus, the student has 87 credits and is not eligible for the thesis.",
+    "premises-NL-old": [
+      "Students begin specialization before internships or projects.",
+      "Internship eligibility requires ≥ 80 credits, third year, and GPA ≥ 6.0 (scale 0–10).",
+      "Major-specific project requires internship completion, ≥ 90 credits, and ≥ 12 social work days.",
+      "Thesis eligibility requires ≥ 100 credits, ≥ 15 social work days, MOS certificate, and language certificate.",
+      "A failed course (grade < 4.0) contributes 0 credits.",
+      "Improvement retakes (passed courses) use the highest grade but add no credits.",
+      "Repeating a failed course adds credits if grade ≥ 4.0.",
+      "Graduation requires thesis completion, GPA ≥ 5.0, and ≥ 20 social work days.",
+      "A student has a GPA of 6.8 with 82 credits, including C1 (4 credits, grade 5.5, failed retake at 3.8), C2 (3 credits, grade 7.0).",
+      "The student took C3 (5 credits, grade 8.0), repeated C1 (grade 6.0), and took C4 (4 credits, grade 3.5, failed)."
+    ],
+    "entities": [
+      "students",
+      "specialization",
+      "internships",
+      "projects",
+      "internship eligibility",
+      "credits",
+      "third year",
+      "GPA",
+      "major-specific project",
+      "internship completion",
+      "social work days",
+      "thesis eligibility",
+      "MOS certificate",
+      "language certificate",
+      "failed course",
+      "grade",
+      "improvement retakes",
+      "passed courses",
+      "repeating",
+      "graduation",
+      "thesis completion",
+      "student",
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ]
+  },
+  {
+    "premises-NL": [
+      "- Entities: thesis eligibility, credits, GPA, capstone completion, capstone hours.\n- Rules: If thesis eligibility, then ≥ 100 credits, GPA ≥ 5.5, capstone completion, and ≥ 80 capstone hours.\n- Representation: thesis_eligibility → (credits ≥ 100) ∧ (GPA ≥ 5.5) ∧ capstone_completion ∧ (capstone_hours ≥ 80)",
+      "- Entities: capstone completion, credits, capstone course, grade.\n- Rules: If capstone completion, then ≥ 80 credits and a 5-credit capstone course (grade ≥ 4.0).\n- Representation: capstone_completion → (credits ≥ 80) ∧ (capstone_course_grade ≥ 4.0)",
+      "- Entities: failed courses, grade, credits, capstone hours.\n- Rules: If failed courses (grade < 4.0), then 0 credits, 0 capstone hours.\n- Representation: failed_courses → (grade < 4.0) → (credits = 0) ∧ (capstone_hours = 0)",
+      "- Entities: improvement retakes, grade, credits, capstone hours.\n- Rules: If improvement retakes (grade ≥ 4.0), then use highest grade, no extra credits/hours.\n- Representation: improvement_retakes → (grade ≥ 4.0) → (highest_grade) ∧ (no_extra_credits) ∧ (no_extra_capstone_hours)",
+      "- Entities: course, grade, credits, capstone hours.\n- Rules: If each course (grade ≥ 4.0), then adds capstone hours: 3 credits = 6 hours, 4 credits = 8 hours, 5 credits = 10 hours.\n- Representation: course_grade ≥ 4.0 → (3_credits = 6_hours) ∨ (4_credits = 8_hours) ∨ (5_credits = 10_hours)",
+      "- Entities: final-year students, capstone, capstone hours, capstone workshops, GPA.\n- Rules: If final-year students (Year 4) with capstone but < 80 hours, then can join capstone workshops (15 hours), if GPA ≥ 5.0.\n- Representation: (final_year_students ∧ capstone ∧ capstone_hours < 80) → (can_join_workshops ∧ workshops_hours = 15) ∧ (GPA ≥ 5.0)",
+      "- Entities: student, GPA, credits, capstone hours, capstone course, C1, C2.\n- Facts: Student (Year 3) has a GPA of 5.8, 85 credits, 100 capstone hours, no capstone course, including C1 (3 credits, 6.0, 6 hours), C2 (4 credits, 5.5, 8 hours).\n- Representation: student (Year 3) → (GPA = 5.8) ∧ (credits = 85) ∧ (capstone_hours = 100) ∧ (no_capstone_course) ∧ (C1 = (3_credits, 6.0, 6_hours)) ∧ (C2 = (4_credits, 5.5, 8_hours))",
+      "- Entities: student, capstone course, C3, C1, C4, workshops.\n- Facts: Student took capstone course C3 (5 credits, 4.5), retook C1 (6.5), took C4 (3 credits, 3.8, failed), joined 2 workshops.\n- Representation: student → (took_C3 = (5_credits, 4.5)) ∧ (retake_C1 = (6.5)) ∧ (took_C4 = (3_credits, 3.8, failed)) ∧ (joined_2_workshops)"
+    ],
+    "question": "How many capstone hours has the student accumulated?",
+    "answer": "140",
+    "idx": [
+      1,
+      2,
+      3,
+      5,
+      7,
+      8
+    ],
+    "explanation": "Premise 7 gives 100 capstone hours. Premise 8 adds: C3 (5 credits, 4.5, 10 hours per Premise 5), C1 retake (6.5, 0 hours per Premise 4), C4 (3.8, failed, 0 hours per Premise 3), 2 workshops (2 × 15 = 30 hours, assumed eligible). Total hours: 100 + 10 + 30 = 140. Premise 1 requires: ≥ 100 credits, GPA ≥ 5.5, capstone completion, ≥ 80 hours. Credits: 90 (Question 1), fails. GPA: 5.74, passes. Capstone: C3 (4.5), credits 90 ≥ 80, passes (Premise 2). Hours: 140, passes. Not eligible due to credits.",
+    "premises-NL-old": [
+      "Thesis eligibility requires ≥ 100 credits, GPA ≥ 5.5 (scale 0–10), capstone completion, and ≥ 80 capstone hours.",
+      "Capstone completion requires ≥ 80 credits and a 5-credit capstone course (grade ≥ 4.0).",
+      "Failed courses (grade < 4.0) add 0 credits, 0 capstone hours.",
+      "Improvement retakes (grade ≥ 4.0) use highest grade, no extra credits/hours.",
+      "Each course (grade ≥ 4.0) adds capstone hours: 3 credits = 6 hours, 4 credits = 8 hours, 5 credits = 10 hours.",
+      "Final-year students (Year 4) with capstone but < 80 hours can join capstone workshops (15 hours), if GPA ≥ 5.0.",
+      "A student (Year 3) has a GPA of 5.8, 85 credits, 100 capstone hours, no capstone course, including C1 (3 credits, 6.0, 6 hours), C2 (4 credits, 5.5, 8 hours).",
+      "The student took capstone course C3 (5 credits, 4.5), retook C1 (6.5), took C4 (3 credits, 3.8, failed), joined 2 workshops."
+    ],
+    "entities": [
+      "thesis eligibility",
+      "credits",
+      "GPA",
+      "capstone completion",
+      "capstone hours",
+      "capstone course",
+      "grade",
+      "failed courses",
+      "improvement retakes",
+      "course",
+      "final-year students",
+      "student",
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "workshops"
+    ]
+  },
+  {
+    "premises-NL": [
+      "Scholarships require ≥ 20 credits, GPA ≥ 8.0 ($500 award), or GPA ≥ 9.0 ($1000 award); all courses must have grades ≥ 6.0 (scale 0–10).\n- Key entities: scholarships, credits, GPA, grades\n- Logical conditions: \n  - If ≥ 20 credits and GPA ≥ 8.0, then $500 award.\n  - If GPA ≥ 9.0, then $1000 award.\n  - All courses must have grades ≥ 6.0.\n- Representation: \n  - Scholarship_award(credits ≥ 20, GPA ≥ 8.0) → $500\n  - Scholarship_award(GPA ≥ 9.0) → $1000\n  - Course_grade ≥ 6.0",
+      "Credits earned = 0.5 × total grade points (sum of grades across courses); GPA = sum(grade × credits)/total credits.\n- Key entities: credits earned, total grade points, GPA, grade, credits\n- Logical conditions: \n  - Credits_earned = 0.5 × total_grade_points\n  - GPA = sum(grade × credits)/total_credits\n- Representation: \n  - Credits_earned = 0.5 × total_grade_points\n  - GPA = sum(grade × credits)/total_credits",
+      "Scores locked on 15/03/2025; late updates (15/03–20/03/2025) incur $20/day penalty if Faculty-approved.\n- Key entities: scores, date, penalty, Faculty approval\n- Logical conditions: \n  - If scores updated between 15/03/2025 and 20/03/2025 and Faculty-approved, then $20/day penalty.\n- Representation: \n  - Penalty(Faculty_approved, 15/03/2025 ≤ date ≤ 20/03/2025) → $20/day",
+      "Unapproved late scores are excluded; approved scores after 20/03/2025 are invalid.\n- Key entities: scores, date, Faculty approval\n- Logical conditions: \n  - If scores updated after 20/03/2025 and Faculty-approved, then invalid.\n  - If scores updated late and unapproved, then excluded.\n- Representation: \n  - Exclude(scores_updated_late, unapproved)\n  - Invalid(scores_updated_after_20/03/2025, Faculty_approved)",
+      "Minh has 15 credits, GPA 7.8, all grades ≥ 6.0, scores locked on 15/03/2025.\n- Key entities: Minh, credits, GPA, grades, scores, date\n- Logical conditions: \n  - Minh has 15 credits.\n  - Minh has GPA 7.8.\n  - All grades ≥ 6.0.\n  - Scores locked on 15/03/2025.\n- Representation: \n  - Minh_credits = 15\n  - Minh_GPA = 7.8\n  - Grades ≥ 6.0\n  - Scores_locked_date = 15/03/2025",
+      "Minh adds 3 courses: 9.0 (4 credits, updated 17/03/2025), 8.5 (5 credits, 17/03/2025), 7.5 (3 credits, 16/03/2025); Faculty approves delays.\n- Key entities: Minh, courses, credits, grades, dates, Faculty approval\n- Logical conditions: \n  - Minh adds 3 courses with respective grades and credits.\n  - Courses updated on specified dates.\n  - Faculty approves delays.\n- Representation: \n  - Course_1_grade = 9.0, Course_1_credits = 4, Course_1_date = 17/03/2025\n  - Course_2_grade = 8.5, Course_2_credits = 5, Course_2_date = 17/03/2025\n  - Course_3_grade = 7.5, Course_3_credits = 3, Course_3_date = 16/03/2025\n  - Faculty_approves_delays",
+      "Minh’s initial courses: 6 credits at 8.0, 9 credits at 7.7.\n- Key entities: Minh, initial courses, credits, grades\n- Logical conditions: \n  - Initial courses with respective grades and credits.\n- Representation: \n  - Initial_course_1_credits = 6, Initial_course_1_grade = 8.0\n  - Initial_course_2_credits = 9, Initial_course_2_grade = 7.7"
+    ],
+    "question": "What is the total penalty fee for Minh’s late score updates?",
+    "answer": "$100",
+    "idx": [
+      2,
+      5
+    ],
+    "explanation": "Premise 5: Course updates on 17/03/2025 (2 courses, 2 days late), 16/03/2025 (1 course, 1 day late). Premise 2: Penalty = $20/day, Faculty-approved. Fees: (2 × $20 × 2) + (1 × $20 × 1) = $80 + $20 = $100.",
+    "premises-NL-old": [
+      "Scholarships require ≥ 20 credits, GPA ≥ 8.0 ($500 award), or GPA ≥ 9.0 ($1000 award); all courses must have grades ≥ 6.0 (scale 0–10).",
+      "Credits earned = 0.5 × total grade points (sum of grades across courses); GPA = sum(grade × credits)/total credits.",
+      "Scores locked on 15/03/2025; late updates (15/03–20/03/2025) incur $20/day penalty if Faculty-approved.",
+      "Unapproved late scores are excluded; approved scores after 20/03/2025 are invalid.",
+      "Minh has 15 credits, GPA 7.8, all grades ≥ 6.0, scores locked on 15/03/2025.",
+      "Minh adds 3 courses: 9.0 (4 credits, updated 17/03/2025), 8.5 (5 credits, 17/03/2025), 7.5 (3 credits, 16/03/2025); Faculty approves delays.",
+      "Minh’s initial courses: 6 credits at 8.0, 9 credits at 7.7."
+    ],
+    "entities": [
+      "Scholarships",
+      "credits",
+      "GPA",
+      "grades",
+      "credits earned",
+      "total grade points",
+      "score",
+      "date",
+      "penalty",
+      "Faculty approval",
+      "Minh",
+      "courses",
+      "initial courses"
+    ]
+  },
+  {
+    "premises-NL": [
+      "- On-time graduation requires ≥ 45 credits, all courses scored ≥ 60/100, English test score ≥ 75/100 by 30/06/2025.\n- Represented as: If (credits ≥ 45 AND all course scores ≥ 60/100 AND English test score ≥ 75/100) then on-time graduation by 30/06/2025.",
+      "- Each course (3 credits) contributes credits = (score/100) × 3; scores < 60 contribute 0 credits.\n- Represented as: If (course score ≥ 60) then credits = (score/100) × 3; else credits = 0.",
+      "- HT grades require $50/attempt removal fee; unresolved HTs by 15/06/2025 block graduation.\n- Represented as: If (HT grade exists) then removal fee = $50; if (unresolved HTs exist by 15/06/2025) then blocks graduation.",
+      "- English test results are released 10 days after the test; tests cost $30/attempt.\n- Represented as: English test results release date = test date + 10 days; test cost = $30/attempt.",
+      "- Duy has 42 credits, 2 HT courses (Statistics, Economics, 3 credits each), scores pending.\n- Represented as: Duy's current credits = 42; Duy has 2 HT courses (Statistics, Economics); scores pending.",
+      "- Duy submits HT removal for Statistics (score 85, $50, 10/06/2025) and Economics (score 55, $50, 12/06/2025).\n- Represented as: Duy submits HT removal for Statistics (score 85, $50, 10/06/2025) and Economics (score 55, $50, 12/06/2025).",
+      "- Duy takes English test on 25/06/2025 (score 80, $30).\n- Represented as: Duy takes English test on 25/06/2025 (score 80, $30)."
+    ],
+    "question": "How many total credits does Duy have after resolving HT grades?",
+    "answer": "44.55",
+    "idx": [
+      1,
+      4,
+      5
+    ],
+    "explanation": "Premise 4: Duy has 42 credits. Premise 5: Statistics HT resolved (score 85, credits = (85/100) × 3 = 2.55, Premise 1), Economics HT resolved (score 55, credits = 0). Total credits: 42 + 2.55 + 0 = 44.55.",
+    "premises-NL-old": [
+      "On-time graduation requires ≥ 45 credits, all courses scored ≥ 60/100, English test score ≥ 75/100 by 30/06/2025.",
+      "Each course (3 credits) contributes credits = (score/100) × 3; scores < 60 contribute 0 credits.",
+      "HT grades require $50/attempt removal fee; unresolved HTs by 15/06/2025 block graduation.",
+      "English test results are released 10 days after the test; tests cost $30/attempt.",
+      "Duy has 42 credits, 2 HT courses (Statistics, Economics, 3 credits each), scores pending.",
+      "Duy submits HT removal for Statistics (score 85, $50, 10/06/2025) and Economics (score 55, $50, 12/06/2025).",
+      "Duy takes English test on 25/06/2025 (score 80, $30)."
+    ],
+    "entities": [
+      "On-time graduation",
+      "credits",
+      "course scores",
+      "English test score",
+      "Course",
+      "score",
+      "HT grades",
+      "removal fee",
+      "unresolved HTs",
+      "graduation",
+      "English test results",
+      "test date",
+      "test cost",
+      "Duy",
+      "HT courses",
+      "Statistics",
+      "Economics",
+      "scores",
+      "HT removal",
+      "date",
+      "English test"
+    ]
+  },
+  {
+    "premises-NL": [
+      "- Choosing a major requires ≥ 30 credits, GPA ≥ 2.5 (scale 0–4), ≤ 2 violations; second-year status (≥ 24 credits).\n- Key entities: choosing a major, credits, GPA, violations, second-year status.\n- Logical condition: if a student has ≥ 30 credits, GPA ≥ 2.5, ≤ 2 violations, and second-year status (≥ 24 credits), then they can choose a major.\n- Representation: ChooseMajor(credits ≥ 30, GPA ≥ 2.5, violations ≤ 2, secondYearStatus(credits ≥ 24)).\n-",
+      "- Each failed course deducts 1 credit; each violation reduces GPA by 0.1.\n- Key entities: failed course, credit deduction, violation, GPA reduction.\n- Logical condition: if a course is failed, then 1 credit is deducted; if there is a violation, then GPA is reduced by 0.1.\n- Representation: FailedCourseDeduction(failedCourse → creditDeduction = 1), ViolationGPAPenalty(violation → GPADecrease = 0.1).\n-",
+      "- Students with > 2 violations cannot choose a major, regardless of credits or GPA.\n- Key entities: students, violations, choosing a major, credits, GPA.\n- Logical condition: if a student has > 2 violations, then they cannot choose a major, regardless of their credits or GPA.\n- Representation: CannotChooseMajor(violations > 2).\n-",
+      "- GPA is calculated from passed courses (grade ≥ 1.0); failed courses contribute 0 credits.\n- Key entities: GPA, passed courses, grade, failed courses, credits.\n- Logical condition: GPA is calculated from passed courses (grade ≥ 1.0); failed courses contribute 0 credits.\n- Representation: GPACalculation(passedCourses(grade ≥ 1.0)), FailedCourseCredits(failedCourse → credits = 0).\n-",
+      "- A student in year 1 has 20 credits, GPA 2.8, 1 violation (GPA penalty 0.1), failed 1 course (3 credits, 1 credit deducted).\n- Key entities: student, year 1, credits, GPA, violation, GPA penalty, failed course, credit deduction.\n- Logical condition: a student in year 1 has 20 credits, GPA 2.8, 1 violation (GPA penalty 0.1), failed 1 course (3 credits, 1 credit deducted).\n- Representation: StudentYear1(credits = 20, GPA = 2.8, violations = 1, GPAPenalty = 0.1, failedCourse(credits = 3, creditDeduction = 1)).\n-",
+      "- In year 2, the student earns 10 credits (GPA 3.0 for new courses), fails 1 course (4 credits, 1 credit deducted), incurs 1 violation.\n- Key entities: student, year 2, credits, GPA, failed course, credit deduction, violation.\n- Logical condition: in year 2, the student earns 10 credits (GPA 3.0 for new courses), fails 1 course (4 credits, 1 credit deducted), incurs 1 violation.\n- Representation: StudentYear2(creditsEarned = 10, GPA = 3.0, failedCourse(credits = 4, creditDeduction = 1), violations = 1).\n-"
+    ],
+    "question": "How many total credits has the student accumulated?",
+    "answer": "28",
+    "idx": [
+      1,
+      2,
+      5,
+      6
+    ],
+    "explanation": "Premise 5: Year 1 credits = 20 − 1 (failed course, Premise 2) = 19. Premise 6: Year 2 credits = 10 − 1 = 9. Total credits: 19 + 9 = 28. Premise 1 requires: ≥ 30 credits (28, fails), GPA ≥ 2.5 (2.6 from Q1, passes), ≤ 2 violations (2, passes), ≥ 24 credits (28, passes). Premise 3: 2 violations ≤ 2, passes. Cannot choose major due to insufficient credits.",
+    "premises-NL-old": [
+      "Choosing a major requires ≥ 30 credits, GPA ≥ 2.5 (scale 0–4), ≤ 2 violations; second-year status (≥ 24 credits).",
+      "Each failed course deducts 1 credit; each violation reduces GPA by 0.1.",
+      "Students with > 2 violations cannot choose a major, regardless of credits or GPA.",
+      "GPA is calculated from passed courses (grade ≥ 1.0); failed courses contribute 0 credits.",
+      "A student in year 1 has 20 credits, GPA 2.8, 1 violation (GPA penalty 0.1), failed 1 course (3 credits, 1 credit deducted).",
+      "In year 2, the student earns 10 credits (GPA 3.0 for new courses), fails 1 course (4 credits, 1 credit deducted), incurs 1 violation."
+    ],
+    "entities": [
+      "choosing a major",
+      "credits",
+      "GPA",
+      "violations",
+      "second-year status",
+      "failed course",
+      "credit deduction",
+      "violation",
+      "GPA reduction",
+      "students",
+      "passed courses",
+      "grade",
+      "failed courses",
+      "student",
+      "year 1",
+      "GPA penalty",
+      "year 2"
+    ]
+  },
+  {
+    "premises-NL": [
+      "- Key entities: student, course, semester, remaining credits, GPA.\n- Logical conditions: if remaining credits ≥ 12 then a student can withdraw up to 2 courses per semester; each withdrawal reduces GPA by 0.1.\n- Representation: If RemainingCredits ≥ 12 then MaxWithdrawalsPerSemester = 2; EachWithdrawalReducesGPABy = 0.1.",
+      "- Key entities: failed courses, grade, passing courses, credits.\n- Logical conditions: if grade < 4.0 then the course cannot be withdrawn; if grade ≥ 4.0 then the course contributes 3, 4, or 5 credits.\n- Representation: If Grade < 4.0 then CourseCannotBeWithdrawn; If Grade ≥ 4.0 then CreditsContributed ∈ {3, 4, 5}.",
+      "- Key entities: first-year students, remaining credits, other students.\n- Logical conditions: if Year = 1 then remaining credits ≥ 15 to withdraw; otherwise remaining credits ≥ 12 to withdraw.\n- Representation: If Year = 1 then RemainingCredits ≥ 15 to Withdraw; Otherwise RemainingCredits ≥ 12 to Withdraw.",
+      "- Key entities: total withdrawals, semester.\n- Logical conditions: no limit on total withdrawals but max 2 per semester.\n- Representation: TotalWithdrawalsUnlimited; MaxWithdrawalsPerSemester = 2.",
+      "- Key entities: student, GPA.\n- Logical conditions: if GPA < 4.0 then the student cannot withdraw courses.\n- Representation: If GPA < 4.0 then CannotWithdrawCourses.",
+      "- Key entities: student, GPA, credits, withdrawn courses, semester, GPA penalty, course grades, course credits.\n- Logical conditions: a student (Year 2) has a GPA of 6.5, 40 credits, withdrew 2 courses in semester S1 (GPA penalty 0.2), including C1 (4 credits, 5.5, withdrawn), C2 (3 credits, 3.8, failed, not withdrawn).\n- Representation: Student(Year = 2, GPA = 6.5, Credits = 40); SemesterS1(WithdrawnCourses = 2, GPAPenalty = 0.2); Courses(C1(Credits = 4, Grade = 5.5, Withdrawn = True), C2(Credits = 3, Grade = 3.8, Withdrawn = False)).",
+      "- Key entities: student, semester, withdrawn courses, attempted courses, course grades, course credits.\n- Logical conditions: in semester S2, the student withdrew C3 (5 credits, 6.0), attempted C4 (3 credits, 4.5), withdrew C5 (4 credits, 5.0).\n- Representation: SemesterS2(WithdrawnCourses = [C3(Credits = 5, Grade = 6.0), C5(Credits = 4, Grade = 5.0)], AttemptedCourses = [C4(Credits = 3, Grade = 4.5)])."
+    ],
+    "question": "How many total credits remain after S2 withdrawals?",
+    "answer": "43",
+    "idx": [
+      1,
+      5,
+      6,
+      7
+    ],
+    "explanation": "Premise 6 gives 40 credits, with C1 (4 credits, withdrawn), C2 (3 credits, failed, 0 credits). Premise 7 adds: C3 (5 credits, withdrawn), C4 (3 credits, +3), C5 (4 credits, withdrawn). Total credits: 40 + 3 = 43. For S3 withdrawal (Premise 1): Year 2 requires ≥ 12 credits. Assuming 15 credits registered, withdrawing 4 credits leaves 15 − 4 = 11 < 12, fails. Premise 5: GPA ≥ 4.0 (5.97 from Question 1), passes. Withdrawals ≤ 2, passes. The student cannot withdraw another course in S3 due to insufficient credits.",
+    "premises-NL-old": [
+      "A student can withdraw up to 2 courses per semester if remaining credits ≥ 12; each withdrawal reduces GPA by 0.1 (scale 0–10).",
+      "Failed courses (grade < 4.0) cannot be withdrawn; passing courses (≥ 4.0) contribute 3, 4, or 5 credits.",
+      "First-year students (Year 1) need ≥ 15 remaining credits to withdraw; others need ≥ 12.",
+      "No regulation limits total withdrawals, but max 2 per semester.",
+      "A student with GPA < 4.0 cannot withdraw courses.",
+      "A student (Year 2) has a GPA of 6.5, 40 credits, withdrew 2 courses in semester S1 (GPA penalty 0.2), including C1 (4 credits, 5.5, withdrawn), C2 (3 credits, 3.8, failed, not withdrawn).",
+      "In semester S2, the student withdrew C3 (5 credits, 6.0), attempted C4 (3 credits, 4.5), withdrew C5 (4 credits, 5.0)."
+    ],
+    "entities": [
+      "student",
+      "course",
+      "semester",
+      "remaining credits",
+      "GPA",
+      "failed courses",
+      "grade",
+      "passing courses",
+      "credits",
+      "first-year students",
+      "other students",
+      "total withdrawals",
+      "withdrawn courses",
+      "GPA penalty",
+      "course grades",
+      "course credits",
+      "attempted courses"
+    ]
+  },
+  {
+    "premises-NL": [
+      "- Key entities: total program credits, internship eligibility, credits, GPA, internship prep hours.\n- Logical conditions: \n  - Internship eligibility requires ≥ 78 credits (65% of total program credits).\n  - Internship eligibility requires GPA ≥ 6.0 (on a scale of 0–10).\n  - Internship eligibility requires ≥ 50 internship prep hours.\n- Representation: If a student has ≥ 78 credits, GPA ≥ 6.0, and ≥ 50 internship prep hours, then they are eligible for an internship.",
+      "- Key entities: first-year students, credits.\n- Logical conditions: First-year students have < 40 credits.\n- Representation: For a student to be classified as a first-year student, they must have fewer than 40 credits.",
+      "- Key entities: failed courses, grade, credits.\n- Logical conditions: Failed courses (grade < 4.0) contribute 0 credits.\n- Representation: If a course is failed (grade < 4.0), it contributes 0 credits towards the total.",
+      "- Key entities: improvement retakes, grade, credits.\n- Logical conditions: Improvement retakes (grade ≥ 4.0) use the highest grade, no extra credits.\n- Representation: If a course is retaken and the new grade is ≥ 4.0, only the highest grade is used, and no additional credits are awarded.",
+      "- Key entities: each course, grade, credits, prep hours.\n- Logical conditions: Each course (grade ≥ 4.0) adds prep hours: 3 credits = 5 hours, 4 credits = 7 hours, 5 credits = 10 hours.\n- Representation: Courses with grades ≥ 4.0 add prep hours based on the number of credits: 3 credits = 5 hours, 4 credits = 7 hours, 5 credits = 10 hours.",
+      "- Key entities: third-year students, credits, prep workshops, GPA.\n- Logical conditions: Third-year students with < 78 credits can join prep workshops (20 hours) if GPA ≥ 5.5.\n- Representation: If a third-year student has < 78 credits and a GPA ≥ 5.5, they can join prep workshops (20 hours).",
+      "- Key entities: student, GPA, credits, prep hours, C1, C2.\n- Logical conditions: A student (Year 2) has a GPA of 6.2, 80 credits, 120 prep hours, including C1 (3 credits, 5.8, 5 hours), C2 (4 credits, 6.5, 7 hours).\n- Representation: A Year 2 student has a GPA of 6.2, 80 credits, and 120 prep hours, which includes C1 (3 credits, grade 5.8, 5 prep hours) and C2 (4 credits, grade 6.5, 7 prep hours).",
+      "- Key entities: student, C3, C1, C4.\n- Logical conditions: The student took C3 (5 credits, 7.0), retook C1 (6.8), took C4 (3 credits, 3.5, failed).\n- Representation: The student took C3 (5 credits, grade 7.0), retook C1 (new grade 6.8), and took C4 (3 credits, grade 3.5, failed)."
+    ],
+    "question": "How many internship prep hours has the student accumulated?",
+    "answer": "130",
+    "idx": [
+      1,
+      3,
+      5,
+      7,
+      8
+    ],
+    "explanation": "Premise 7 gives 120 prep hours. Premise 8 adds: C3 (5 credits, 7.0, 10 hours per Premise 5), C1 retake (6.8, 0 hours per Premise 4), C4 (3.5, failed, 0 hours per Premise 3). No workshops (Year 2, Premise 6). Total prep hours: 120 + 10 = 130. Premise 1 requires: ≥ 78 credits, GPA ≥ 6.0, ≥ 50 prep hours. Credits: 85 (Question 1), passes. GPA: 6.28, passes. Prep hours: 130, passes. The student is eligible for an internship.",
+    "premises-NL-old": [
+      "Total program credits are 120; internship eligibility requires ≥ 78 credits (65%), GPA ≥ 6.0 (scale 0–10), and ≥ 50 internship prep hours.",
+      "First-year students (Year 1) have < 40 credits.",
+      "Failed courses (grade < 4.0) contribute 0 credits.",
+      "Improvement retakes (grade ≥ 4.0) use highest grade, no extra credits.",
+      "Each course (grade ≥ 4.0) adds prep hours: 3 credits = 5 hours, 4 credits = 7 hours, 5 credits = 10 hours.",
+      "Third-year students (Year 3) with < 78 credits can join prep workshops (20 hours), if GPA ≥ 5.5.",
+      "A student (Year 2) has a GPA of 6.2, 80 credits, 120 prep hours, including C1 (3 credits, 5.8, 5 hours), C2 (4 credits, 6.5, 7 hours).",
+      "The student took C3 (5 credits, 7.0), retook C1 (6.8), took C4 (3 credits, 3.5, failed)."
+    ],
+    "entities": [
+      "total program credits",
+      "internship eligibility",
+      "credits",
+      "GPA",
+      "internship prep hours",
+      "first-year students",
+      "failed courses",
+      "grade",
+      "improvement retakes",
+      "each course",
+      "prep hours",
+      "third-year students",
+      "prep workshops",
+      "student",
+      "C1",
+      "C2",
+      "C3",
+      "C4"
+    ]
+  },
+  {
+    "premises-NL": [
+      "Scholarships require ≥ 20 credits, GPA ≥ 8.0 ($500 award), or GPA ≥ 9.0 ($1000 award); all courses must have grades ≥ 6.0 (scale 0–10).\n- Key entities: scholarships, credits, GPA, grades\n- Logical conditions: \n  - If ≥ 20 credits and GPA ≥ 8.0, then $500 award.\n  - If GPA ≥ 9.0, then $1000 award.\n  - All courses must have grades ≥ 6.0.\n- Representation: \n  - Scholarship_award(credits ≥ 20, GPA ≥ 8.0) → $500\n  - Scholarship_award(GPA ≥ 9.0) → $1000\n  - Course_grade ≥ 6.0",
+      "Credits earned = 0.5 × total grade points (sum of grades across courses); GPA = sum(grade × credits)/total credits.\n- Key entities: credits earned, total grade points, GPA, grade, credits\n- Logical conditions: \n  - Credits_earned = 0.5 × total_grade_points\n  - GPA = sum(grade × credits)/total_credits\n- Representation: \n  - Credits_earned = 0.5 × total_grade_points\n  - GPA = sum(grade × credits)/total_credits",
+      "Scores locked on 15/03/2025; late updates (15/03–20/03/2025) incur $20/day penalty if Faculty-approved.\n- Key entities: scores, date, penalty, Faculty approval\n- Logical conditions: \n  - If scores updated between 15/03/2025 and 20/03/2025 and Faculty-approved, then $20/day penalty.\n- Representation: \n  - Penalty(Faculty_approved, 15/03/2025 ≤ date ≤ 20/03/2025) → $20/day",
+      "Unapproved late scores are excluded; approved scores after 20/03/2025 are invalid.\n- Key entities: scores, date, Faculty approval\n- Logical conditions: \n  - If scores updated after 20/03/2025 and Faculty-approved, then invalid.\n  - If scores updated late and unapproved, then excluded.\n- Representation: \n  - Excluded(unapproved, date > 15/03/2025)\n  - Invalid(approved, date > 20/03/2025)",
+      "Minh has 15 credits, GPA 7.8, all grades ≥ 6.0, scores locked on 15/03/2025.\n- Key entities: Minh, credits, GPA, grades, scores, date\n- Logical conditions: \n  - Minh has 15 credits.\n  - Minh has GPA 7.8.\n  - All grades ≥ 6.0.\n  - Scores locked on 15/03/2025.\n- Representation: \n  - Minh_credits = 15\n  - Minh_GPA = 7.8\n  - Grades ≥ 6.0\n  - Scores_locked_date = 15/03/2025",
+      "Minh adds 3 courses: 9.0 (4 credits, updated 17/03/2025), 8.5 (5 credits, 17/03/2025), 7.5 (3 credits, 16/03/2025); Faculty approves delays.\n- Key entities: Minh, courses, credits, grades, date, Faculty approval\n- Logical conditions: \n  - Minh adds 3 courses with respective grades and credits.\n  - Dates of updates for each course.\n  - Faculty approves delays.\n- Representation: \n  - Course_1_grade = 9.0, Course_1_credits = 4, Course_1_date = 17/03/2025\n  - Course_2_grade = 8.5, Course_2_credits = 5, Course_2_date = 17/03/2025\n  - Course_3_grade = 7.5, Course_3_credits = 3, Course_3_date = 16/03/2025\n  - Faculty_approves_delays",
+      "Minh’s initial courses: 6 credits at 8.0, 9 credits at 7.7.\n- Key entities: Minh, initial courses, credits, grades\n- Logical conditions: \n  - Initial courses with respective grades and credits.\n- Representation: \n  - Initial_course_1_credits = 6, Initial_course_1_grade = 8.0\n  - Initial_course_2_credits = 9, Initial_course_2_grade = 7.7"
+    ],
+    "question": "What is Minh’s scholarship award amount, if any, after new courses?",
+    "answer": "$500",
+    "idx": [
+      0,
+      1,
+      4,
+      5,
+      6
+    ],
+    "explanation": "Premise 6: Initial courses (6 credits at 8.0, 9 at 7.7), points = (6 × 8.0) + (9 × 7.7) = 117.3. Premise 4: 15 credits, GPA = 7.8 (117.3 / 15 ≈ 7.82). Premise 5: New courses (9.0, 4 credits, points = 36.0; 8.5, 5 credits, 42.5; 7.5, 3 credits, 22.5). Total credits: 15 + 12 = 27, points: 117.3 + 101.0 = 218.3, GPA = 218.3 / 27 ≈ 8.08519 (Premise 1). Premise 0: Credits ≥ 20 (27, passes), grades ≥ 6.0 (all pass), GPA ≥ 8.0, < 9.0 → $500 award.",
+    "premises-NL-old": [
+      "Scholarships require ≥ 20 credits, GPA ≥ 8.0 ($500 award), or GPA ≥ 9.0 ($1000 award); all courses must have grades ≥ 6.0 (scale 0–10).",
+      "Credits earned = 0.5 × total grade points (sum of grades across courses); GPA = sum(grade × credits)/total credits.",
+      "Scores locked on 15/03/2025; late updates (15/03–20/03/2025) incur $20/day penalty if Faculty-approved.",
+      "Unapproved late scores are excluded; approved scores after 20/03/2025 are invalid.",
+      "Minh has 15 credits, GPA 7.8, all grades ≥ 6.0, scores locked on 15/03/2025.",
+      "Minh adds 3 courses: 9.0 (4 credits, updated 17/03/2025), 8.5 (5 credits, 17/03/2025), 7.5 (3 credits, 16/03/2025); Faculty approves delays.",
+      "Minh’s initial courses: 6 credits at 8.0, 9 credits at 7.7."
+    ],
+    "entities": [
+      "Scholarships",
+      "credits",
+      "GPA",
+      "grades",
+      "credits earned",
+      "total grade points",
+      "score",
+      "date",
+      "penalty",
+      "Faculty approval",
+      "Minh",
+      "courses",
+      "initial courses"
+    ]
+  },
+  {
+    "premises-NL": [
+      "- Key entities: selecting a major, general education credits, general GPA, general courses, grade.\n- Logical conditions: \n  - If selecting a major then ≥ 24 general education credits.\n  - If selecting a major then general GPA ≥ 2.5.\n  - If selecting a major then all general courses passed (grade ≥ 2.0).\n- Representation: Selecting a major → (≥ 24 general education credits ∧ general GPA ≥ 2.5 ∧ all general courses passed (grade ≥ 2.0)).\n-",
+      "- Key entities: general courses, credits, retake, failed, grade, cost.\n- Logical conditions: \n  - If general course then 3 credits.\n  - If failed (grade < 2.0) then retake costs $50 per attempt.\n- Representation: General course → 3 credits; Failed (grade < 2.0) → Retake costs $50 per attempt.\n-",
+      "- Key entities: students, failed general courses, retake, passed, attempts, fees.\n- Logical conditions: \n  - If failed general courses then retake until passed.\n  - If fees paid then no limit on attempts.\n- Representation: Failed general courses → Retake until passed; Fees paid → No limit on attempts.\n-",
+      "- Key entities: general GPA, passed courses, failed attempts, credits.\n- Logical conditions: \n  - If general GPA then includes only passed courses.\n  - If failed attempts then contributes 0 credits.\n- Representation: General GPA → Includes only passed courses; Failed attempts → Contributes 0 credits.\n-",
+      "- Key entities: student, general credits, GPA, failed course, grade, attempts, fees.\n- Logical conditions: \n  - Student has 18 general credits.\n  - Student has GPA 2.7.\n  - Student failed C1 (3 credits, grade 1.8, 2 attempts, $100 paid).\n- Representation: Student → (18 general credits ∧ GPA 2.7 ∧ Failed C1 (3 credits, grade 1.8, 2 attempts, $100 paid)).\n-",
+      "- Key entities: student, retake, grade, pass, course, fees.\n- Logical conditions: \n  - Student retakes C1 (grade 2.2, $50).\n  - Student passes C2 (3 credits, grade 2.5).\n  - Student pays all fees.\n- Representation: Student → (Retakes C1 (grade 2.2, $50) ∧ Passes C2 (3 credits, grade 2.5) ∧ Pays all fees).\n-"
+    ],
+    "question": "How many general credits has the student accumulated?",
+    "answer": "24",
+    "idx": [
+      0,
+      3,
+      4,
+      5
+    ],
+    "explanation": "Premise 4 gives 18 credits. Premise 5 adds: C1 re-enroll (3 credits), C2 (3 credits). Total credits: 18 + 3 + 3 = 24. Premise 0 requires: ≥ 24 credits (24, passes), GPA ≥ 2.5 (2.61 from Q0, passes), all grades ≥ 2.0 (C1: 2.2, C2: 2.5, others ≥ 2.0 per initial GPA, passes). The student can select a major.",
+    "premises-NL-old": [
+      "Selecting a major requires ≥ 24 general education credits, general GPA ≥ 2.5 (scale 0–4), all general courses passed (grade ≥ 2.0).",
+      "General courses are 3 credits; each retake after failing (grade < 2.0) costs $50 per attempt.",
+      "Students must retake failed general courses until passed; no limit on attempts if fees paid.",
+      "General GPA includes only passed courses; failed attempts contribute 0 credits.",
+      "A student has 18 general credits, GPA 2.7, failed C1 (3 credits, grade 1.8, 2 attempts, $100 paid).",
+      "The student retakes C1 (grade 2.2, $50), passes C2 (3 credits, grade 2.5), pays all fees."
+    ],
+    "entities": [
+      "selecting a major",
+      "general education credits",
+      "general GPA",
+      "general courses",
+      "grade",
+      "credits",
+      "retake",
+      "failed",
+      "cost",
+      "students",
+      "failed general courses",
+      "passed",
+      "attempts",
+      "fees",
+      "passed courses",
+      "failed attempts",
+      "student",
+      "general credits",
+      "GPA",
+      "failed course",
+      "pass",
+      "course"
+    ]
+  }
+]
