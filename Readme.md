@@ -56,7 +56,7 @@ deployment in educational setting
     ```
   - The pipeline for How many/Numerical questions.
     ```bash
-        python /api/hm_pipeline_final_analyze.py
+        python /api/hm_pipeline_final.py
     ```
   
   - Default result file located in `/out` folder.
